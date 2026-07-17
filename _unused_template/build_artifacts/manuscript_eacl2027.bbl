@@ -1,0 +1,440 @@
+\begin{thebibliography}{53}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Abu~Farha et~al.(2022)Abu~Farha, Oprea, Wilson, and
+  Magdy}]{abufarha2022isarcasmeval}
+Ibrahim Abu~Farha, Silviu~Vlad Oprea, Steven Wilson, and Walid Magdy. 2022.
+\newblock \href {https://aclanthology.org/2022.semeval-1.111/} {{SemEval}-2022
+  task 6: {iSarcasmEval}, intended sarcasm detection in {English} and
+  {Arabic}}.
+\newblock In \emph{Proceedings of the 16th International Workshop on Semantic
+  Evaluation (SemEval-2022)}.
+
+\bibitem[{Belrose et~al.(2023)Belrose, Schneider-Joseph, Ravfogel, Cotterell,
+  Raff, and Biderman}]{belrose2023leace}
+Nora Belrose, David Schneider-Joseph, Shauli Ravfogel, Ryan Cotterell, Edward
+  Raff, and Stella Biderman. 2023.
+\newblock \href {https://arxiv.org/abs/2306.03819} {{LEACE}: Perfect linear
+  concept erasure in closed form}.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}.
+
+\bibitem[{Benjamini and Hochberg(1995)}]{benjamini1995fdr}
+Yoav Benjamini and Yosef Hochberg. 1995.
+\newblock \href {https://doi.org/10.1111/j.2517-6161.1995.tb02031.x}
+  {Controlling the false discovery rate: A practical and powerful approach to
+  multiple testing}.
+\newblock \emph{Journal of the Royal Statistical Society: Series B
+  (Methodological)}, 57(1):289--300.
+
+\bibitem[{Bevendorff et~al.(2025)Bevendorff, Wiegmann, Richter, Potthast, and
+  Stein}]{bevendorff2025}
+Janek Bevendorff, Matti Wiegmann, Emmelie Richter, Martin Potthast, and Benno
+  Stein. 2025.
+\newblock \href {https://doi.org/10.18653/v1/2025.findings-acl.194} {The two
+  paradigms of {LLM} detection: Authorship attribution vs. authorship
+  verification}.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL 2025}, pages 3762--3787.
+
+\bibitem[{Casola et~al.(2024)Casola, Frenda, Lo, Sezerer, Uva, Basile, Bosco,
+  Pedrani, Rubagotti, Patti, and Bernardi}]{casola2024multipico}
+Silvia Casola, Simona Frenda, Soda~Marem Lo, Erhan Sezerer, Antonio Uva,
+  Valerio Basile, Cristina Bosco, Alessandro Pedrani, Chiara Rubagotti, Viviana
+  Patti, and Davide Bernardi. 2024.
+\newblock \href {https://doi.org/10.18653/v1/2024.acl-long.849} {{MultiPICo}:
+  Multilingual perspectivist irony corpus}.
+\newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 16008--16021.
+
+\bibitem[{Chai et~al.(2025)Chai, Lu, and Wang}]{chai2025spurious}
+Junyi Chai, Shenyu Lu, and Xiaoqian Wang. 2025.
+\newblock \href
+  {https://openaccess.thecvf.com/content/CVPR2025/html/Chai_Identifying_and_Mitigating_Spurious_Correlation_in_Multi-Task_Learning_CVPR_2025_paper.html}
+  {Identifying and mitigating spurious correlation in multi-task learning}.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 25698--25707.
+
+\bibitem[{Compton et~al.(2023)Compton, Zhang, Puli, and
+  Ranganath}]{compton2023morisless}
+Rhys Compton, Lily Zhang, Aahlad Puli, and Rajesh Ranganath. 2023.
+\newblock \href {https://proceedings.mlr.press/v219/compton23a.html} {When more
+  is less: Incorporating additional datasets can hurt performance by
+  introducing spurious correlations}.
+\newblock In \emph{Proceedings of the Conference on Health, Inference, and
+  Learning (CHIL)}, volume 219 of \emph{Proceedings of Machine Learning
+  Research}.
+
+\bibitem[{Conneau et~al.(2020)Conneau, Khandelwal, Goyal, Chaudhary, Wenzek,
+  Guzm{\'a}n, Grave, Ott, Zettlemoyer, and Stoyanov}]{conneau2020xlmr}
+Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume
+  Wenzek, Francisco Guzm{\'a}n, Edouard Grave, Myle Ott, Luke Zettlemoyer, and
+  Veselin Stoyanov. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.acl-main.747} {Unsupervised
+  cross-lingual representation learning at scale}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}.
+
+\bibitem[{{DeepSeek-AI}(2025)}]{deepseek2025r1}
+{DeepSeek-AI}. 2025.
+\newblock \href {https://arxiv.org/abs/2501.12948} {{DeepSeek-R1}:
+  Incentivizing reasoning capability in {LLMs} via reinforcement learning}.
+\newblock \emph{arXiv preprint arXiv:2501.12948}.
+
+\bibitem[{Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
+  Zettlemoyer}]{dettmers2023qlora}
+Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer. 2023.
+\newblock \href {https://arxiv.org/abs/2305.14314} {{QLoRA}: Efficient
+  finetuning of quantized {LLMs}}.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}.
+
+\bibitem[{Devlin et~al.(2019)Devlin, Chang, Lee, and
+  Toutanova}]{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019.
+\newblock \href {https://aclanthology.org/N19-1423/} {{BERT}: Pre-training of
+  deep bidirectional transformers for language understanding}.
+\newblock In \emph{Proceedings of the 2019 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies (NAACL-HLT)}.
+
+\bibitem[{Du et~al.(2022)Du, Hu, Jin, Jiang, Mo, and Shi}]{du2022pali}
+Xiyang Du, Dou Hu, Meizhi Jin, Lianxin Jiang, Yang Mo, and Xiaofeng Shi. 2022.
+\newblock \href {https://doi.org/10.18653/v1/2022.semeval-1.112} {{PALI-NLP} at
+  {SemEval}-2022 task 6: {iSarcasmEval}- fine-tuning the pre-trained model for
+  detecting intended sarcasm}.
+\newblock In \emph{Proceedings of the 16th International Workshop on Semantic
+  Evaluation (SemEval-2022)}, pages 815--819.
+
+\bibitem[{Dugan et~al.(2024)Dugan, Hwang, Trhl{\'i}k, Zhu, Ludan, Xu, Ippolito,
+  and Callison-Burch}]{dugan2024raid}
+Liam Dugan, Alyssa Hwang, Filip Trhl{\'i}k, Andrew Zhu, Josh~Magnus Ludan,
+  Hainiu Xu, Daphne Ippolito, and Chris Callison-Burch. 2024.
+\newblock \href {https://doi.org/10.18653/v1/2024.acl-long.674} {{RAID}: A
+  shared benchmark for robust evaluation of machine-generated text detectors}.
+\newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 12463--12492.
+
+\bibitem[{Elazar et~al.(2021)Elazar, Ravfogel, Jacovi, and
+  Goldberg}]{elazar2021amnesic}
+Yanai Elazar, Shauli Ravfogel, Alon Jacovi, and Yoav Goldberg. 2021.
+\newblock \href {https://doi.org/10.1162/tacl_a_00359} {Amnesic probing:
+  Behavioral explanation with amnesic counterfactuals}.
+\newblock \emph{Transactions of the Association for Computational Linguistics
+  (TACL)}, 9:160--175.
+
+\bibitem[{Geirhos et~al.(2020)Geirhos, Jacobsen, Michaelis, Zemel, Brendel,
+  Bethge, and Wichmann}]{geirhos2020shortcut}
+Robert Geirhos, J{\"o}rn-Henrik Jacobsen, Claudio Michaelis, Richard Zemel,
+  Wieland Brendel, Matthias Bethge, and Felix~A. Wichmann. 2020.
+\newblock \href {https://doi.org/10.1038/s42256-020-00257-z} {Shortcut learning
+  in deep neural networks}.
+\newblock \emph{Nature Machine Intelligence}, 2:665--673.
+
+\bibitem[{Ghosh and Veale(2016)}]{ghosh2016fracking}
+Aniruddha Ghosh and Tony Veale. 2016.
+\newblock \href {https://doi.org/10.18653/v1/W16-0425} {Fracking sarcasm using
+  neural network}.
+\newblock In \emph{Proceedings of the 7th Workshop on Computational Approaches
+  to Subjectivity, Sentiment and Social Media Analysis (WASSA)}.
+
+\bibitem[{Guo et~al.(2023)Guo, Zhang, Wang, Jiang, Nie, Ding, Yue, and
+  Wu}]{guo2023hc3}
+Biyang Guo, Xin Zhang, Ziyuan Wang, Minqi Jiang, Jinran Nie, Yuxuan Ding,
+  Jianwei Yue, and Yupeng Wu. 2023.
+\newblock \href {https://arxiv.org/abs/2301.07597} {How close is {ChatGPT} to
+  human experts? comparison corpus, evaluation, and detection}.
+\newblock \emph{arXiv preprint arXiv:2301.07597}.
+
+\bibitem[{He and Choi(2021)}]{he2021stemcell}
+Han He and Jinho~D. Choi. 2021.
+\newblock \href {https://aclanthology.org/2021.emnlp-main.451/} {The stem cell
+  hypothesis: Dilemma behind multi-task learning with transformer encoders}.
+\newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}.
+
+\bibitem[{He et~al.(2023)He, Gao, and Chen}]{he2023debertav3}
+Pengcheng He, Jianfeng Gao, and Weizhu Chen. 2023.
+\newblock \href {https://arxiv.org/abs/2111.09543} {{DeBERTaV3}: Improving
+  {DeBERTa} using {ELECTRA}-style pre-training with gradient-disentangled
+  embedding sharing}.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}.
+
+\bibitem[{Hewitt and Liang(2019)}]{hewitt2019probes}
+John Hewitt and Percy Liang. 2019.
+\newblock \href {https://aclanthology.org/D19-1275/} {Designing and
+  interpreting probes with control tasks}.
+\newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing and the 9th International Joint Conference on
+  Natural Language Processing (EMNLP-IJCNLP)}.
+
+\bibitem[{Hu et~al.(2022)Hu, Zhao, Yi, Yao, Hong, Sun, and
+  Chi}]{hu2022spurious}
+Ziniu Hu, Zhe Zhao, Xinyang Yi, Tiansheng Yao, Lichan Hong, Yizhou Sun, and
+  Ed~H. Chi. 2022.
+\newblock \href
+  {https://papers.nips.cc/paper_files/paper/2022/hash/4a9eaf6dff3fdac9ab1aaf4c0fe2d563-Abstract-Conference.html}
+  {Improving multi-task generalization via regularizing spurious correlation}.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}.
+
+\bibitem[{Jang et~al.(2023)Jang, Braun, and Frassinelli}]{jang2023intended}
+Hyewon Jang, Bettina Braun, and Diego Frassinelli. 2023.
+\newblock \href {https://escholarship.org/uc/item/1cw1m8bm} {Intended and
+  perceived sarcasm between close friends: What triggers sarcasm and what gets
+  conveyed?}
+\newblock In \emph{Proceedings of the Annual Meeting of the Cognitive Science
+  Society}, volume~45.
+
+\bibitem[{Jang and Frassinelli(2024)}]{jang2024csc}
+Hyewon Jang and Diego Frassinelli. 2024.
+\newblock \href {https://aclanthology.org/2024.naacl-long.238/} {Generalizable
+  sarcasm detection is just around the corner, of course!}
+\newblock In \emph{Proceedings of the 2024 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies (NAACL-HLT)}, pages 4238--4249.
+
+\bibitem[{Karimi~Mahabadi et~al.(2021)Karimi~Mahabadi, Ruder, Dehghani, and
+  Henderson}]{mahabadi2021hyperformer}
+Rabeeh Karimi~Mahabadi, Sebastian Ruder, Mostafa Dehghani, and James Henderson.
+  2021.
+\newblock \href {https://aclanthology.org/2021.acl-long.47/}
+  {Parameter-efficient multi-task fine-tuning for transformers via shared
+  hypernetworks}.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}.
+
+\bibitem[{Khatri and P(2020)}]{khatri2020}
+Akshay Khatri and Pranav P. 2020.
+\newblock \href {https://aclanthology.org/2020.figlang-1.7/} {Sarcasm detection
+  in tweets with {BERT} and {GloVe} embeddings}.
+\newblock In \emph{Proceedings of the Second Workshop on Figurative Language
+  Processing (FigLang)}.
+
+\bibitem[{Li et~al.(2023)Li, Wang, Zhang, Zhang, and Zong}]{li2023functional}
+Chong Li, Shaonan Wang, Yunhao Zhang, Jiajun Zhang, and Chengqing Zong. 2023.
+\newblock \href {https://aclanthology.org/2023.emnlp-main.1026/} {Interpreting
+  and exploiting functional specialization in multi-head attention under
+  multi-task learning}.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 16460--16476.
+
+\bibitem[{Liang et~al.(2022)Liang, Lin, Qin, and Xu}]{liang2022tosarcasm}
+Bin Liang, Zijie Lin, Bing Qin, and Ruifeng Xu. 2022.
+\newblock \href {https://github.com/HITSZ-HLT/ToSarcasm} {Topic-oriented
+  sarcasm detection: New task, new dataset and new method}.
+\newblock In \emph{Proceedings of the 21st Chinese National Conference on
+  Computational Linguistics (CCL)}, pages 557--568.
+
+\bibitem[{Liu et~al.(2021)Liu, Liu, Jin, Stone, and Liu}]{liu2021cagrad}
+Bo~Liu, Xingchao Liu, Xiaojie Jin, Peter Stone, and Qiang Liu. 2021.
+\newblock \href
+  {https://proceedings.neurips.cc/paper/2021/file/9d27fdf2477ffbff837d73ef7ae23db9-Paper.pdf}
+  {Conflict-averse gradient descent for multi-task learning}.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}.
+
+\bibitem[{Misra and Arora(2023)}]{misra2023headlines}
+Rishabh Misra and Prahal Arora. 2023.
+\newblock \href {https://doi.org/10.1016/j.aiopen.2023.01.001} {Sarcasm
+  detection using news headlines dataset}.
+\newblock \emph{AI Open}, 4:13--18.
+
+\bibitem[{Mitchell et~al.(2023)Mitchell, Lee, Khazatsky, Manning, and
+  Finn}]{mitchell2023detectgpt}
+Eric Mitchell, Yoonho Lee, Alexander Khazatsky, Christopher~D. Manning, and
+  Chelsea Finn. 2023.
+\newblock \href {https://proceedings.mlr.press/v202/mitchell23a.html}
+  {{DetectGPT}: Zero-shot machine-generated text detection using probability
+  curvature}.
+\newblock In \emph{Proceedings of the 40th International Conference on Machine
+  Learning (ICML)}.
+
+\bibitem[{Mueller et~al.(2022)Mueller, Andrews, and
+  Dredze}]{mueller2022taskconflict}
+David Mueller, Nicholas Andrews, and Mark Dredze. 2022.
+\newblock \href {https://aclanthology.org/2022.findings-emnlp.206/} {Do
+  text-to-text multi-task learners suffer from task conflict?}
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2022}.
+
+\bibitem[{Oprea and Magdy(2020)}]{oprea2020isarcasm}
+Silviu Oprea and Walid Magdy. 2020.
+\newblock \href {https://aclanthology.org/2020.acl-main.118/} {{iSarcasm}: A
+  dataset of intended sarcasm}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}.
+
+\bibitem[{Pfeiffer et~al.(2021)Pfeiffer, Kamath, R{\"u}ckl{\'e}, Cho, and
+  Gurevych}]{pfeiffer2021adapterfusion}
+Jonas Pfeiffer, Aishwarya Kamath, Andreas R{\"u}ckl{\'e}, Kyunghyun Cho, and
+  Iryna Gurevych. 2021.
+\newblock \href {https://aclanthology.org/2021.eacl-main.39/} {{AdapterFusion}:
+  Non-destructive task composition for transfer learning}.
+\newblock In \emph{Proceedings of the 16th Conference of the European Chapter
+  of the Association for Computational Linguistics (EACL)}.
+
+\bibitem[{Pfeiffer et~al.(2020)Pfeiffer, Vuli{\'c}, Gurevych, and
+  Ruder}]{pfeiffer2020madx}
+Jonas Pfeiffer, Ivan Vuli{\'c}, Iryna Gurevych, and Sebastian Ruder. 2020.
+\newblock \href {https://aclanthology.org/2020.emnlp-main.617/} {{MAD-X}: An
+  adapter-based framework for multi-task cross-lingual transfer}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}.
+
+\bibitem[{Pilault et~al.(2021)Pilault, El~hattami, and Pal}]{pilault2021camtl}
+Jonathan Pilault, Amine El~hattami, and Christopher Pal. 2021.
+\newblock \href {https://openreview.net/forum?id=de11dbHzAMF} {Conditionally
+  adaptive multi-task learning: Improving transfer learning in {NLP} using
+  fewer parameters and less data}.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}.
+
+\bibitem[{{Qwen Team}(2025)}]{qwen2025}
+{Qwen Team}. 2025.
+\newblock \href {https://arxiv.org/abs/2505.09388} {{Qwen3} technical report}.
+\newblock \emph{arXiv preprint arXiv:2505.09388}.
+
+\bibitem[{Ravfogel et~al.(2020)Ravfogel, Elazar, Gonen, Twiton, and
+  Goldberg}]{ravfogel2020inlp}
+Shauli Ravfogel, Yanai Elazar, Hila Gonen, Michael Twiton, and Yoav Goldberg.
+  2020.
+\newblock \href {https://aclanthology.org/2020.acl-main.647/} {Null it out:
+  Guarding protected attributes by iterative nullspace projection}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}.
+
+\bibitem[{Riloff et~al.(2013)Riloff, Qadir, Surve, De~Silva, Gilbert, and
+  Huang}]{riloff2013sarcasm}
+Ellen Riloff, Ashequl Qadir, Prafulla Surve, Lalindra De~Silva, Nathan Gilbert,
+  and Ruihong Huang. 2013.
+\newblock \href {https://aclanthology.org/D13-1066/} {Sarcasm as contrast
+  between a positive sentiment and negative situation}.
+\newblock In \emph{Proceedings of the 2013 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}.
+
+\bibitem[{Stickland and Murray(2019)}]{stickland2019pals}
+Asa~Cooper Stickland and Iain Murray. 2019.
+\newblock \href {https://proceedings.mlr.press/v97/stickland19a.html} {{BERT}
+  and {PALs}: Projected attention layers for efficient adaptation in multi-task
+  learning}.
+\newblock In \emph{Proceedings of the 36th International Conference on Machine
+  Learning (ICML)}.
+
+\bibitem[{Tay et~al.(2018)Tay, Tuan, Hui, and Su}]{tay2018reasoning}
+Yi~Tay, Luu~Anh Tuan, Siu~Cheung Hui, and Jian Su. 2018.
+\newblock \href {https://aclanthology.org/P18-1093/} {Reasoning with sarcasm by
+  reading in-between}.
+\newblock In \emph{Proceedings of the 56th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}.
+
+\bibitem[{Wang et~al.(2026)Wang, Yin, Liu, and Wu}]{wang2026visp}
+Changli Wang, Fang Yin, Jiafeng Liu, and Rui Wu. 2026.
+\newblock \href {https://doi.org/10.1016/j.neucom.2026.133185} {{ViSP}: A
+  {PPO}-enhanced framework for multimodal sarcasm generation with contrastive
+  learning}.
+\newblock \emph{Neurocomputing}, 678:133185.
+
+\bibitem[{Wang et~al.(2024)Wang, Mansurov, Ivanov, Su, Shelmanov, Tsvigun,
+  Whitehouse, Mohammed~Afzal, Mahmoud, Sasaki, Arnold, Aji, Habash, Gurevych,
+  and Nakov}]{wang2024m4}
+Yuxia Wang, Jonibek Mansurov, Petar Ivanov, Jinyan Su, Artem Shelmanov, Akim
+  Tsvigun, Chenxi Whitehouse, Osama Mohammed~Afzal, Tarek Mahmoud, Toru Sasaki,
+  Thomas Arnold, Alham~Fikri Aji, Nizar Habash, Iryna Gurevych, and Preslav
+  Nakov. 2024.
+\newblock \href {https://doi.org/10.18653/v1/2024.eacl-long.83} {{M4}:
+  Multi-generator, multi-domain, and multi-lingual black-box machine-generated
+  text detection}.
+\newblock In \emph{Proceedings of the 18th Conference of the European Chapter
+  of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages 1369--1407.
+
+\bibitem[{Wen et~al.(2023)Wen, Jia, and Yang}]{wen2023dip}
+Changsong Wen, Guoli Jia, and Jufeng Yang. 2023.
+\newblock \href
+  {https://openaccess.thecvf.com/content/CVPR2023/html/Wen_DIP_Dual_Incongruity_Perceiving_Network_for_Sarcasm_Detection_CVPR_2023_paper.html}
+  {{DIP}: Dual incongruity perceiving network for sarcasm detection}.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 2540--2550.
+
+\bibitem[{Wu et~al.(2019)Wu, Rao, Jin, Nazir, and Sun}]{wu2019sifted}
+Lianwei Wu, Yuan Rao, Haolin Jin, Ambreen Nazir, and Ling Sun. 2019.
+\newblock \href {https://aclanthology.org/D19-1471/} {Different absorption from
+  the same sharing: Sifted multi-task learning for fake news detection}.
+\newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing and the 9th International Joint Conference on
+  Natural Language Processing (EMNLP-IJCNLP)}.
+
+\bibitem[{Wu et~al.(2020)Wu, Zhang, and R{\'e}}]{wu2020understanding}
+Sen Wu, Hongyang~R. Zhang, and Christopher R{\'e}. 2020.
+\newblock \href {https://arxiv.org/abs/2005.00944} {Understanding and improving
+  information transfer in multi-task learning}.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}.
+
+\bibitem[{Yang and Ikeda(2023)}]{yang2023impact}
+Linshuo Yang and Daisuke Ikeda. 2023.
+\newblock \href {https://ieeexplore.ieee.org/document/10371711} {The impact of
+  language properties in multilingual datasets on sarcasm detection}.
+\newblock In \emph{Proceedings of the 14th IIAI International Congress on
+  Advanced Applied Informatics (IIAI-AAI)}, pages 1--6. IEEE.
+
+\bibitem[{Yang and Ikeda(2024)}]{yang2024influence}
+Linshuo Yang and Daisuke Ikeda. 2024.
+\newblock \href {https://iaiai.org/journals/index.php/ijskm/article/view/850}
+  {The influence of linguistic attribute differences in multilingual datasets
+  on sarcasm detection}.
+\newblock \emph{International Journal of Service and Knowledge Management},
+  8(2).
+
+\bibitem[{Ye et~al.(2024)Ye, Zheng, Cao, Ma, Hu, and Zhang}]{ye2024spurious}
+Wenqian Ye, Guangtao Zheng, Xu~Cao, Yunsheng Ma, Xia Hu, and Aidong Zhang.
+  2024.
+\newblock \href {https://arxiv.org/abs/2402.12715} {Spurious correlations in
+  machine learning: {A} survey}.
+\newblock \emph{arXiv preprint arXiv:2402.12715}.
+
+\bibitem[{Yu et~al.(2020)Yu, Kumar, Gupta, Levine, Hausman, and
+  Finn}]{yu2020gradientsurgery}
+Tianhe Yu, Saurabh Kumar, Abhishek Gupta, Sergey Levine, Karol Hausman, and
+  Chelsea Finn. 2020.
+\newblock \href {https://arxiv.org/abs/2001.06782} {Gradient surgery for
+  multi-task learning}.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}.
+
+\bibitem[{Yue et~al.(2024)Yue, Shi, Mao, Hu, and Cambria}]{yue2024sarcnet}
+Tan Yue, Xuzhao Shi, Rui Mao, Zonghai Hu, and Erik Cambria. 2024.
+\newblock \href {https://aclanthology.org/2024.lrec-main.1248/} {{SarcNet}: A
+  multilingual multimodal sarcasm detection dataset}.
+\newblock In \emph{Proceedings of the 2024 Joint International Conference on
+  Computational Linguistics, Language Resources and Evaluation (LREC-COLING)},
+  pages 14325--14335.
+
+\bibitem[{Zhang et~al.(2023)Zhang, Yu, Yu, Guo, and Jiang}]{zhang2023survey}
+Zhihan Zhang, Wenhao Yu, Mengxia Yu, Zhichun Guo, and Meng Jiang. 2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.eacl-main.66} {A survey of
+  multi-task learning in natural language processing: Regarding task
+  relatedness and training methods}.
+\newblock In \emph{Proceedings of the 17th Conference of the European Chapter
+  of the Association for Computational Linguistics (EACL)}, pages 943--956.
+
+\bibitem[{Zheng et~al.(2023)Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li,
+  Li, Xing, Zhang, Gonzalez, and Stoica}]{zheng2023judging}
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao
+  Zhuang, Zi~Lin, Zhuohan Li, Dacheng Li, Eric~P. Xing, Hao Zhang, Joseph~E.
+  Gonzalez, and Ion Stoica. 2023.
+\newblock \href
+  {https://proceedings.neurips.cc/paper_files/paper/2023/hash/91f18a1287b398d378ef22505bf41832-Abstract-Datasets_and_Benchmarks.html}
+  {Judging {LLM}-as-a-judge with {MT-Bench} and {Chatbot Arena}}.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}.
+
+\bibitem[{Zhu(2022)}]{zhu2022corpus}
+Yuan Zhu. 2022.
+\newblock \href {https://doi.org/10.54097/fcis.v2i1.2484} {Open {Chinese}
+  internet sarcasm corpus construction: An approach}.
+\newblock \emph{Frontiers in Computing and Intelligent Systems}, 2(1):7--9.
+
+\end{thebibliography}

@@ -1,0 +1,38 @@
+%% Minimal ctexhook.sty stub — provides only the hooks required by xeCJK.
+%% Implemented on top of the LaTeX2e hook management system (2020+).
+\ProvidesExplPackage{ctexhook}{2026/07/13}{0.1-stub}{ctexhook minimal stub}
+
+% Run code at the end / begin of a named package.
+\cs_new_protected:Npn \ctex_at_end_package:nn #1#2
+  { \AddToHook { package/#1/after } {#2} }
+\cs_new_protected:Npn \ctex_at_begin_package:nn #1#2
+  { \AddToHook { package/#1/before } {#2} }
+
+% Preamble hooks.
+\cs_new_protected:Npn \ctex_at_end_preamble:n #1
+  { \AddToHook { begindocument/before } {#1} }
+\cs_new_protected:Npn \ctex_after_end_preamble:n #1
+  { \AddToHook { begindocument } {#1} }
+
+% Format-date test: this TeX Live is recent, so always take the true branch.
+\cs_new_protected:Npn \ctex_if_format_at_least:nTF #1#2#3 {#2}
+\cs_new_protected:Npn \ctex_if_format_at_least:nT  #1#2 {#2}
+\cs_new_protected:Npn \ctex_if_format_at_least:nF  #1#2 { }
+
+% Globally add code to a LaTeX2e kernel hook (rmfamily/sffamily/ttfamily/
+% normalfont). Required by newer xeCJK (TeX Live 2023+) for CJK family
+% switching; kernel hooks for font-family commands exist since LaTeX 2021.
+\cs_new_protected:Npn \ctex_gadd_ltxhook:nn #1#2
+  { \AddToHook {#1} {#2} }
+
+% Disable a package (mark it as already loaded so later \usepackage is a no-op).
+\cs_new_protected:Npn \ctex_disable_package:n #1
+  { \cs_gset:cpn { ver@#1.sty } { 9999/99/99 } }
+
+% Replace a package: we do not use CJK fntef (underline/emphasis) features,
+% so disable both the original and its replacement to avoid load-order issues.
+\cs_new_protected:Npn \ctex_replace_package:nn #1#2
+  {
+    \ctex_disable_package:n {#1}
+    \ctex_disable_package:n {#2}
+  }
