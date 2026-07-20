@@ -1,4 +1,4 @@
-\begin{thebibliography}{55}
+\begin{thebibliography}{66}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Abu~Farha et~al.(2022)Abu~Farha, Oprea, Wilson, and
@@ -55,6 +55,13 @@ Junyi Chai, Shenyu Lu, and Xiaoqian Wang. 2025.
 \newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
   and Pattern Recognition (CVPR)}, pages 25698--25707.
 
+\bibitem[{Clark et~al.(2020)Clark, Luong, Le, and Manning}]{clark2020electra}
+Kevin Clark, Minh-Thang Luong, Quoc~V. Le, and Christopher~D. Manning. 2020.
+\newblock \href {https://arxiv.org/abs/2003.10555} {{ELECTRA}: Pre-training
+  text encoders as discriminators rather than generators}.
+\newblock In \emph{Proceedings of the 8th International Conference on Learning
+  Representations (ICLR)}.
+
 \bibitem[{Compton et~al.(2023)Compton, Zhang, Puli, and
   Ranganath}]{compton2023morisless}
 Rhys Compton, Lily Zhang, Aahlad Puli, and Rajesh Ranganath. 2023.
@@ -74,6 +81,12 @@ Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume
   cross-lingual representation learning at scale}.
 \newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
   for Computational Linguistics (ACL)}.
+
+\bibitem[{{DeepSeek-AI}(2024)}]{deepseek2024v3}
+{DeepSeek-AI}. 2024.
+\newblock \href {https://arxiv.org/abs/2412.19437} {{DeepSeek-V3} technical
+  report}.
+\newblock \emph{arXiv preprint arXiv:2412.19437}.
 
 \bibitem[{{DeepSeek-AI}(2025)}]{deepseek2025r1}
 {DeepSeek-AI}. 2025.
@@ -123,6 +136,13 @@ Yanai Elazar, Shauli Ravfogel, Alon Jacovi, and Yoav Goldberg. 2021.
 \newblock \emph{Transactions of the Association for Computational Linguistics
   (TACL)}, 9:160--175.
 
+\bibitem[{Gao et~al.(2023)Gao, Schulman, and Hilton}]{gao2023overoptimization}
+Leo Gao, John Schulman, and Jacob Hilton. 2023.
+\newblock \href {https://proceedings.mlr.press/v202/gao23h.html} {Scaling laws
+  for reward model overoptimization}.
+\newblock In \emph{Proceedings of the 40th International Conference on Machine
+  Learning (ICML)}, pages 10835--10866.
+
 \bibitem[{Geirhos et~al.(2020)Geirhos, Jacobsen, Michaelis, Zemel, Brendel,
   Bethge, and Wichmann}]{geirhos2020shortcut}
 Robert Geirhos, J{\"o}rn-Henrik Jacobsen, Claudio Michaelis, Richard Zemel,
@@ -130,6 +150,13 @@ Robert Geirhos, J{\"o}rn-Henrik Jacobsen, Claudio Michaelis, Richard Zemel,
 \newblock \href {https://doi.org/10.1038/s42256-020-00257-z} {Shortcut learning
   in deep neural networks}.
 \newblock \emph{Nature Machine Intelligence}, 2:665--673.
+
+\bibitem[{{Gemini Team}(2025)}]{gemini2025report}
+{Gemini Team}. 2025.
+\newblock \href {https://arxiv.org/abs/2507.06261} {Gemini 2.5: Pushing the
+  frontier with advanced reasoning, multimodality, long context, and next
+  generation agentic capabilities}.
+\newblock \emph{arXiv preprint arXiv:2507.06261}.
 
 \bibitem[{Ghosh and Veale(2016)}]{ghosh2016fracking}
 Aniruddha Ghosh and Tony Veale. 2016.
@@ -169,10 +196,27 @@ John Hewitt and Percy Liang. 2019.
   Natural Language Processing and the 9th International Joint Conference on
   Natural Language Processing (EMNLP-IJCNLP)}.
 
-\bibitem[{Hu et~al.(2022)Hu, Zhao, Yi, Yao, Hong, Sun, and
+\bibitem[{Holtzman et~al.(2020)Holtzman, Buys, Du, Forbes, and
+  Choi}]{holtzman2020nucleus}
+Ari Holtzman, Jan Buys, Li~Du, Maxwell Forbes, and Yejin Choi. 2020.
+\newblock \href {https://openreview.net/forum?id=rygGQyrFvH} {The curious case
+  of neural text degeneration}.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}.
+
+\bibitem[{Hu et~al.(2022{\natexlab{a}})Hu, Shen, Wallis, Allen-Zhu, Li, Wang,
+  Wang, and Chen}]{hu2022lora}
+Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+  Wang, Lu~Wang, and Weizhu Chen. 2022{\natexlab{a}}.
+\newblock \href {https://openreview.net/forum?id=nZeVKeeFYf9} {{LoRA}: Low-rank
+  adaptation of large language models}.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}.
+
+\bibitem[{Hu et~al.(2022{\natexlab{b}})Hu, Zhao, Yi, Yao, Hong, Sun, and
   Chi}]{hu2022spurious}
 Ziniu Hu, Zhe Zhao, Xinyang Yi, Tiansheng Yao, Lichan Hong, Yizhou Sun, and
-  Ed~H. Chi. 2022.
+  Ed~H. Chi. 2022{\natexlab{b}}.
 \newblock \href
   {https://papers.nips.cc/paper_files/paper/2022/hash/4a9eaf6dff3fdac9ab1aaf4c0fe2d563-Abstract-Conference.html}
   {Improving multi-task generalization via regularizing spurious correlation}.
@@ -211,6 +255,14 @@ Akshay Khatri and Pranav P. 2020.
   in tweets with {BERT} and {GloVe} embeddings}.
 \newblock In \emph{Proceedings of the Second Workshop on Figurative Language
   Processing (FigLang)}.
+
+\bibitem[{Kudo and Richardson(2018)}]{kudo2018sentencepiece}
+Taku Kudo and John Richardson. 2018.
+\newblock \href {https://doi.org/10.18653/v1/D18-2012} {{S}entence{P}iece: A
+  simple and language independent subword tokenizer and detokenizer for neural
+  text processing}.
+\newblock In \emph{Proceedings of the 2018 Conference on Empirical Methods in
+  Natural Language Processing: System Demonstrations}, pages 66--71.
 
 \bibitem[{Lai et~al.(2015)Lai, Xu, Liu, and Zhao}]{lai2015rcnn}
 Siwei Lai, Liheng Xu, Kang Liu, and Jun Zhao. 2015.
@@ -271,6 +323,12 @@ David Mueller, Nicholas Andrews, and Mark Dredze. 2022.
 \newblock In \emph{Findings of the Association for Computational Linguistics:
   EMNLP 2022}.
 
+\bibitem[{{OpenAI}(2026)}]{openai2026gpt5}
+{OpenAI}. 2026.
+\newblock \href {https://arxiv.org/abs/2601.03267} {{OpenAI} {GPT-5} system
+  card}.
+\newblock \emph{arXiv preprint arXiv:2601.03267}.
+
 \bibitem[{Oprea and Magdy(2020)}]{oprea2020isarcasm}
 Silviu Oprea and Walid Magdy. 2020.
 \newblock \href {https://aclanthology.org/2020.acl-main.118/} {{iSarcasm}: A
@@ -308,6 +366,11 @@ Jonathan Pilault, Amine El~hattami, and Christopher Pal. 2021.
 \newblock \href {https://arxiv.org/abs/2505.09388} {{Qwen3} technical report}.
 \newblock \emph{arXiv preprint arXiv:2505.09388}.
 
+\bibitem[{{Qwen Team}(2026)}]{qwen2026qwen35}
+{Qwen Team}. 2026.
+\newblock {Qwen3.5-9B} model card.
+\newblock \url{https://huggingface.co/Qwen/Qwen3.5-9B}.
+
 \bibitem[{Ravfogel et~al.(2020)Ravfogel, Elazar, Gonen, Twiton, and
   Goldberg}]{ravfogel2020inlp}
 Shauli Ravfogel, Yanai Elazar, Hila Gonen, Michael Twiton, and Yoav Goldberg.
@@ -326,6 +389,14 @@ Ellen Riloff, Ashequl Qadir, Prafulla Surve, Lalindra De~Silva, Nathan Gilbert,
 \newblock In \emph{Proceedings of the 2013 Conference on Empirical Methods in
   Natural Language Processing (EMNLP)}.
 
+\bibitem[{Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford, and
+  Klimov}]{schulman2017ppo}
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
+  2017.
+\newblock \href {https://arxiv.org/abs/1707.06347} {Proximal policy
+  optimization algorithms}.
+\newblock \emph{arXiv preprint arXiv:1707.06347}.
+
 \bibitem[{Stickland and Murray(2019)}]{stickland2019pals}
 Asa~Cooper Stickland and Iain Murray. 2019.
 \newblock \href {https://proceedings.mlr.press/v97/stickland19a.html} {{BERT}
@@ -340,6 +411,15 @@ Yi~Tay, Luu~Anh Tuan, Siu~Cheung Hui, and Jian Su. 2018.
   reading in-between}.
 \newblock In \emph{Proceedings of the 56th Annual Meeting of the Association
   for Computational Linguistics (ACL)}.
+
+\bibitem[{Vidgen et~al.(2019)Vidgen, Harris, Nguyen, Tromble, Hale, and
+  Margetts}]{vidgen2019challenges}
+Bertie Vidgen, Alex Harris, Dong Nguyen, Rebekah Tromble, Scott Hale, and Helen
+  Margetts. 2019.
+\newblock \href {https://doi.org/10.18653/v1/W19-3509} {Challenges and
+  frontiers in abusive content detection}.
+\newblock In \emph{Proceedings of the Third Workshop on Abusive Language
+  Online}, pages 80--93.
 
 \bibitem[{Wang et~al.(2026)Wang, Yin, Liu, and Wu}]{wang2026visp}
 Changli Wang, Fang Yin, Jiafeng Liu, and Rui Wu. 2026.
@@ -361,6 +441,16 @@ Yuxia Wang, Jonibek Mansurov, Petar Ivanov, Jinyan Su, Artem Shelmanov, Akim
 \newblock In \emph{Proceedings of the 18th Conference of the European Chapter
   of the Association for Computational Linguistics (Volume 1: Long Papers)},
   pages 1369--1407.
+
+\bibitem[{Wei et~al.(2022)Wei, Wang, Schuurmans, Bosma, Ichter, Xia, Chi, Le,
+  and Zhou}]{wei2022cot}
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia,
+  Ed~Chi, Quoc~V. Le, and Denny Zhou. 2022.
+\newblock \href
+  {https://proceedings.neurips.cc/paper_files/paper/2022/hash/9d5609613524ecf4f15af0f7b31abca4-Abstract-Conference.html}
+  {Chain-of-thought prompting elicits reasoning in large language models}.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, pages 24824--24837.
 
 \bibitem[{Wen et~al.(2023)Wen, Jia, and Yang}]{wen2023dip}
 Changsong Wen, Guoli Jia, and Jufeng Yang. 2023.
@@ -385,18 +475,11 @@ Sen Wu, Hongyang~R. Zhang, and Christopher R{\'e}. 2020.
 \newblock In \emph{International Conference on Learning Representations
   (ICLR)}.
 
-\bibitem[{Yang and Ikeda(2023)}]{yang2023impact}
-Linshuo Yang and Daisuke Ikeda. 2023.
-\newblock \href {https://ieeexplore.ieee.org/document/10371711} {The impact of
-  language properties in multilingual datasets on sarcasm detection}.
-\newblock In \emph{Proceedings of the 14th IIAI International Congress on
-  Advanced Applied Informatics (IIAI-AAI)}, pages 1--6. IEEE.
-
 \bibitem[{Yang and Ikeda(2024)}]{yang2024influence}
 Linshuo Yang and Daisuke Ikeda. 2024.
-\newblock \href {https://iaiai.org/journals/index.php/ijskm/article/view/850}
-  {The influence of linguistic attribute differences in multilingual datasets
-  on sarcasm detection}.
+\newblock \href {https://doi.org/10.52731/ijskm.v8.i2.850} {The influence of
+  linguistic attribute differences in multilingual datasets on sarcasm
+  detection}.
 \newblock \emph{International Journal of Service and Knowledge Management},
   8(2).
 

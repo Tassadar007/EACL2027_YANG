@@ -1,14 +1,14 @@
 \section{Detailed Dataset Statistics and Quality Checks}
 \label{app:data}
 
-\paragraph{A.1 Source details.}
+\paragraph{A.1 Corpus details.}
 
 \begin{table}[h]
   \centering
   \small
   \begin{tabular}{@{}p{2.3cm}p{1.3cm}p{0.9cm}p{1.6cm}@{}}
     \toprule
-    \textbf{Source} & \textbf{Lang.} & \textbf{Inst.} & \textbf{Use} \\
+    \textbf{Corpus} & \textbf{Lang.} & \textbf{Inst.} & \textbf{Use} \\
     \midrule
     iSarcasm (SemEval-2022 T6) & English & 3{,}467 & Sarc.\ train + SFT \\
     CSC & English & 6{,}878 & Sarc.\ train \\
@@ -17,11 +17,11 @@
     Open Chinese Internet Sarcasm Corpus & Chinese & 2{,}000 & Sarc.\ train \\
     \bottomrule
   \end{tabular}
-  \caption{Source datasets. Genre / annotation: iSarcasm --- tweets, speaker self-annotation; CSC --- conversational responses; ToSarcasm --- topic comments, third-party annotation; News Headlines --- distant supervision (The Onion / HuffPost); Open Chinese Corpus --- Weibo, third-party annotation.}
+  \caption{Input corpora. Genre / annotation: iSarcasm --- tweets, speaker self-annotation; CSC --- conversational responses; ToSarcasm --- topic comments, third-party annotation; News Headlines --- distant supervision (The Onion / HuffPost); Open Chinese Corpus --- Weibo, third-party annotation.}
   \label{tab:sources}
 \end{table}
 
-The standardized merged source collection contains 44{,}862 instances in total (86.9\% English / 13.1\% Chinese). Chinese--English 1:1 balance is achieved through bucketed sampling in the pipeline. The two English buckets and the Chinese non-sarcastic bucket contain more than 2{,}500 available instances and are randomly downsampled within each bucket. The Chinese sarcastic bucket contains 2{,}394 available unique instances and is oversampled within the bucket to reach 2{,}500, producing the 4.24\% duplication rate for that bucket reported in A.3.
+The pooled corpus collection contains 44{,}862 instances in total (86.9\% English / 13.1\% Chinese). Chinese--English 1:1 balance in SarcTrain is achieved through bucketed sampling. The two English buckets and the Chinese non-sarcastic bucket contain more than 2{,}500 available instances and are randomly downsampled within each bucket. The Chinese sarcastic bucket contains 2{,}394 available unique instances and is oversampled within the bucket to reach 2{,}500, producing the 4.24\% duplication rate for that bucket reported in A.3.
 
 \paragraph{A.2 Three-dimensional distribution of DualTest.}
 
@@ -30,7 +30,7 @@ The standardized merged source collection contains 44{,}862 instances in total (
   \small
   \begin{tabular}{@{}llcc@{}}
     \toprule
-    \textbf{Lang.} & \textbf{Authorship} & \textbf{Sarc.} & \textbf{Non-sarc.} \\
+    \textbf{Lang.} & \textbf{Source} & \textbf{Sarc.} & \textbf{Non-sarc.} \\
     \midrule
     English & Human & 200 & 1{,}200 \\
     English & AI & 192 & 1{,}174 \\
@@ -38,13 +38,13 @@ The standardized merged source collection contains 44{,}862 instances in total (
     Chinese & AI & 587 & 339 \\
     \bottomrule
   \end{tabular}
-  \caption{Three-dimensional distribution of DualTest.}
+  \caption{Language $\times$ source $\times$ sarcasm distribution of DualTest. Human labels are dataset annotations; AI labels record prompted conditions.}
   \label{tab:dualtest-dist}
 \end{table}
 
-\paragraph{A.3 Data quality checks.} All automated checks pass: language balance, label balance, balance across five folds, 99.97\% completeness of human--AI pairing (9{,}996 / 9{,}999 pairs), and chain-of-thought \citep{wei2022cot} leakage detection. Train--test overlap comprises two SarcTrain instances (0.02\%) and five AuthTrain instances (0.025\%), all on the AI side of the test set; overlap on the human subset is zero. SarcTrain's text-duplication rate is 0.34\% for English / 2.16\% for Chinese. Chinese duplication is concentrated in the sarcastic bucket (4.24\%; non-sarcastic bucket: 0.08\%) and results from the oversampling used to fill that bucket (A.1).
+\paragraph{A.3 Data quality checks.} Automated checks confirm language and label balance across the five SarcTrain folds and find 99.97\% completeness of AuthTrain human--AI pairing (9{,}996 / 9{,}999 seeds). Exact-match screening finds two SarcTrain instances (0.02\%) and five AuthTrain instances (0.025\%) that also occur on the AI side of DualTest; overlap on the human subset is zero. The seven matches are negligible relative to the training and evaluation set sizes and are disclosed for completeness. SarcTrain's text-duplication rate is 0.34\% for English / 2.16\% for Chinese. Chinese duplication is concentrated in the sarcastic bucket (4.24\%; non-sarcastic bucket: 0.08\%) and results from the oversampling used to fill that bucket (A.1). Post-processing also checks for chain-of-thought \citep{wei2022cot} leakage.
 
-\phantomsection\label{app:a4}\paragraph{A.4 AI-text generation protocol.} All AI texts are produced by locally deployed generation models through the Ollama API (deepseek-r1:8b for the main results; qwen3.5:9b for cross-generator replication), using temperature $= 0.8$, top-$p = 0.95$ \citep{holtzman2020nucleus}, and a generation limit of 500 tokens. Generation instructions use four templates defined by language $\times$ style, with style determined by the seed instance's sarcasm label. The templates explicitly constrain output style and length (20--80 Chinese characters; 10--50 English words); the length constraint also mitigates the confound of distinguishing human and AI texts by length (see the length-controlled analysis in \Appref{app:repr}). The complete Chinese sarcastic template used in the experiment is reproduced verbatim below:
+\phantomsection\label{app:a4}\paragraph{A.4 AI generation protocol.} All AI texts are produced by locally deployed generation models through the Ollama API (deepseek-r1:8b for the main results; qwen3.5:9b for cross-generator replication), using temperature $= 0.8$, top-$p = 0.95$ \citep{holtzman2020nucleus}, and a generation limit of 500 tokens. Generation instructions use four templates defined by language $\times$ style, with style determined by the seed instance's sarcasm label. The templates explicitly constrain output style and length (20--80 Chinese characters; 10--50 English words); the length constraint also mitigates the confound of distinguishing human and AI texts by length (see the length-controlled analysis in \Appref{app:repr}). The complete Chinese sarcastic template used in the experiment is reproduced verbatim below:
 
 \begin{quote}\small\ttfamily
 【任务】生成一条讽刺风格的评论\\
@@ -83,9 +83,13 @@ Its English translation is:
 {[Comment]}
 \end{quote}
 
-The Chinese non-sarcastic version changes only the style line to ``The style should be normal and natural.'' The two English templates parallel the Chinese templates (the style lines are ``sarcastic, humorous, exaggerated'' and ``normal, natural,'' respectively; length constraint: 10--50 words). Post-processing comprises three steps: removing \texttt{<think>\dots</think>} chain-of-thought segments; removing reasoning-preface terms such as ``好的'' (\textit{hǎo de} `okay'), ``嗯'' (\textit{ń} `hmm'), ``Okay,'' ``Let me,'' and ``First''; and removing Markdown markup. Failed generations are discarded. AuthTrain contains three generation failures (9{,}996 complete pairs; the corresponding human instances are retained). The AI side of the main DualTest set likewise excludes a small number of failures; cross-generator replication has zero failures (hence 1{,}550 AI $\times$ non-sarcastic instances for the replication set versus 1{,}513 for the main set). For cross-generator replication, thinking mode is explicitly disabled for the reasoning model (Ollama \texttt{think = false}) to prevent the reasoning process from exhausting the output budget. Inline chain-of-thought from deepseek-r1:8b is removed through the post-processing described above.
+The Chinese non-sarcastic template changes only the style line to ``The style should be normal and natural.'' The English templates follow the same structure, using either ``sarcastic, humorous, exaggerated'' or ``normal, natural,'' with a length limit of 10--50 words.
 
-\paragraph{A.5 SFT training and generation-evaluation set.} GenTrain (2{,}428; 1{,}214 each in Chinese and English) is constructed by sampling approximately 40\% of positive-sarcasm instances suitable for generation tasks and oversampling the minority language to achieve balance. By prompt type, it comprises 374 rewriting, 839 response, and 1{,}215 comment instances. Generation evaluation uses an independent set of 300 prompts (180 Chinese and 120 English): the Chinese task is to generate a sarcastic comment on a given topic, and the English task is to rewrite a normal sentence as a sarcastic one. The detector scoring and three blinded LLM evaluations in \Sref{sec:eval} are both conducted on this set.
+Post-processing removes \texttt{<think>\dots</think>} segments, reasoning prefaces such as ``好的'' (\textit{hǎo de} `okay'), ``嗯'' (\textit{ń} `hmm'), ``Okay,'' ``Let me,'' and ``First,'' and Markdown markup. Outputs that remain overlength or cyclic after repeated generation attempts are discarded. AuthTrain retains 9{,}996 AI counterparts from 9{,}999 seeds; DualTest retains 2{,}292 counterparts from 2{,}372 seeds.
+
+The cross-generator replication has no generation failures, yielding 1{,}550 AI $\times$ non-sarcastic instances rather than 1{,}513. For this run, Ollama thinking mode is disabled (\texttt{think = false}) to prevent the reasoning process from exhausting the output budget. The same post-processing removes any inline chain-of-thought from deepseek-r1:8b.
+
+\paragraph{A.5 SFT training and generation-evaluation set.} GenTrain (2{,}428; 1{,}214 each in Chinese and English) is constructed by sampling approximately 40\% of positive-sarcasm instances suitable for generation tasks and oversampling the minority language to achieve balance. By prompt type, it comprises 374 rewriting, 839 response, and 1{,}215 comment instances. Generation evaluation uses an independent set of 300 prompts (180 Chinese and 120 English): the Chinese task is to generate a sarcastic comment on a given topic, and the English task is to rewrite a normal sentence as a sarcastic one. The detector scoring and three source-blinded LLM evaluations in \Sref{sec:eval} are both conducted on this set.
 
 \section{Hyperparameters and Training Details}
 \label{app:hyper}
@@ -97,7 +101,7 @@ The Chinese non-sarcastic version changes only the style line to ``The style sho
   \small
   \begin{tabular}{@{}p{2.4cm}cccc@{}}
     \toprule
-    \textbf{Group} & \textbf{Enc.} & \textbf{Inter.} & \textbf{Sarc.} & \textbf{Auth.} \\
+    \textbf{Group} & \textbf{Enc.} & \textbf{Inter.} & \textbf{Sarc.} & \textbf{MGTD} \\
     \midrule
     Plain / backbone & 5e-7 & --- & 5e-6 & 1e-5 \\
     Intermediate variants & 5e-7 & 5e-6 & 5e-6 & 5e-6 \\
@@ -108,20 +112,22 @@ The Chinese non-sarcastic version changes only the style line to ``The style sho
   \label{tab:lr}
 \end{table}
 
-Note: the authorship-head learning rate is not identical across all settings (1e-5 for the plain dual-head and single-head models; 5e-6 for the architectural variants). This should be considered when interpreting cross-setting differences involving the authorship head. The sarcasm-head learning rate is 5e-6 in all settings, so conclusions on the sarcasm side are unaffected by this difference.
+The sarcasm-head learning rate is fixed at 5e-6 across configurations. The MGTD-head rate is 1e-5 for the plain dual-head and single-head models and 5e-6 for the intermediate variants. This difference is reported for completeness and is considered when interpreting cross-configuration effects; the matched dual--single comparisons retain the same settings within each architecture.
 
-\paragraph{B.2 Shared training hyperparameters.} Maximum 10 epochs; 200 warmup steps; weight decay 0.01; early-stopping patience 5 (normalized joint validation loss: $0.5 \times$ [sarcasm validation loss / first-epoch value] $+ 0.5 \times$ [authorship validation loss / first-epoch value]); gradient clipping 1.0; physical batch size $4 \times$ gradient accumulation $4 =$ effective batch size 16; sampling ratio authorship:sarcasm $= 2$:1; sarcasm class weights [1.0, 2.5] (both the class weights and sampling ratio were specified a priori and not tuned on the test set); seed 42 (reinitialization with seed $+$ fold index for each fold; all architecture/ablation experiments share the fold assignments and seed scheme); fixed 90/10 authorship-data holdout shared across all folds. Final model: retrained on all of SarcTrain and all of AuthTrain for a number of epochs equal to the mode of the best early-stopping epochs across the five runs $+1$ (maximum 10), with an independent seed (seed $+ 1000$), no validation set, and no early stopping. All main tables report the five-run mean $\pm$ standard deviation rather than a point estimate from the final model.
+\paragraph{B.2 Shared training hyperparameters.} Training uses at most 10 epochs, 200 warmup steps, weight decay 0.01, early-stopping patience 5, and gradient clipping 1.0. The physical batch size is 4 with gradient accumulation 4, giving an effective batch size of 16. The MGTD:sarcasm sampling ratio is 2:1, and sarcasm class weights are [1.0, 2.5]. Both choices were specified before testing. Because SarcTrain is balanced, the class weights implement cost-sensitive emphasis rather than imbalance correction. The normalized joint validation loss is $0.5 \times$ [sarcasm validation loss / first-epoch value] $+ 0.5 \times$ [MGTD validation loss / first-epoch value].
+
+All fold-based runs start from seed 42 plus the fold index and share the same fold assignments and nominal seed scheme across architectures and ablations. MGTD data use a fixed 90/10 holdout in every fold. For each final-model configuration, the fixed epoch count is the mode of its five best epoch counts plus one, capped at 10 epochs. The final model uses all applicable training data, seed $+1000$, no validation set, and no early stopping. Main tables report five-run means and standard deviations rather than final-model point estimates.
 
 \paragraph{Software and hardware environment.} Detector training and inference are performed on a single NVIDIA GeForce RTX 3090 (24\,GB); PyTorch 2.9.0 (CUDA 12.8), transformers 4.57.1, and peft 0.18.0. AI texts are generated locally through Ollama (\hyperref[app:a4]{Appendix~A.4}); blinded LLM evaluation uses API calls made in May 2026 (\hyperref[app:c3]{Appendix~C.3}).
 
-\paragraph{B.3 SFT (QLoRA).} Qwen3-8B; 4-bit loading (bfloat16 computation); LoRA \citep{hu2022lora} rank 64 / alpha 16 / dropout 0; target modules q/k/v/o\_proj and gate/up/down\_proj; maximum sequence length 2{,}048; gradient checkpointing enabled; learning rate 5e-5; 3 epochs; batch size $1 \times$ gradient accumulation 8; warmup ratio 0.05; best checkpoint selected by validation loss.
+\paragraph{B.3 SFT (QLoRA).} We fine-tune Qwen3-8B with 4-bit loading and bfloat16 computation. LoRA \citep{hu2022lora} uses rank 64, alpha 16, dropout 0, and targets q/k/v/o\_proj plus gate/up/down\_proj. The maximum sequence length is 2{,}048, with gradient checkpointing enabled. Training uses learning rate 5e-5, three epochs, batch size 1, gradient accumulation 8, and warmup ratio 0.05. Validation loss selects the checkpoint.
 
 \section{Complete Experimental Results}
 \label{app:results}
 
-\phantomsection\label{app:c1}\paragraph{C.1 Macro-averaged F1 (supplement to \Tabref{tab:backbone}).} Main-model macro-averaged F1, under the same five-run protocol and calculated from each run's confusion matrix: sarcasm \textbf{0.6678 $\pm$ 0.036} and authorship \textbf{0.9298 $\pm$ 0.005}. Macro-averaged F1 is higher than positive-class F1 (0.6309) because the majority class has a higher F1; the ordering in \Sref{sec:backbone} remains unchanged under both conventions.
+\phantomsection\label{app:c1}\paragraph{C.1 Macro-averaged F1 (supplement to \Tabref{tab:backbone}).} Main-model macro-averaged F1, under the same five-run protocol and calculated from each run's confusion matrix: sarcasm \textbf{0.6678 $\pm$ 0.036} and MGTD \textbf{0.9298 $\pm$ 0.005}. Macro-averaged F1 is higher than positive-class F1 (0.6309) because the majority class has a higher F1; the ordering in \Sref{sec:backbone} remains unchanged under both conventions.
 
-\paragraph{C.2 Complete four-quadrant results for the authorship head (including single-head counterfactuals).} The reporting convention matches \Tabref{tab:quadrant} (recall for human subsets; false-positive rate for AI subsets).
+\paragraph{C.2 Complete four-quadrant results for the MGTD head (including single-head counterfactuals).} The reporting convention matches \Tabref{tab:quadrant} (recall for human subsets; false-positive rate for AI subsets).
 
 \begin{table}[h]
   \centering
@@ -138,27 +144,33 @@ Note: the authorship-head learning rate is not identical across all settings (1e
     RCNN single & 90.5 & 92.4 & 3.6 & 5.7 \\
     \bottomrule
   \end{tabular}
-  \caption{Authorship-head four-quadrant results (\%): recall for human (H) subsets, false-positive rate for AI subsets. s = sarcastic, n = non-sarcastic.}
+  \caption{MGTD-head four-quadrant results (\%): recall for human (H) subsets, false-positive rate for AI subsets. s = sarcastic, n = non-sarcastic.}
   \label{tab:auth-quadrant}
 \end{table}
 
-The single-head authorship counterfactuals perform at the same level as the dual-head models (differences within single-digit pp in every quadrant). Joint training induces no class-conditional failure on the authorship side, consistent with the directionality claim in \Sref{sec:quadrant}. The authorship head is likewise stable on the cross-generator replication set (qwen3.5:9b): AI $\times$ non-sarcastic false-positive rates are 0.9\% / 1.3\% / 0.5\% for plain / interaction-projection / RCNN, respectively; AI $\times$ sarcastic false-positive rates are all $\leq 0.4\%$; and overall authorship F1 scores are 0.952 / 0.917 / 0.966, respectively.
+The single-head MGTD counterfactuals remain within single-digit percentage points of the dual-head models in every quadrant. Joint training therefore induces no class-conditional failure on the MGTD side, consistent with \Sref{sec:quadrant}.
 
-\phantomsection\label{app:c3}\paragraph{C.3 Blinded-evaluation protocol, inter-judge agreement, and group-level tests (\Sref{sec:eval}).} Protocol: each sample is sent to each of the three judge APIs independently with a single prompt (May 2026; temperature $= 0.3$; GPT-5-nano does not support a temperature parameter and uses its default decoding). The prompt contains only the input and the text to be evaluated, without ground-truth source information, and asks the judge to infer the source and then provide two scores from 1 to 5 for sarcasm and human-likeness. Base and SFT outputs are evaluated independently with the same prompt. Pairwise instance-level agreement between judges is moderate to low: Spearman $\rho$ is 0.20--0.38 for sarcasm (all $p < 10^{-6}$) and 0.03--0.23 for human-likeness (one pair not significant). The misalignment conclusion in \Sref{sec:eval} therefore does not rest on instance-level rank agreement, but on consistent condition-level directions. As shown below, ``SFT sarcasm is below the base model'' is independently significant in five of six groups across 2 languages $\times$ 3 judges under Wilcoxon signed-rank tests with Benjamini--Hochberg FDR correction \citep{benjamini1995fdr}. The pooled correlation analysis (\Tabref{tab:correlation}) uses the mean of the three judges, which can partly average out inter-judge noise.
+The MGTD head is also stable on the qwen3.5:9b replication set. AI $\times$ non-sarcastic false-positive rates are 0.9\%, 1.3\%, and 0.5\% for plain, interaction projection, and RCNN. AI $\times$ sarcastic rates are all at most 0.4\%, and overall MGTD F1 scores are 0.952, 0.917, and 0.966.
+
+\phantomsection\label{app:c3}\paragraph{C.3 Blinded-evaluation protocol, inter-judge agreement, and group-level tests (\Sref{sec:eval}).} Each sample is sent separately to the three judge APIs with one prompt (May 2026; temperature $= 0.3$; GPT-5-nano uses its default decoding because it does not support this parameter). The prompt contains only the input and evaluated text, not the ground-truth source. It asks for source inference followed by 1--5 ratings of sarcasm and human-likeness. Base and SFT outputs use the same prompt and are evaluated separately.
+
+Pairwise instance-level agreement is moderate to low. Spearman $\rho$ ranges from 0.20 to 0.38 for sarcasm (all $p < 10^{-6}$) and from 0.03 to 0.23 for human-likeness (one pair is not significant). The conclusion in \Sref{sec:eval} therefore rests on consistent condition-level directions, not agreement in instance rankings.
+
+Wilcoxon signed-rank tests with Benjamini--Hochberg FDR correction \citep{benjamini1995fdr} show that SFT receives lower sarcasm ratings than the base model in five of six language $\times$ judge groups. The pooled correlations in \Tabref{tab:correlation} use the mean of the three judges, partly averaging inter-judge noise.
 
 \begin{table}[h]
   \centering
   \small
   \begin{tabular}{@{}lcccc@{}}
     \toprule
-    \textbf{Subset} & \textbf{$n$} & \textbf{Sarc.\ $\rho$} & \textbf{Auth.\ $\rho$} \\
+    \textbf{Subset} & \textbf{$n$} & \textbf{Sarc.\ $\rho$} & \textbf{MGTD $\rho$} \\
     \midrule
     Overall & 600 & $+$0.136$^{*}$ & \textbf{$-$0.212}$^{*}$ \\
     Chinese & 360 & \textbf{$-$0.020} & $-$0.218$^{*}$ \\
     English & 240 & $+$0.338$^{*}$ & $-$0.270$^{*}$ \\
     \bottomrule
   \end{tabular}
-  \caption{Spearman correlations between detector and blinded LLM judgments (main-model detector, $n = 600$ pooled over base and SFT). $^{*}$ significant; other entries not significant.}
+  \caption{Spearman correlations between detector scores and source-blinded LLM judgments (main-model detector, $n = 600$ pooled over base and SFT). $^{*}$ significant; other entries not significant.}
   \label{tab:correlation}
 \end{table}
 
@@ -183,9 +195,13 @@ The single-head authorship counterfactuals perform at the same level as the dual
 
 \paragraph{C.4 Paired tests between SFT and human references (supplementary).} This test is performed on the Chinese subset of the generation-evaluation set ($n = 180$; GPT-5-nano is missing three instances, leaving 177). Directions are inconsistent: for DeepSeek-V3, SFT is significantly below the reference on human-likeness ($-0.161$, $p = 0.0025$); for GPT-5-nano, SFT is significantly above the reference on sarcasm ($+0.186$, $p = 0.0114$); the other four groups are not significant.
 
-\paragraph{C.5 Plain-detector control (robustness).} Scores: Chinese sarcasm 0.765 $\to$ 0.763 ($-0.001$; no change), English sarcasm 0.843 $\to$ 0.659 ($-0.184$); authorship increases by $+0.760$ in Chinese and $+0.705$ in English. The two detectors agree closely on the rise in authorship scores, while the interpretation of the sarcasm direction depends on the detector. Correlations: overall sarcasm $\rho = +0.142$ / authorship $-0.214$; Chinese sarcasm $-0.037$ (not significant) / authorship $-0.209$; English sarcasm $+0.342$ / authorship $-0.283$. Differences from the main model are $\leq 0.02$ for every subset, showing that the misalignment is robust to detector architecture.
+\paragraph{C.5 Plain-detector control (robustness).} With the plain detector, Chinese sarcasm changes from 0.765 to 0.763 ($-0.001$), English sarcasm from 0.843 to 0.659 ($-0.184$), and the MGTD score rises by $+0.760$ in Chinese and $+0.705$ in English. The two detectors therefore agree on the rise in MGTD scores, while the sarcasm direction depends on the detector.
 
-\emph{Within-condition correlations (main-model detector, recomputed separately within the base and SFT conditions).} Authorship dimension: within the base condition, $\rho = +0.03$ ($n = 300$, not significant; Chinese $+0.10$ / English $-0.09$, neither significant); within the SFT condition, $-0.12$ ($p = 0.039$; Chinese $-0.19$, $p = 0.009$ / English $-0.12$, not significant). The pooled-sample correlation of $-0.212$ is driven mainly by the opposite between-condition changes (SFT increases the detector score by approximately 0.67 while decreasing the mean blinded judgment); there is no positive alignment within conditions. Sarcasm dimension: within-condition correlations for Chinese are base $+0.05$ (not significant) / SFT $+0.15$ ($p = 0.048$), and for English are base $+0.41$ / SFT $+0.37$ (both significant). The Chinese within-condition correlation is at most weakly positive, consistent with the near-zero pooled result.
+Correlations are $+0.142$ for sarcasm and $-0.214$ for MGTD overall; $-0.037$ (not significant) and $-0.209$ in Chinese; and $+0.342$ and $-0.283$ in English. Each differs from the main-model value by at most 0.02. The detector--judge misalignment is therefore robust to detector architecture.
+
+\emph{Within-condition correlations (main-model detector).} For MGTD, the base condition has $\rho = +0.03$ ($n = 300$, not significant; Chinese $+0.10$, English $-0.09$). The SFT condition has $\rho = -0.12$ ($p = 0.039$; Chinese $-0.19$, $p = 0.009$; English $-0.12$, not significant). The pooled value of $-0.212$ is driven mainly by the opposing condition-level changes: SFT raises the detector score by about 0.67 while lowering the mean blinded rating. There is no positive detector--judge alignment on this dimension within conditions.
+
+For sarcasm, within-condition correlations are $+0.05$ for Chinese base (not significant), $+0.15$ for Chinese SFT ($p = 0.048$), $+0.41$ for English base, and $+0.37$ for English SFT (both English values significant). Chinese alignment is therefore at most weakly positive, consistent with its near-zero pooled result.
 
 \paragraph{C.6 Detector scores before and after SFT and language asymmetry.} Scores from the main-model detector for base and SFT outputs (0--1):
 
@@ -195,7 +211,7 @@ The single-head authorship counterfactuals perform at the same level as the dual
   \setlength{\tabcolsep}{2pt}
   \begin{tabular}{@{}llcc@{}}
     \toprule
-    \textbf{Lang.} & \textbf{Cond.} & \textbf{Sarc.} & \textbf{Auth.} \\
+    \textbf{Lang.} & \textbf{Cond.} & \textbf{Sarc.} & \textbf{MGTD} \\
     \midrule
     Chinese & Base $\to$ SFT & 0.780 $\to$ \textbf{0.895} & 0.289 $\to$ 0.969 \\
     English & Base $\to$ SFT & 0.854 $\to$ \textbf{0.730} & 0.198 $\to$ 0.864 \\
@@ -205,16 +221,27 @@ The single-head authorship counterfactuals perform at the same level as the dual
   \label{tab:sft-scores}
 \end{table}
 
-Sarcasm scores show language asymmetry (Chinese $+0.115$ / English $-0.124$); the 60:40 language imbalance in the SFT training samples may partly explain this directional difference (see Limitations). Mean judgments from the three LLMs (sarcasm / human-likeness) are 3.77/4.17 for the human reference, 4.01/4.24 for the base model, and 3.71/4.08 for SFT. Authorship scores rise sharply in both languages, meaning that the detector judges SFT outputs as ``more human-like''; the conflict between this judgment and the direction of blinded judgments is analyzed in \Sref{sec:eval}.
+Sarcasm scores move in opposite directions by language: $+0.115$ in Chinese and $-0.124$ in English. The 60:40 language imbalance in SFT training may partly explain this difference (see Limitations). MGTD scores rise sharply in both languages, so the detector assigns SFT outputs higher probabilities of human authorship.
 
-\phantomsection\label{app:c7}\paragraph{C.7 Quantifying test-set uncertainty: confidence intervals, paired tests, and subset F1.} This section quantifies sampling uncertainty over test instances (Wilson 95\% intervals for quadrant rates; 95\% percentile intervals from instance-level bootstrap with 10{,}000 resamples for F1), complementing the between-run standard deviations reported in \Tabref{tab:ablation} and \Tabref{tab:backbone}. Models are the final models for each architecture, and the reporting convention follows \Tabref{tab:quadrant}. The five detectors are trained independently; their quadrant false-positive rates have a consistent ordering that replicates with the second generator. Between-run variation in overall F1 (\Tabref{tab:backbone}, $\pm 0.02$--$0.03$) is also far smaller than the differences of tens of percentage points across quadrants.
+Mean LLM judgments for sarcasm / human-likeness are 3.77/4.17 for human references, 4.01/4.24 for the base model, and 3.71/4.08 for SFT. These directions conflict with the detector's MGTD score, as analyzed in \Sref{sec:eval}.
+
+\phantomsection\label{app:c7}\paragraph{C.7 Conditional test-instance uncertainty: confidence intervals, paired tests, and subset F1.} Conditional on each fixed final model, we quantify test-instance uncertainty with Wilson 95\% intervals for quadrant rates and 95\% percentile intervals from 10{,}000 instance-level bootstrap samples for F1. These intervals do not include uncertainty from training, generator sampling, corpus construction, or human--AI pairing. They complement the between-run standard deviations in \Tabref{tab:ablation} and \Tabref{tab:backbone}. All values use the final model for each architecture and follow the reporting convention of \Tabref{tab:quadrant}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/fig1_quadrant_failure.pdf}
+  \caption{Sarcasm false-positive rates on the AI $\times$ non-sarcastic subset for five detectors and two generators. Error bars are Wilson 95\% intervals conditional on each fixed model.}
+  \label{fig:quadrant}
+\end{figure}
+
+The five detectors are trained independently, yet their false-positive-rate ordering is stable and replicates with the second generator. Between-run variation in overall F1 ($\pm 0.02$--$0.03$; \Tabref{tab:backbone}) is also much smaller than the between-quadrant differences.
 
 
 
 \begin{table}[h]
   \centering
-  \scriptsize
-  \setlength{\tabcolsep}{2pt}
+  \small
+  \setlength{\tabcolsep}{3pt}
   \begin{tabular}{@{}lcc@{}}
     \toprule
     \textbf{Model} & \textbf{deepseek} & \textbf{qwen} \\
@@ -230,7 +257,7 @@ Sarcasm scores show language asymmetry (Chinese $+0.115$ / English $-0.124$); th
   \label{tab:wilson}
 \end{table}
 
-Intervals do not overlap between any dual-head and single-head model, nor between the plain dual-head model and either intermediate-layer dual-head model. Exact paired McNemar tests on the same texts (main-generator set, AI $\times$ non-sarcastic subset) yield: plain dual-head vs.\ plain single-head, discordant pairs 1{,}021 / 7, $p < 10^{-291}$; RCNN dual-head vs.\ RCNN single-head, 239 / 15, $p < 10^{-52}$; plain dual-head vs.\ RCNN dual-head, 805 / 15, $p < 10^{-215}$; interaction-projection dual-head vs.\ RCNN dual-head, 203 / 100, $p = 3.3 \times 10^{-9}$. All four differences are significant.
+Intervals do not overlap between any dual-head and single-head model, or between the plain dual-head model and either intermediate dual-head model. Exact paired McNemar tests use the same AI $\times$ non-sarcastic texts from the main-generator set. Discordant pairs are 1{,}021 / 7 for plain dual vs.\ plain single ($p < 10^{-291}$), 239 / 15 for RCNN dual vs.\ RCNN single ($p < 10^{-52}$), 805 / 15 for plain dual vs.\ RCNN dual ($p < 10^{-215}$), and 203 / 100 for interaction projection vs.\ RCNN dual ($p = 3.3 \times 10^{-9}$). All four differences are significant.
 
 \begin{table*}[t]
   \centering
@@ -252,22 +279,30 @@ Intervals do not overlap between any dual-head and single-head model, nor betwee
   \label{tab:lang-f1}
 \end{table*}
 
-Main-model authorship F1 is 0.938 [0.931, 0.945] on the full set, 0.961 [0.952, 0.969] in Chinese, and 0.923 [0.912, 0.933] in English. Because the authorship label is constant within the human subset, positive-class F1 degenerates to the recall convention and is not separately reported. Chinese sarcasm F1 is substantially higher than English sarcasm F1 (0.819 vs.\ 0.429 for the main model) for two direct reasons. First, sarcasm prevalence is 63.8\% in the Chinese subset but only 14.2\% in the English subset. Positive-class F1 increases with prevalence, so the values for the two languages are not directly comparable. Second, the source benchmarks differ in difficulty: the English human side is dominated by intent-oriented iSarcasmEval tweets (the best systems on that benchmark achieve F1 of approximately 0.56--0.61; \Sref{sec:related-sarcasm}), whereas the Chinese side uses topic-comment-style ToSarcasm. Regarding the encoder, DeBERTa-v3's SentencePiece \citep{kudo2018sentencepiece} vocabulary tokenizes Chinese largely at the character level (measured at approximately 1.02 tokens per character, with approximately 2.5\% out-of-vocabulary symbols). The Chinese subset nevertheless achieves high F1 under these conditions, consistent with the dominant roles of prevalence and genre. The difference between overall and human-subset F1 (0.663 vs.\ 0.629 for the main model) comes from the contribution of AI-side instances; accordingly, the metric clarification in \Sref{sec:backbone} notes that the overall value aggregates both source sides. On the human subset, dual- versus single-head F1 differences are within 0.03 and vary in direction. The visible loss from negative transfer on the sarcasm side is concentrated in the AI-side quadrants, consistent with the class-conditional characterization in \Sref{sec:quadrant}.
+Main-model MGTD F1 is 0.938 [0.931, 0.945] on the full set, 0.961 [0.952, 0.969] in Chinese, and 0.923 [0.912, 0.933] in English. Because the source label is constant within the human subset, positive-class F1 reduces to recall and is not reported separately.
 
-False-positive rates use a threshold of 0.5. Instance-level score distributions show that the failure is not a threshold artifact: for the plain dual-head model on the AI $\times$ non-sarcastic subset, the median sarcasm probability is 0.767 (interquartile range 0.635--0.839), so the entire distribution shifts rightward across the threshold. The single-head medians are 0.204 (plain) / 0.069 (RCNN). At the same time, AUC values for ranking sarcasm probability within the AI side are similar across models (0.82--0.88): joint training mainly raises the level of sarcasm scores on AI texts while largely preserving their internal ordering, consistent with the characterization that a source-related component is added to the sarcasm signal.
+Chinese sarcasm F1 is higher than English sarcasm F1 for the main model (0.819 vs.\ 0.429). Two data properties explain much of the difference. Sarcasm prevalence is 63.8\% in Chinese but 14.2\% in English, making positive-class F1 values difficult to compare directly. The source benchmarks also differ: the English human side is dominated by author-labeled intended-sarcasm tweets from iSarcasmEval, where the best systems reach about 0.56--0.61 F1 (\Sref{sec:related-sarcasm}), whereas the Chinese side uses topic-comment-style ToSarcasm.
+
+The encoder does not provide an obvious alternative explanation. DeBERTa-v3's SentencePiece vocabulary \citep{kudo2018sentencepiece} tokenizes Chinese largely by character, at approximately 1.02 tokens per character with 2.5\% out-of-vocabulary symbols. Chinese F1 remains high under this tokenization, consistent with prevalence and genre playing the larger roles.
+
+The main model's overall sarcasm F1 is 0.663, compared with 0.629 on human texts alone, because the overall score also includes AI texts (\Sref{sec:backbone}). Within the human subset, dual--single differences are below 0.03 and vary in direction. The visible negative-transfer loss is therefore concentrated in the AI-side quadrants, consistent with \Sref{sec:quadrant}.
+
+False-positive rates use a threshold of 0.5. For the plain dual-head model on AI $\times$ non-sarcastic text, the median sarcasm probability is 0.767 with an interquartile range of 0.635--0.839. The distribution therefore shifts across the threshold rather than placing only a few cases near it. Single-head medians are 0.204 for the plain model and 0.069 for RCNN.
+
+AUC values within AI texts are similar across models (0.82--0.88). Joint training thus raises sarcasm scores while largely preserving their internal ordering. This pattern is consistent with a source-related component being added to the sarcasm signal.
 
 \section{Representative Cases of Detector--LLM Score Misalignment}
 \label{app:cases}
 
 Cases are selected from the paired table of main-model detector scores and blinded judgments from the three LLMs by the magnitude of disagreement (detector scores: 0--1; LLM scores: mean of three evaluators on a 1--5 scale; long texts truncated). Chinese examples retain the original model input and provide a pinyin transliteration and an English translation in brackets.
 
-\paragraph{D.1 Classified as ``human-like'' by the detector but ``not human-like'' by the LLMs (authorship misalignment; corresponding to the mechanism discussed in \Sref{sec:eval}).}
+\paragraph{D.1 Classified as human-authored by the detector but rated as less human-like by the LLMs (MGTD-score misalignment; corresponding to the analysis in \Sref{sec:eval}).}
 
-\begin{table}[h]
+\begin{table*}[t]
   \centering
-  \scriptsize
-  \setlength{\tabcolsep}{1pt}
-  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{4.05cm}@{}}
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{12.6cm}@{}}
     \toprule
     \textbf{L} & \textbf{S} & \textbf{$P_{\text{hum}}$/LLM} & \textbf{Text (excerpt)} \\
     \midrule
@@ -276,19 +311,19 @@ Cases are selected from the paired table of main-model detector scores and blind
     en & SFT & 1.00 / 2.67 & ``Same as me, I'm not sure'' (vacuous short sentence) \\
     \bottomrule
   \end{tabular}
-  \caption{Authorship misalignment cases. $P_{\text{hum}} = P(\text{human})$.}
+  \caption{MGTD-score misalignment cases. $P_{\text{hum}} = P(\text{human})$.}
   \label{tab:cases-auth}
-\end{table}
+\end{table*}
 
-In the first case, machine-generated text with obvious chain-of-thought traces is nevertheless classified as human by the authorship head with confidence 1.00 (see \Sref{sec:eval} for the mechanism interpretation).
+In the first case, AI-generated text with obvious chain-of-thought traces is nevertheless classified as human by the MGTD head with confidence 1.00 (see \Sref{sec:eval} for the mechanism interpretation).
 
 \paragraph{D.2 Classified as ``sarcastic'' by the detector but ``not sarcastic'' by the LLMs.}
 
-\begin{table}[h]
+\begin{table*}[t]
   \centering
-  \scriptsize
-  \setlength{\tabcolsep}{1pt}
-  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{4.05cm}@{}}
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{12.6cm}@{}}
     \toprule
     \textbf{L} & \textbf{S} & \textbf{$P_{\text{sar}}$/LLM} & \textbf{Text (excerpt)} \\
     \midrule
@@ -299,15 +334,15 @@ In the first case, machine-generated text with obvious chain-of-thought traces i
   \end{tabular}
   \caption{Sarcasm false-positive cases. $P_{\text{sar}} = P(\text{sarcastic})$.}
   \label{tab:cases-fp}
-\end{table}
+\end{table*}
 
 \paragraph{D.3 Classified as ``sarcastic'' by the LLMs but missed by the detector.}
 
-\begin{table}[h]
+\begin{table*}[t]
   \centering
-  \scriptsize
-  \setlength{\tabcolsep}{1pt}
-  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{4.05cm}@{}}
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{12.6cm}@{}}
     \toprule
     \textbf{L} & \textbf{S} & \textbf{$P_{\text{sar}}$/LLM} & \textbf{Text (excerpt)} \\
     \midrule
@@ -318,20 +353,30 @@ In the first case, machine-generated text with obvious chain-of-thought traces i
   \end{tabular}
   \caption{Sarcasm false-negative cases. $P_{\text{sar}} = P(\text{sarcastic})$.}
   \label{tab:cases-fn}
-\end{table}
+\end{table*}
 
-Taken together, D.2 and D.3 suggest that the sarcasm head may favor surface sarcasm markers in the training distribution (mock-praise formulas, exclamation marks, and colloquial short sentences) while being insensitive to rhetorically complete written irony that depends on semantic reversal; the LLM judges show the opposite tendency. Because the cases are selected by disagreement magnitude, this observation is a qualitative annotation of the near-zero Chinese sarcasm correlation in \Sref{sec:eval} rather than a frequency estimate. Systematic testing is left to future work.
+Together, D.2 and D.3 suggest that the sarcasm head favors surface markers such as mock-praise formulas, exclamation marks, and colloquial short sentences. It is less responsive to complete written irony that depends on semantic reversal, while the LLM judges show the opposite tendency.
+
+The cases were selected by disagreement magnitude, so they do not estimate how often either pattern occurs. They provide qualitative examples of the near-zero Chinese sarcasm correlation in \Sref{sec:eval}; systematic testing remains future work.
+
+\clearpage
 
 \section{Preliminary Representation-Level Analysis of the Failure Mechanism}
 \label{app:repr}
 
 This appendix records the complete protocol, data, and self-checks for the representation-level tests in \Sref{sec:mechanism}. The interpretation of conclusions follows \Sref{sec:mechanism}.
 
-\paragraph{E.1 Setup.} All analyses use the frozen model that produces the 86.3\% result for the plain dual-head model in the main text, without updating its parameters. Direction estimation and metric evaluation are cross-fitted (the direction is estimated on the fitting half and metrics are calculated on the evaluation half), so the baseline false-positive rate in this appendix (84.8\% on the evaluation half) differs slightly from the full-set value in the main text (86.3\%). Code self-checks: manually computed logits match model outputs elementwise (maximum error $1.4 \times 10^{-6}$); the erasure-projection residual is approximately $10^{-6}$; LEACE satisfies its defining property (source AUC on the fitting half: 0.988 $\to$ 0.042); and probe selectivity passes (true labels: 0.986; permuted labels: 0.512).
+\paragraph{E.1 Setup.} All analyses freeze the plain dual-head model that produces the 86.3\% main-text result. Direction estimation and evaluation are cross-fitted: one half estimates the direction and the other computes metrics. The appendix baseline is therefore 84.8\% on the evaluation half rather than 86.3\% on the full set.
 
-\paragraph{E.2 Protocol.} We record here the principles, citations, and implementation details for each test underlying \Sref{sec:mechanism}. The linear probe is logistic regression with five-fold cross-validation. The selectivity control retrains the same probe with permuted source labels. Correlation analyses are rechecked after stratification by text-length tertile. Alignment is the directional cosine under whitened geometry ($\Sigma^{1/2}w$). Erasure interventions include a single direction, the INLP subspace \citep[$k = 1$--$16$;][]{ravfogel2020inlp}, and LEACE \citep{belrose2023leace}. Placebos comprise ten random whitened directions and erasure after re-estimating directions from permuted labels. srcORTH-PC1 is the maximum-variance direction after orthogonalization against the source direction; erasing it does not alter source decodability and is used to distinguish the effects of ``removing the source concept'' and ``perturbing the principal-variance structure.''
+Implementation checks pass. Manually computed logits match model outputs with maximum error $1.4 \times 10^{-6}$, and the erasure-projection residual is about $10^{-6}$. LEACE reduces fitting-half source AUC from 0.988 to 0.042, as its definition requires. Probe selectivity is 0.986 with true labels and 0.512 with permuted labels.
 
-\paragraph{E.3 Diagnostic evidence.} Source is highly linearly decodable: AUC 0.986 (sarcastic subset: 0.990 / non-sarcastic subset: 0.985; permuted-label control: 0.512; single-head model: 0.974, meaning that decodability is not unique to joint training). On AI $\times$ non-sarcastic instances, the correlation between source logit and sarcasm logit is $\rho = 0.519$ (0.44/0.56/0.63 after controlling by text-length tertile). The sarcasm decision direction and source direction are nearly orthogonal in the original geometry ($\cos \approx -0.03$) but moderately aligned in whitened geometry ($|\cos| = 0.41$ when measured using the probe direction / 0.49 using the authorship-head direction). All are compatible with the shortcut hypothesis, but all constitute correlational evidence.
+\paragraph{E.2 Protocol.} The linear probe is logistic regression with five-fold cross-validation. A selectivity control retrains it with permuted source labels, and correlation analyses are repeated within text-length tertiles. Alignment is the directional cosine in whitened geometry ($\Sigma^{1/2}w$).
+
+Erasure tests cover one direction, INLP subspaces \citep[$k = 1$--$16$;][]{ravfogel2020inlp}, and LEACE \citep{belrose2023leace}. Placebos use ten random whitened directions and directions estimated from permuted labels. srcORTH-PC1 is the maximum-variance direction after removing its projection onto the source direction. Erasing it leaves source decodability unchanged, separating perturbation of dominant variance from removal of source information.
+
+\paragraph{E.3 Diagnostic evidence.} Source is highly linearly decodable: AUC is 0.986 overall, 0.990 on sarcastic texts, and 0.985 on non-sarcastic texts. The permuted-label control gives 0.512. The single-head model also gives 0.974, so source decodability is not unique to joint training. On AI $\times$ non-sarcastic texts, source and sarcasm logits correlate at $\rho = 0.519$; correlations by text-length tertile are 0.44, 0.56, and 0.63.
+
+The sarcasm and source directions are nearly orthogonal in the original geometry ($\cos \approx -0.03$) but moderately aligned after whitening. The absolute cosine is 0.41 using the probe direction and 0.49 using the MGTD-head direction. These results are compatible with the shortcut hypothesis, but remain correlational.
 
 \paragraph{E.4 Intervention evidence.} $\text{gap} =$ AI $\times$ non-sarcastic false-positive rate $-$ human $\times$ non-sarcastic false-positive rate; source AUC is the decoding ability of a probe retrained after erasure.
 
@@ -355,6 +400,8 @@ This appendix records the complete protocol, data, and self-checks for the repre
   \label{tab:intervention}
 \end{table}
 
-Interpretation: single-direction and low-dimensional INLP erasure are ineffective. LEACE initially appears effective (source is indeed erased, the gap falls from 52 to 19, and the placebos are all ineffective). However, erasing a high-variance direction orthogonal to source (leaving source information entirely intact) likewise reduces the false-positive rate to 66.7 and the gap to 12.6, an effect almost identical to that of LEACE.
+Single-direction and low-dimensional INLP erasure are ineffective. LEACE initially appears effective: it erases source information, reduces the gap from 52.0 to 19.1, and outperforms all random placebos.
+
+The orthogonal high-variance control changes the interpretation. It leaves source decodability intact but reduces the false-positive rate to 66.7 and the gap to 12.6, an effect similar to LEACE. The intervention therefore identifies a high-variance subspace without isolating source identity as the cause.
 
 \paragraph{E.5 Supplementary observation.} The mean false-positive rate across the two non-sarcastic source sides is almost unchanged before and after the intervention (58.8 $\to$ 59.1). The intervention does not ``fix'' the model; it merely transfers part of the overprediction of sarcasm on the AI side to the human side.
