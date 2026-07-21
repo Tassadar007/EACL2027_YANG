@@ -1,4 +1,4 @@
-\begin{thebibliography}{66}
+\begin{thebibliography}{65}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Abu~Farha et~al.(2022)Abu~Farha, Oprea, Wilson, and
@@ -62,6 +62,13 @@ Kevin Clark, Minh-Thang Luong, Quoc~V. Le, and Christopher~D. Manning. 2020.
 \newblock In \emph{Proceedings of the 8th International Conference on Learning
   Representations (ICLR)}.
 
+\bibitem[{Comanici et~al.(2025)}]{gemini2025report}
+Gheorghe Comanici et~al. 2025.
+\newblock \href {https://arxiv.org/abs/2507.06261} {Gemini 2.5: Pushing the
+  frontier with advanced reasoning, multimodality, long context, and next
+  generation agentic capabilities}.
+\newblock \emph{arXiv preprint arXiv:2507.06261}.
+
 \bibitem[{Compton et~al.(2023)Compton, Zhang, Puli, and
   Ranganath}]{compton2023morisless}
 Rhys Compton, Lily Zhang, Aahlad Puli, and Rajesh Ranganath. 2023.
@@ -93,14 +100,6 @@ Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume
 \newblock \href {https://arxiv.org/abs/2501.12948} {{DeepSeek-R1}:
   Incentivizing reasoning capability in {LLMs} via reinforcement learning}.
 \newblock \emph{arXiv preprint arXiv:2501.12948}.
-
-\bibitem[{Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
-  Zettlemoyer}]{dettmers2023qlora}
-Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer. 2023.
-\newblock \href {https://arxiv.org/abs/2305.14314} {{QLoRA}: Efficient
-  finetuning of quantized {LLMs}}.
-\newblock In \emph{Advances in Neural Information Processing Systems
-  (NeurIPS)}.
 
 \bibitem[{Devlin et~al.(2019)Devlin, Chang, Lee, and
   Toutanova}]{devlin2019bert}
@@ -150,13 +149,6 @@ Robert Geirhos, J{\"o}rn-Henrik Jacobsen, Claudio Michaelis, Richard Zemel,
 \newblock \href {https://doi.org/10.1038/s42256-020-00257-z} {Shortcut learning
   in deep neural networks}.
 \newblock \emph{Nature Machine Intelligence}, 2:665--673.
-
-\bibitem[{{Gemini Team}(2025)}]{gemini2025report}
-{Gemini Team}. 2025.
-\newblock \href {https://arxiv.org/abs/2507.06261} {Gemini 2.5: Pushing the
-  frontier with advanced reasoning, multimodality, long context, and next
-  generation agentic capabilities}.
-\newblock \emph{arXiv preprint arXiv:2507.06261}.
 
 \bibitem[{Ghosh and Veale(2016)}]{ghosh2016fracking}
 Aniruddha Ghosh and Tony Veale. 2016.
@@ -323,6 +315,12 @@ David Mueller, Nicholas Andrews, and Mark Dredze. 2022.
 \newblock In \emph{Findings of the Association for Computational Linguistics:
   EMNLP 2022}.
 
+\bibitem[{{Ollama}(2025)}]{ollama2025deepseek8b}
+{Ollama}. 2025.
+\newblock \href {https://ollama.com/library/deepseek-r1:8b}
+  {{DeepSeek-R1-0528-Qwen3-8B} model card}.
+\newblock Ollama deployment tag \texttt{deepseek-r1:8b}; accessed 2026-07-21.
+
 \bibitem[{{OpenAI}(2026)}]{openai2026gpt5}
 {OpenAI}. 2026.
 \newblock \href {https://arxiv.org/abs/2601.03267} {{OpenAI} {GPT-5} system
@@ -361,15 +359,11 @@ Jonathan Pilault, Amine El~hattami, and Christopher Pal. 2021.
 \newblock In \emph{International Conference on Learning Representations
   (ICLR)}.
 
-\bibitem[{{Qwen Team}(2025)}]{qwen2025}
-{Qwen Team}. 2025.
-\newblock \href {https://arxiv.org/abs/2505.09388} {{Qwen3} technical report}.
-\newblock \emph{arXiv preprint arXiv:2505.09388}.
-
 \bibitem[{{Qwen Team}(2026)}]{qwen2026qwen35}
 {Qwen Team}. 2026.
-\newblock {Qwen3.5-9B} model card.
-\newblock \url{https://huggingface.co/Qwen/Qwen3.5-9B}.
+\newblock \href {https://qwen.ai/blog?id=qwen3.5} {{Qwen3.5}: Towards native
+  multimodal agents}.
+\newblock Qwen3.5-9B model weights under Apache 2.0; accessed 2026-07-21.
 
 \bibitem[{Ravfogel et~al.(2020)Ravfogel, Elazar, Gonen, Twiton, and
   Goldberg}]{ravfogel2020inlp}

@@ -120,13 +120,13 @@ The representational conflict studied above may also matter when detector output
 
 Testing for interference requires separate task supervision and evaluation labels for authorship and sarcasm. Here ``source'' denotes human-versus-AI authorship; ``corpus'' denotes an input dataset. We combine iSarcasm \citep{oprea2020isarcasm,abufarha2022isarcasmeval}, CSC \citep{jang2024csc,jang2023intended}, ToSarcasm \citep{liang2022tosarcasm}, News Headlines v2 \citep{misra2023headlines,misra2021sculpting}, and the Open Chinese Internet Sarcasm Corpus \citep{zhu2022corpus}. None provides both labels. Mapping their annotations to a common binary sarcasm label yields 44{,}862 pooled instances (approximately 87\% English), from which we construct three training sets and DualTest (\Appref{app:data}).
 
-\paragraph{Sarcasm classification training set, SarcTrain (10{,}000, all human).} Each language $\times$ label bucket contains 2{,}500 instances. Three buckets are downsampled; the Chinese sarcastic bucket is oversampled from 2{,}394 unique instances. The set is pre-split into five folds.
+\paragraph{Sarcasm classification training set, SarcTrain (10{,}000, all human).} Each language $\times$ label bucket contains 2{,}500 instances. Three buckets are downsampled; the Chinese sarcastic bucket starts from 2{,}396 records representing 2{,}394 unique texts and adds 104 oversampled records. The resulting set is organized into five folds.
 
-\paragraph{MGTD training set, AuthTrain (19{,}995).} From 9{,}999 language-balanced human seeds, deepseek-r1:8b \citep[via Ollama]{deepseek2025r1} produces 9{,}996 retained outputs (99.97\% pairing coverage); \Appref{app:data} details quality-control exclusions.
+\paragraph{MGTD training set, AuthTrain (19{,}995).} From 9{,}999 language-balanced human seeds, DeepSeek-R1-0528-Qwen3-8B (Ollama tag \texttt{deepseek-r1:8b}) \citep{deepseek2025r1,ollama2025deepseek8b} produces 9{,}996 retained outputs (99.97\% pairing coverage); \Appref{app:data} details quality-control exclusions.
 
 Four language $\times$ style templates follow the balanced seed labels. Authorship and requested-style labels are constructed as separate, approximately balanced factors; no independence is assumed for realized textual features or perceived sarcasm (\Appref{app:data}).
 
-\paragraph{Generation training set, GenTrain (2{,}428; used in \Sref{sec:eval}).} This set is drawn from two corpora containing topic or contextual information (iSarcasm and ToSarcasm; see \Appref{app:data} for their uses). Only positive-sarcasm instances are retained; approximately 40\% are sampled, and the minority language is oversampled to 1{,}214 instances in each of Chinese and English. By prompt type, the set contains 374 rewriting, 839 response, and 1{,}215 comment instances, and serves as the instruction-tuning data for SFT.
+\paragraph{Generation training set, GenTrain (2{,}428; used in \Sref{sec:eval}).} From 5{,}257 eligible positive-sarcasm records in iSarcasm and ToSarcasm, seed-42 sampling selects 2{,}103 records (1{,}214 English; 889 Chinese). Chinese oversampling adds 325 records, yielding 1{,}214 per language. The resulting set contains 374 rewriting, 839 response, and 1{,}215 comment instances and serves as the instruction-tuning data for SFT (\Appref{app:data}).
 
 \paragraph{Diagnostic test set, DualTest (4{,}664).} The human subset combines official iSarcasm (1{,}400 English) and ToSarcasm (972 Chinese) test sets. Generation quality control retains AI counterparts for 2{,}292 of 2{,}372 texts (96.6\% coverage). Human texts retain their annotations; for AI texts, the sarcasm label records the prompted condition rather than an independently annotated judgment of perceived sarcasm.
 
@@ -138,16 +138,16 @@ The four source $\times$ sarcasm groups contain 823 human-sarcastic, 1{,}549 hum
 \subsection{Tasks and Architecture}
 \label{sec:model-arch}
 
-Given a Chinese or English input text $x$, the model produces two separate, non-mutually-exclusive binary predictions: whether $x$ is labeled sarcastic and whether its authorship source is labeled human or AI. Any combination of the two labels is valid. The tasks share a single DeBERTa-v3-large encoder \citep{he2023debertav3}, allowing us to test whether MGTD training changes the representation read by the sarcasm head. This encoder was pretrained on English corpora; \Sref{sec:backbone} directly compares it with multilingual-pretrained mBERT / XLM-R on the same bilingual test set. Encoder outputs are aggregated by an intermediate module and then passed to two task-specific classification heads; \Figref{fig:architecture} shows the main model.
+Given a Chinese or English input text $x$, the model produces two separate, non-mutually-exclusive binary predictions: whether $x$ is labeled sarcastic and whether its authorship source is labeled human or AI. Any combination of the two labels is valid. The tasks share a single DeBERTa-v3-large encoder \citep{he2023debertav3}, allowing us to test whether MGTD training changes the representation read by the sarcasm head. This encoder was pretrained on English corpora; \Sref{sec:backbone} directly compares it with multilingual-pretrained mBERT / XLM-R on the same bilingual test set. Encoder outputs are aggregated by an intermediate module and then passed to two task-specific classification heads; \Figref{fig:architecture} shows the RCNN configuration.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/fig_architecture.pdf}
-  \caption{Main dual-head model: a shared DeBERTa-v3-large encoder, an RCNN intermediate module (dashed), and two task-specific heads. The comparisons in \Sref{sec:exp} remove this component in the plain configuration or replace it with task-branch interaction projection, while retaining the same encoder backbone and task definitions (\Appref{app:hyper}).}
+  \caption{RCNN dual-head configuration: a shared DeBERTa-v3-large encoder, an RCNN intermediate module (dashed), and two task-specific heads. The comparisons in \Sref{sec:exp} remove this component in the plain configuration or replace it with task-branch interaction projection, while retaining the same encoder backbone and task definitions (\Appref{app:hyper}).}
   \label{fig:architecture}
 \end{figure}
 
-The main model uses BiLSTM $+$ CNN (RCNN) as its intermediate module. A single-layer bidirectional LSTM with hidden size 256 per direction produces a 512-dimensional output at each token position. We concatenate it with the 1{,}024-dimensional encoder output, then apply three groups of one-dimensional convolutions with kernel widths 3/4/5 and 128 channels each. Global max pooling produces a 384-dimensional vector $z$. After dropout, $z$ is passed to the two heads. This module adapts the mBERT-RCNN intermediate architecture of \citet{yang2024influence} to a DeBERTa-based dual-head setting.
+The RCNN configuration uses BiLSTM $+$ CNN as its intermediate module. A single-layer bidirectional LSTM with hidden size 256 per direction produces a 512-dimensional output at each token position. We concatenate it with the 1{,}024-dimensional encoder output, then apply three groups of one-dimensional convolutions with kernel widths 3/4/5 and 128 channels each. Global max pooling produces a 384-dimensional vector $z$. After dropout, $z$ is passed to the two heads. This module adapts the mBERT-RCNN intermediate architecture of \citet{yang2024influence} to a DeBERTa-based dual-head setting.
 
 To test the intermediate layer's role, \Sref{sec:exp} compares two variants. The plain model sends \texttt{[CLS]} directly to both heads. The interaction-projection model forms two learned 256-dimensional projections, $h_s$ and $h_a$, and updates them as $h_s'=h_s+P_{a\rightarrow s}(h_a)$ and $h_a'=h_a+P_{s\rightarrow a}(h_s)$. Each branch contains one vector, so no query--key interaction remains; $P$ is the effective learned value/output projection. The configurations retain the same encoder and task definitions while testing distinct intermediate-representation designs (\Appref{app:hyper}).
 
@@ -183,29 +183,19 @@ Five runs are defined by the SarcTrain validation folds: four folds train and on
 
 DualTest enters no training or validation split. Five-run standard deviations combine fold and initialization variation. Wilson intervals are conditional on a fixed final model and cover test-instance, not training or generator, uncertainty (\Tabref{tab:quadrant}; Appendix~C.7).
 
-Each subgroup configuration has a final model trained on all applicable data with a fixed epoch count determined from the five validation runs, an independent seed, and no early stopping. These models are not selected on DualTest or used in five-run aggregates; \Sref{sec:eval} uses the final RCNN dual-head model (\Appref{app:hyper}).
+Each subgroup configuration has a final model trained on all applicable data with a fixed epoch count determined from the five validation runs, an independent seed, and no early stopping. Their weights and training duration are not selected using DualTest, and they are not used in five-run aggregates; \Sref{sec:eval} uses the final RCNN dual-head model (\Appref{app:hyper}).
 
 \section{Experiments and Diagnosis}
 \label{sec:exp}
 
-The experiments answer three questions in sequence. First, the backbone comparison selects a diagnostic model. Second, matched dual- and single-head models isolate the effect of adding MGTD training. Third, DualTest's labels divide the same predictions into four source $\times$ sarcasm quadrants to locate any effect hidden by overall F1. Aggregate comparisons report the mean $\pm$ standard deviation over five runs defined by SarcTrain validation folds. The quadrant analysis uses separately trained final models to obtain one prediction per instance for paired subgroup tests; Wilson intervals quantify binomial test-instance uncertainty conditional on each fixed model. No model is selected on DualTest.
+The experiments move from aggregate comparison to matched ablation and subgroup diagnosis. We first compare pretrained encoders and intermediate configurations, then measure the change produced by adding MGTD training, and finally partition predictions into source $\times$ sarcasm quadrants. DualTest is used for these descriptive and diagnostic comparisons, but not for training, validation, threshold selection, or epoch selection. Aggregate results are five-run means $\pm$ standard deviations; fixed final models support paired instance-level subgroup comparisons and Wilson intervals.
 
 \subsection{Backbone Comparison}
 \label{sec:backbone}
 
-The backbone comparison selects a main model for the later diagnosis and provides mBERT baselines comparable to the prior work in \Sref{sec:related-sarcasm}. We compare dual-head models using mBERT, XLM-RoBERTa-base, DeBERTa-v3-base, and DeBERTa-v3-large. On the large encoder, we also compare the two intermediate-module variants from \Sref{sec:model-arch}.
+We compare dual-head mBERT, XLM-RoBERTa-base, DeBERTa-v3-base, and DeBERTa-v3-large under one evaluation protocol, adding the two intermediate variants on the large encoder. Their pretraining spans multilingual Wikipedia \citep{devlin2019bert}, multilingual CommonCrawl \citep{conneau2020xlmr}, and primarily English ELECTRA-style training \citep{clark2020electra}. Positive-class F1 uses the sarcastic class for sarcasm and the human class for MGTD on full DualTest.
 
-The encoders differ in pretraining. mBERT is BERT-base pretrained on multilingual Wikipedia \citep{devlin2019bert}; XLM-RoBERTa-base uses CommonCrawl text from about one hundred languages \citep{conneau2020xlmr}; and DeBERTa-v3 combines disentangled attention with ELECTRA-style pretraining \citep{clark2020electra} on primarily English corpora.
-
-We report positive-class F1: the sarcastic class for sarcasm, following iSarcasmEval, and the human class for MGTD. Both metrics use the full DualTest set, aggregating languages and source sides. AI-side sarcasm labels follow the generation instructions (\Sref{sec:data}).
-
-\Tabref{tab:backbone} reports the comparison (five-run mean $\pm$ standard deviation); the main model reaches sarcasm F1 0.6309 $\pm$ 0.020 and MGTD F1 0.9301 $\pm$ 0.005. Under the parameter scales and hyperparameter settings used here, DeBERTa-family encoders clearly outperform mBERT and XLM-R. The comparison mixes differences in parameter scale and pretraining corpora, and we use it only to pick the main model for the diagnosis.
-
-RCNN has the highest mean, and the intermediate variants show 34--47\% lower standard deviations across the five paired fold/seed runs.
-
-Performance also differs by language. For the main model, Chinese sarcasm F1 is 0.819 and English sarcasm F1 is 0.429. The difference mainly reflects sarcasm prevalence (63.8\% vs.\ 14.2\%) and source-benchmark difficulty (\hyperref[app:c7]{Appendix~C.7}).
-
-Across all models, sarcasm F1 is lower than MGTD F1. \Appref{app:results} reports macro-averaged, human-subset, and per-language results; the cross-dataset scores summarized in \Sref{sec:related-sarcasm} are not directly comparable with DualTest.
+\Tabref{tab:backbone} shows higher mean F1 for the evaluated DeBERTa configurations than for mBERT and XLM-R, with RCNN obtaining the highest means. The intermediate variants also show 34--47\% lower observed standard deviations across the five runs. Because backbone scale, pretraining, and intermediate representation vary together, this comparison characterizes the evaluated configurations rather than isolating one factor. RCNN reaches 0.6309 sarcasm F1 and 0.9301 MGTD F1, establishing a strong shared-encoder diagnostic configuration while leaving a substantial task-level performance gap to explain. Its sarcasm F1 is 0.819 in Chinese and 0.429 in English; prevalence, genre, annotation, and language jointly shape this contrast. \Appref{app:results} provides macro-averaged, human-subset, and language-stratified results.
 
 \begin{table}[t]
   \centering
@@ -220,10 +210,10 @@ Across all models, sarcasm F1 is lower than MGTD F1. \Appref{app:results} report
     DeBERTa-v3-base dual-head & 0.5646\,{\scriptsize$\pm$.056} & 0.8952\,{\scriptsize$\pm$.004} \\
     DeBERTa-v3-large plain dual-head & 0.6126\,{\scriptsize$\pm$.031} & 0.9221\,{\scriptsize$\pm$.010} \\
     \,\,+ interaction projection & 0.6076\,{\scriptsize$\pm$.020} & 0.9126\,{\scriptsize$\pm$.007} \\
-    \textbf{\,\,+ RCNN (main model)} & \textbf{0.6309}\,{\scriptsize$\pm$.020} & \textbf{0.9301}\,{\scriptsize$\pm$.005} \\
+    \textbf{\,\,+ RCNN} & \textbf{0.6309}\,{\scriptsize$\pm$.020} & \textbf{0.9301}\,{\scriptsize$\pm$.005} \\
     \bottomrule
   \end{tabular}
-  \caption{Dual-head detection performance across backbones and architectural variants (DualTest; five-run mean $\pm$ standard deviation; bold = main model).}
+  \caption{Descriptive dual-head results across backbones and architectural variants (DualTest; five-run mean $\pm$ standard deviation; bold = highest mean).}
   \label{tab:backbone}
 \end{table}
 
@@ -232,40 +222,35 @@ Across all models, sarcasm F1 is lower than MGTD F1. \Appref{app:results} report
 
 \begin{table}[t]
   \centering
-  \small
+  \footnotesize
+  \setlength{\tabcolsep}{2pt}
   \begin{tabular}{@{}llccc@{}}
     \toprule
     \textbf{Arch.} & \textbf{Task} & \textbf{Dual} & \textbf{Single} & \textbf{$\Delta$} \\
     \midrule
-    Plain & Sarc. & 0.6126 & 0.6734 & \textbf{$-$6.08} \\
-    Plain & MGTD & 0.9221 & 0.9054 & $+$1.67 \\
-    RCNN  & Sarc. & 0.6309 & 0.6751 & \textbf{$-$4.43} \\
-    RCNN  & MGTD & 0.9301 & 0.9253 & $+$0.49 \\
+    Plain & Sarc. & 0.6126\,{\scriptsize$\pm$.031} & 0.6734\,{\scriptsize$\pm$.010} & \textbf{$-$6.08} \\
+    Plain & MGTD & 0.9221\,{\scriptsize$\pm$.010} & 0.9054\,{\scriptsize$\pm$.027} & $+$1.67 \\
+    RCNN  & Sarc. & 0.6309\,{\scriptsize$\pm$.020} & 0.6751\,{\scriptsize$\pm$.022} & \textbf{$-$4.43} \\
+    RCNN  & MGTD & 0.9301\,{\scriptsize$\pm$.005} & 0.9253\,{\scriptsize$\pm$.006} & $+$0.49 \\
     \bottomrule
   \end{tabular}
-  \caption{Dual-head vs.\ single-head models (mean over five fold-based runs; $\Delta$ = dual $-$ single, in percentage points).}
+  \caption{Dual-head vs.\ single-head models (mean $\pm$ standard deviation over five fold-based runs; $\Delta$ = dual $-$ single, in percentage points).}
   \label{tab:ablation}
 \end{table}
 
-This ablation asks whether the sarcasm classifier changes because of joint training rather than because of architecture or sarcasm data. Within each architecture, the dual- and single-head models share the encoder, intermediate structure, sarcasm data, and fold assignments. They differ only in whether the other task is included during training, and comparisons are paired run by run (\Sref{sec:model-train}).
+Within each architecture, dual- and single-head models share the encoder, intermediate structure, sarcasm data, fold assignments, and sarcasm-specific hyperparameters; dual runs additionally receive AuthTrain batches and MGTD updates. Single-head controls traverse the full sarcasm fold each epoch, whereas dual-head models draw sarcasm batches under the 2:1 schedule (\Sref{sec:model-train}).
 
-Joint training lowers sarcasm F1 and slightly improves MGTD F1. Across the two architectures, all ten paired sarcasm differences are negative ($-0.8$ to $-8.6$ pp), whereas MGTD differences are centered around zero and are predominantly positive. This asymmetry does not depend on architecture.
+Joint training lowers mean sarcasm F1 by 6.08 pp for plain and 4.43 pp for RCNN, whereas the corresponding MGTD changes are $+1.67$ and $+0.49$ pp. All ten paired sarcasm differences are negative ($-0.8$ to $-8.6$ pp), so the transfer cost recurs across every split-matched run and both architectures. This repeated asymmetry identifies sarcasm as the task bearing the aggregate cost and motivates locating that cost by source and class. The smaller dual--single gap under RCNN further motivates the intermediate-architecture diagnosis below; capacity and compute differences are recorded in Limitations.
 
-RCNN moves both effects toward zero, consistent with partial buffering of inter-task interference; the quadrant analysis next examines the subgroup pattern.
-
-\subsection{Four-Quadrant Diagnosis: Class-Conditional Negative Transfer and Intermediate-Layer Buffering}
+\subsection{Four-Quadrant Diagnosis: Class-Conditional Negative Transfer across Intermediate Architectures}
 \label{sec:quadrant}
 
-Aggregate metrics cannot show whether an error depends on both source and sarcasm class. The overall sarcasm F1 of the plain dual-head model looks like unremarkable mid-range performance, although its errors concentrate on AI text. We therefore partition DualTest by its source $\times$ sarcasm labels and examine each combination separately. Human labels are dataset annotations, whereas AI labels record the prompted condition. Because each quadrant contains one label class, F1 is not informative within a quadrant: positive subsets contain no negative examples, and vice versa. We report recall for sarcastic subsets and the false-positive rate for non-sarcastic subsets.
+Aggregate F1 hides whether errors depend jointly on source and sarcasm class. We therefore partition DualTest by source $\times$ sarcasm. Human labels are dataset annotations and AI labels record prompted conditions; single-class quadrants use recall for sarcastic subsets and false-positive rate for non-sarcastic subsets.
 
 \subsubsection{Three Architectures and Single-Head Controls}
 \label{sec:quadrant-results}
 
-We compare five detectors on the same DualTest set. The three dual-head variants (plain, interaction projection, and RCNN) show how the failure changes with intermediate structure. Each of the two single-head models matches its dual-head counterpart in architecture and sarcasm supervision; only the AuthTrain data and MGTD objective are removed.
-
-The single-head models provide the counterfactual. If the failure came from training the sarcasm task only on human text, the matched single-head model should fail in the same way. If joint training induces the failure, the single-head model should not show it.
-
-\Tabref{tab:quadrant} reports the sarcasm predictions. Corresponding MGTD results are reported below and in \Appref{app:results}.
+The three dual-head variants show how the subgroup pattern changes with intermediate representation. Plain and RCNN single-head models provide matched controls for adding AuthTrain and MGTD supervision. Because these controls retain the same all-human sarcasm data, they distinguish the effect of joint training from the absence of AI texts in SarcTrain itself. \Tabref{tab:quadrant} reports sarcasm predictions; corresponding MGTD results are in \Appref{app:results}.
 
 \begin{table*}[t]
   \centering
@@ -277,7 +262,7 @@ The single-head models provide the counterfactual. If the failure came from trai
     \midrule
     Plain dual-head & 67.1\% & 32.9\% & 98.2\% & \textbf{86.3\%} [84.5, 88.0] \\
     Interaction-projection dual-head & 71.9\% & 37.6\% & 94.4\% & \textbf{40.9\%} [38.5, 43.4] \\
-    RCNN dual-head (main) & 80.8\% & 40.5\% & 89.3\% & \textbf{34.1\%} [31.8, 36.5] \\
+    RCNN dual-head & 80.8\% & 40.5\% & 89.3\% & \textbf{34.1\%} [31.8, 36.5] \\
     Plain single-head (sarcasm only) & 67.8\% & 28.7\% & 76.6\% & \textbf{19.3\%} [17.4, 21.4] \\
     RCNN single-head (sarcasm only) & 66.2\% & 28.5\% & 79.1\% & \textbf{19.3\%} [17.4, 21.4] \\
     \bottomrule
@@ -286,71 +271,67 @@ The single-head models provide the counterfactual. If the failure came from trai
   \label{tab:quadrant}
 \end{table*}
 
-The plain dual-head model predicts sarcasm for 86.3\% of AI $\times$ non-sarcastic instances. The error is therefore concentrated where AI-source cues co-occur with a non-sarcastic prompted condition, which is consistent with reliance on source-associated cues.
+The plain dual-head model predicts sarcasm for 86.3\% of AI $\times$ non-sarcastic instances. Interaction projection and RCNN reduce this rate to 40.9\% and 34.1\%, respectively, while both matched single-head controls yield 19.3\%. Thus, the two intermediate configurations reduce the observed severity by more than 45 pp relative to the plain dual-head model.
 
-Both intermediate modules reduce the false-positive rate by more than 45 pp from the plain model, with non-overlapping confidence intervals (\Tabref{tab:quadrant}). RCNN is about 7 pp lower than interaction projection, and that smaller difference is also significant (\hyperref[app:c7]{Appendix~C.7}).
+On the same texts, plain dual versus single gives 1{,}021/7 discordant pairs ($p<.001$). The matched single-head model receives the same all-human sarcasm supervision but not MGTD training, locating the large increase in the joint-training procedure. RCNN's matched comparison shows the same direction with a smaller gap; interaction projection has no single-head counterpart and contributes complementary configuration-level evidence.
 
-The matched single-head models have a false-positive rate of only 19.3\%, despite also receiving sarcasm supervision only from human text. On the same instances, the difference from the plain dual-head model is significant by a paired McNemar test (discordant pairs 1{,}021 / 7, $p < 0.001$; exact values and other comparisons are in \hyperref[app:c7]{Appendix~C.7}). Missing AI text from SarcTrain therefore cannot explain the failure; joint training induces it.
+No analogous extreme subgroup error appears in the MGTD head: its false-positive rate is 6.1\% for plain and 6.6\% for RCNN. Within AI texts, sarcasm AUC remains 0.82--0.88 while joint training raises score levels and largely preserves ordering. The failure is therefore not a collapse of within-AI ranking, but a source-conditioned upward shift that produces class-conditional negative transfer on the non-sarcastic prompted subset (\hyperref[app:c7]{Appendix~C.7}).
 
-The plain and RCNN single-head models also behave almost identically, both at approximately 19.3\%. RCNN's mitigating effect thus appears only under joint training, not as general architectural robustness to AI text.
+The matched plain comparison makes the concentration especially clear: its non-sarcastic false-positive rate changes by 4.2 pp on human text but by 67.0 pp on AI-generated text. The aggregate F1 decrease is therefore driven by a sharply localized source $\times$ class effect rather than a uniform loss across DualTest.
 
-The MGTD head provides a control for the failure's directionality. On the same AI $\times$ non-sarcastic subset, its false-positive rate is only 6.1\% (plain) / 6.6\% (RCNN), and it remains stable across all four quadrants. The single-head MGTD counterfactual performs at the same level as the dual-head models (complete values in \Appref{app:results}). On the same set of AI texts, the problem is concentrated in the sarcasm head and the gap is on the order of tens of percentage points.
-
-The failure depends jointly on source and sarcasm class and is most extreme for AI $\times$ non-sarcastic text. We therefore call it class-conditional negative transfer. The subgroup failure and the asymmetric aggregate transfer in \Sref{sec:ablation} describe the same effect at different levels.
-
-\subsubsection{Mechanism Explanation and Levels of Evidence}
+\subsubsection{Mechanism Hypothesis and Representation-Level Diagnostics}
 \label{sec:mechanism}
 
-Because MGTD gradients update the shared representation whereas SarcTrain contains only human texts, we hypothesize that the sarcasm head exploits source-correlated style cues that are not corrected by sarcasm supervision on AI text. Under this interpretation, an intermediate module may partially buffer changes in the shared representation. This account is a hypothesis rather than an established causal mechanism.
+We hypothesize that MGTD-shaped representations expose source-correlated cues to a sarcasm head that receives no sarcasm supervision on AI text. Source is highly decodable in both dual-head (AUC 0.986) and matched single-head (0.974) representations, so its presence alone is not the explanation. In the dual-head model, however, the MGTD-head AI logit correlates with the sarcasm-head logit on the target subgroup ($\rho=0.519$), while both MGTD-head and probe directions align with the sarcasm direction in whitened geometry.
 
-The representation evidence is mixed. Source is highly decodable and correlates with sarcasm decisions. LEACE \citep{belrose2023leace} reduces both source decodability and the AI $\times$ non-sarcastic false-positive rate.
+Representation interventions further characterize the effective variation. LEACE \citep{belrose2023leace} reduces measured linear source decodability from AUC 0.982 to 0.589 and shifts the non-sarcastic false-positive rates from 84.8\%/32.8\% on AI/human text to 68.7\%/49.5\%. Removing a high-variance direction orthogonal to the estimated linear source direction yields 66.7\%/54.1\% while preserving measured source decodability; ten sampled random controls show no comparable source-specific shift. Under LEACE, the unweighted mean across the two source groups remains nearly unchanged (58.8\% to 59.1\%), showing error redistribution rather than overall mitigation. Together, these results support a bounded source-correlated shortcut hypothesis and show prediction sensitivity to high-variance directions without isolating a unique causal feature (\Appref{app:repr}).
 
-However, removing a high-variance direction orthogonal to source produces a similar reduction while leaving source decodability intact; ten random-direction placebos leave the rate unchanged. The effective interventions therefore identify sensitivity to a dominant-variance subspace, but they do not establish source identity or any specific stylistic feature as causal. We accordingly use the term source-correlated shortcut. \Appref{app:repr} reports the full probing, erasure, and control results.
+This evidence chain goes beyond probe accuracy alone: task-head logit correlation connects source-related behavior to the decision, targeted interventions change how errors are allocated across sources, and the orthogonal and random controls constrain the interpretation. The result is a representation-level diagnosis of score sensitivity rather than a causal localization inferred from output labels alone.
 
 \subsubsection{Cross-Generator Replication}
 \label{sec:crossgen}
 
-To test whether the failure depends on one generator's style, we regenerate the AI side of DualTest with qwen3.5:9b \citep{qwen2026qwen35}. The human texts and trained detectors remain unchanged. \hyperref[app:c7]{Appendix~C.7} plots both generators with model-conditional Wilson 95\% intervals and gives the paired tests.
+We regenerate only DualTest's AI side with Qwen3.5-9B (Ollama tag \texttt{qwen3.5:9b}) \citep{qwen2026qwen35}, retaining the human texts and trained detectors. Among 1{,}550 non-sarcastic-condition outputs, plain dual rises from 86.3\% to 91.3\% and its matched single falls from 19.3\% to 7.9\%, increasing the gap from 67.0 to 83.4 pp. RCNN and interaction projection remain lower at 22.1\% and 29.5\%. Thus, both generators preserve the large plain dual--single separation and the lower rates of the two intermediate configurations. The second generator reproduces the gap direction with a different magnitude (\hyperref[app:c7]{Appendix~C.7}).
 
-With qwen3.5:9b, the plain dual-head false-positive rate rises from 86.3\% to 91.3\%, while the matched single-head rate falls from 19.3\% to 7.9\%. Mitigation also persists for RCNN (34.1\% $\to$ 22.1\%) and interaction projection (40.9\% $\to$ 29.5\%). The second generator therefore reproduces the class-conditional failure, although broader generator families remain untested.
-
-\section{Exploratory Detector--Judge Misalignment}
+\section{Exploratory Comparison of Detector Scores and LLM-Judge Ratings}
 \label{sec:eval}
 
-The preceding experiments treat the detector as a classifier. As a downstream implication, we now ask a related but separate question: whether its continuous scores track separately obtained, source-blinded judgments of generated text. This distinction matters because a classification boundary need not measure generation quality.
+As a downstream implication, we test whether source-classification probability tracks perceived human-likeness and whether sarcasm probability tracks LLM ratings. Human-authorship probability and perceived human-likeness are distinct constructs; their comparison directly tests whether a classifier score can function as a generation-evaluation proxy. We compare 600 outputs from Qwen3-8B before and after QLoRA fine-tuning on GenTrain. The RCNN detector and three LLM judges \citep{deepseek2024v3,gemini2025report,openai2026gpt5} score outputs from 180 Chinese topic-comment and 120 English rewriting prompts; the judges are not shown the ground-truth source, and language is coupled with generation task.
 
-We score 600 base and SFT outputs from 300 prompts. We use the main detector and three blinded LLM judges: DeepSeek-V3, Gemini-2.5-Flash-Lite, and GPT-5-nano \citep{deepseek2024v3,gemini2025report,openai2026gpt5}. The SFT model is Qwen3-8B \citep{qwen2025} fine-tuned on GenTrain with QLoRA \citep{dettmers2023qlora}; \hyperref[app:hyper]{Appendices~\ref*{app:hyper}}--\hyperref[app:results]{\ref*{app:results}} detail the protocol.
+Agreement varies by dimension and language. In Chinese, SFT raises detector sarcasm from 0.780 to 0.895 but lowers mean judge rating from 4.01 to 3.71; sarcasm correlation is $-0.020$ in Chinese and $+0.338$ in English. SFT outputs also receive higher human-authorship probabilities but lower perceived human-likeness ratings, yielding a pooled correlation of $-0.212$. Within-condition correlations show that this negative association is driven mainly by the reversal between base and SFT conditions.
 
-The two score sources rank the outputs differently. In Chinese, SFT raises the detector's sarcasm score from 0.780 to 0.895 but lowers the mean judge score from 4.01 to 3.71. The MGTD head also assigns higher human-authorship probabilities to SFT outputs in both languages, whereas the judges' perceived human-likeness ratings move in the opposite direction. Pooled Spearman correlation is $-0.212$ between human-authorship probabilities and human-likeness ratings and $-0.020$ for Chinese sarcasm.
+This condition-level reversal is directly relevant to generation evaluation: fine-tuning moves the detector scores in the apparently favorable direction while moving the external LLM ratings downward. A detector can therefore provide a useful classification boundary without its continuous score preserving the ordering required of a style or quality measure.
 
-The judges are LLMs, not human annotators, so what these results establish is detector--judge misalignment; how human readers would rate the same outputs is a question we do not answer. Even so, detector scores and a separate evaluation signal rank the same outputs differently, and that alone argues against using detector scores as standalone generation rewards. The full protocol, per-judge tests, within-condition correlations, language analysis, and representative cases are reported in \hyperref[app:results]{Appendices~\ref*{app:results}}--\hyperref[app:cases]{\ref*{app:cases}}.
+Inter-judge agreement is low to moderate at the instance level, but five of six language $\times$ judge comparisons assign lower sarcasm ratings to SFT than to the base outputs. A plain-detector control changes the reported correlations by at most 0.02. The consistent condition-level directions therefore show that detector probabilities require external validation as generation-quality proxies or rewards. Full protocols, tests, and representative cases are reported in \hyperref[app:results]{Appendices~\ref*{app:results}}--\hyperref[app:cases]{\ref*{app:cases}}.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-Source and sarcasm labels can coexist without conflict, but training them through one representation can still change how the sarcasm decision is made. The plain dual-head model, matched to its single-head counterpart in architecture and sarcasm supervision, sharply overpredicts sarcasm on AI-generated text prompted to be non-sarcastic; the failure persists with a second generator, and two intermediate configurations reduce it. Representation analyses support a source-correlated shortcut hypothesis and show sensitivity to a dominant-variance subspace, while leaving causal attribution open. On the generation side, SFT produced a language asymmetry, and detector and judge scores ranked the same outputs differently, so neither MGTD nor sarcasm detector scores should be treated as standalone generation-quality signals. When a source-predictive objective shares a representation with a semantic judgment, overall metrics should be supplemented with source $\times$ class subgroup evaluation.
+Source and sarcasm labels can coexist, yet joint training can change the sarcasm decision. Relative to a same-architecture single-head control using the same sarcasm data, the plain dual-head model has a sharply higher false-positive rate on AI text generated under non-sarcastic instructions. A second generator reproduces the gap's direction but not its magnitude, and both intermediate configurations have lower rates than the plain dual-head model. Representation analyses link the shift to source-correlated, high-variance directions, while revealing error redistribution rather than overall improvement and leaving causality unresolved. Detector probabilities and LLM-judge ratings also differ by dimension and task--language setting, so the evaluated scores require external validation as measures of style realization or quality. In our setting, aggregate metrics should be supplemented with authorship-source $\times$ reference-class analysis.
 
 \section*{Limitations}
 
-DualTest combines original sarcasm annotations for human texts with instruction-conditioned style labels for AI texts. Because humans did not independently annotate the AI-side labels, absolute AI-side scores measure agreement with the requested style.
+DualTest combines original sarcasm annotations for human texts with instruction-conditioned style labels for AI texts. Because instruction compliance is not independently annotated, an apparent AI-side false positive can reflect detector error or realized sarcasm despite a non-sarcastic instruction. Generation failures also leave 80 human texts without retained main-generator counterparts, so source-side comparisons are not fully paired. Seven exact train--test matches remain on the AI side (two from SarcTrain and five from AuthTrain); their influence cannot be separated without retraining.
 
-Replication with a second generator shows that the failure is not limited to deepseek-r1:8b, but it does not establish generalization across broader generator families. The input corpora also operationalize sarcasm differently, and the model does not use conversational context.
+The MGTD training text is produced with one generator, and the second generator replaces only DualTest's AI side. The results therefore establish a directional replication across two retained output sets rather than coverage of broader model families, scales, or training paradigms. The input corpora also operationalize sarcasm differently, and the detector does not use conversational context.
 
-The mechanism evidence is primarily behavioral and linear. Source information is decodable and correlated with sarcasm decisions, yet the orthogonal high-variance control blocks causal attribution to source identity. The architecture comparison provides convergent configuration-level evidence for buffering, but it is not capacity-matched and the MGTD-head rate differs for intermediate variants. Crucially, the dual--single comparisons within each architecture use the same sarcasm data, class weights, and optimization settings, keeping these factors matched when MGTD supervision is added; an unweighted-loss control could further characterize the effect's absolute severity.
+DualTest supports both the descriptive architecture comparison and the subsequent subgroup diagnosis, so cross-configuration results are descriptive rather than an independent model-selection test. The sarcasm loss also upweights the positive class despite balanced SarcTrain; this cost-sensitive choice can affect absolute false-positive rates, although each matched dual--single comparison uses the same weight. The dual and single procedures share architecture, sarcasm data, folds, and task-specific learning rates, but differ in task schedule, total shared-encoder updates, and early stopping; they estimate the complete joint-training procedure rather than a compute-matched auxiliary-gradient effect. Cross-architecture comparisons are neither capacity- nor optimization-matched, their MGTD-head learning rates differ, and interaction projection lacks a single-head counterpart.
 
-The generation analysis uses three blinded LLM judges rather than human evaluators and has a 60:40 Chinese--English sample ratio. Chinese and English prompts also instantiate different generation tasks, so cross-language differences conflate language with prompt and task format. The analysis therefore establishes a directional disagreement between detector and judge scores, not human-perceived quality or a pure language effect.
+The mechanism evidence is primarily behavioral and linear and uses one final plain dual-head model. Source is also highly decodable from the single-head representation, so decodability alone does not explain the joint-training-specific shift. The orthogonal high-variance control prevents attribution of the intervention effect specifically to source identity, and the interventions mainly redistribute non-sarcastic errors from AI to human text rather than lowering their source-averaged rate.
 
-We also do not test reward-based generation. Future work should measure how the observed misalignment affects reinforcement learning, apply causal-mediation and nonlinear tests to source attribution, and evaluate parameter-isolating or data-side mitigations.
+The generation analysis compares human-authorship probability with perceived human-likeness, which are related but non-equivalent constructs. It uses three LLM judges rather than human evaluators, and their instance-level agreement is low to moderate. The Chinese and English subsets differ in sample size, generation task, prompt structure, and source data. The results therefore show condition-level directional differences between the evaluated detector scores and selected LLM-judge ratings, not human-perceived quality or a pure language effect.
+
+Priority extensions are independent annotation of AI-side style realization, capacity- and training-budget-matched controls, and multi-generator, multilingual, and calibration analyses. Reward-based generation and nonlinear causal tests provide subsequent directions.
 
 \section*{Ethical considerations}
 
-All human-authored texts come from publicly released research datasets: iSarcasm, CSC, ToSarcasm, News Headlines, and the Open Chinese Internet Sarcasm Corpus. We use them under their original licenses, collect no new user data, and process no personally identifiable information.
+All human-authored texts come from publicly released research datasets: iSarcasm, CSC, ToSarcasm, News Headlines, and the Open Chinese Internet Sarcasm Corpus. Explicit repository licenses were available for iSarcasm and CSC; for sources without an identified redistribution license, we do not redistribute the human-authored text (\Appref{app:data}). We collect no new user data. We did not conduct an additional personally identifiable information or offensive-content audit beyond the preparation reflected in the released corpora.
 
-All AI texts were generated locally by open-source models (deepseek-r1:8b and qwen3.5:9b). They are used only for training and evaluation and are labeled as AI-generated. The blinded evaluation uses automated API calls to DeepSeek-V3, Gemini-2.5-Flash-Lite, and GPT-5-nano; it involves no human participants.
+All AI texts were generated locally using publicly released open-weight models (DeepSeek-R1-0528-Qwen3-8B and Qwen3.5-9B). They are used only for training and evaluation and are labeled as AI-generated. The study recruits no new human participants, but analyzes human-authored texts from previously released datasets. The automated evaluation transmits each evaluation input, generated output, and rating instructions to the DeepSeek-V3, Gemini-2.5-Flash-Lite, and GPT-5-nano APIs; it does not transmit dataset metadata or ground-truth source labels.
 
-The detectors are developed for research diagnosis. We explicitly warn (\Sref{sec:eval}) that their scores should not be used directly as generation-quality or reward signals, nor should the detectors be deployed in high-risk settings such as content moderation without evaluating out-of-distribution behavior. The class-conditional failure diagnosed here (the systematic prediction of sarcasm for AI-generated text prompted to be non-sarcastic) is itself an example of the systematic bias such systems can direct at particular content subgroups.
+The detectors are developed for research diagnosis. Their outputs should not be used as evidence of authorship or misconduct at the individual-text level without human review and domain-specific validation, nor deployed for content moderation or automated sanctions without evaluating out-of-distribution behavior. The class-conditional failure diagnosed here is an example of systematic subgroup error affecting a particular type of generated content.
 
-AI-assisted tools were used during writing for language polishing and formatting; the study design, experiments, and conclusions are the authors' own, and the authors take full responsibility for the work.
+AI-assisted tools were used for grammar correction, wording suggestions, and formatting. They did not generate the reported experimental outputs or statistics; the authors determined the study design, analysis, and conclusions and take full responsibility for the work.
 
 \bibliography{custom}
 
