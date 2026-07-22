@@ -393,8 +393,8 @@ John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
   optimization algorithms}.
 \newblock \emph{arXiv preprint arXiv:1707.06347}.
 
-\bibitem[{Singh et~al.(2026)}]{openai2026gpt5}
-Aaditya Singh et~al. 2026.
+\bibitem[{Singh et~al.(2025)}]{openai2026gpt5}
+Aaditya Singh et~al. 2025.
 \newblock \href {https://doi.org/10.48550/arXiv.2601.03267} {{OpenAI} {GPT-5}
   system card}.
 \newblock \emph{arXiv preprint arXiv:2601.03267}.
