@@ -1,4 +1,4 @@
-\begin{thebibliography}{65}
+\begin{thebibliography}{67}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Abu~Farha et~al.(2022)Abu~Farha, Oprea, Wilson, and
@@ -100,6 +100,14 @@ Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume
 \newblock \href {https://arxiv.org/abs/2501.12948} {{DeepSeek-R1}:
   Incentivizing reasoning capability in {LLMs} via reinforcement learning}.
 \newblock \emph{arXiv preprint arXiv:2501.12948}.
+
+\bibitem[{Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
+  Zettlemoyer}]{dettmers2023qlora}
+Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer. 2023.
+\newblock \href {https://arxiv.org/abs/2305.14314} {{QLoRA}: Efficient
+  finetuning of quantized {LLMs}}.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}.
 
 \bibitem[{Devlin et~al.(2019)Devlin, Chang, Lee, and
   Toutanova}]{devlin2019bert}
@@ -273,7 +281,7 @@ Chong Li, Shaonan Wang, Yunhao Zhang, Jiajun Zhang, and Chengqing Zong. 2023.
 
 \bibitem[{Liang et~al.(2022)Liang, Lin, Qin, and Xu}]{liang2022tosarcasm}
 Bin Liang, Zijie Lin, Bing Qin, and Ruifeng Xu. 2022.
-\newblock \href {https://github.com/HITSZ-HLT/ToSarcasm} {Topic-oriented
+\newblock \href {https://doi.org/10.18653/v1/2022.ccl-1.48} {Topic-oriented
   sarcasm detection: New task, new dataset and new method}.
 \newblock In \emph{Proceedings of the 21st Chinese National Conference on
   Computational Linguistics (CCL)}, pages 557--568.
@@ -320,12 +328,6 @@ David Mueller, Nicholas Andrews, and Mark Dredze. 2022.
 \newblock \href {https://ollama.com/library/deepseek-r1:8b}
   {{DeepSeek-R1-0528-Qwen3-8B} model card}.
 \newblock Ollama deployment tag \texttt{deepseek-r1:8b}; accessed 2026-07-21.
-
-\bibitem[{{OpenAI}(2026)}]{openai2026gpt5}
-{OpenAI}. 2026.
-\newblock \href {https://arxiv.org/abs/2601.03267} {{OpenAI} {GPT-5} system
-  card}.
-\newblock \emph{arXiv preprint arXiv:2601.03267}.
 
 \bibitem[{Oprea and Magdy(2020)}]{oprea2020isarcasm}
 Silviu Oprea and Walid Magdy. 2020.
@@ -390,6 +392,12 @@ John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
 \newblock \href {https://arxiv.org/abs/1707.06347} {Proximal policy
   optimization algorithms}.
 \newblock \emph{arXiv preprint arXiv:1707.06347}.
+
+\bibitem[{Singh et~al.(2026)}]{openai2026gpt5}
+Aaditya Singh et~al. 2026.
+\newblock \href {https://doi.org/10.48550/arXiv.2601.03267} {{OpenAI} {GPT-5}
+  system card}.
+\newblock \emph{arXiv preprint arXiv:2601.03267}.
 
 \bibitem[{Stickland and Murray(2019)}]{stickland2019pals}
 Asa~Cooper Stickland and Iain Murray. 2019.
@@ -469,21 +477,26 @@ Sen Wu, Hongyang~R. Zhang, and Christopher R{\'e}. 2020.
 \newblock In \emph{International Conference on Learning Representations
   (ICLR)}.
 
+\bibitem[{Yang et~al.(2025)}]{qwen2025}
+An~Yang et~al. 2025.
+\newblock \href {https://arxiv.org/abs/2505.09388} {{Qwen3} technical report}.
+\newblock \emph{arXiv preprint arXiv:2505.09388}.
+
 \bibitem[{Yang and Ikeda(2024)}]{yang2024influence}
 Linshuo Yang and Daisuke Ikeda. 2024.
 \newblock \href {https://doi.org/10.52731/ijskm.v8.i2.850} {The influence of
   linguistic attribute differences in multilingual datasets on sarcasm
   detection}.
 \newblock \emph{International Journal of Service and Knowledge Management},
-  8(2).
+  8(2):1--15.
 
 \bibitem[{Ye et~al.(2026)Ye, Jiang, Xie, Zheng, Ma, Cao, Guo, Qi, He, Tian,
-  Coffee, Zeng, Li, Huang, Wang, Rehg, Kautz, Wilson, and
+  Porter, Coffee, Zeng, Li, Wang, Huang, Rehg, Kautz, and
   Zhang}]{ye2024spurious}
 Wenqian Ye, Luyang Jiang, Eric Xie, Guangtao Zheng, Yunsheng Ma, Xu~Cao,
-  Dongliang Guo, Daiqing Qi, Zeyu He, Yijun Tian, Megan Coffee, Zhe Zeng, Sheng
-  Li, Ting-Hao~(Kenneth) Huang, Ziran Wang, James~M. Rehg, Henry Kautz,
-  Andrew~Gordon Wilson, and Aidong Zhang. 2026.
+  Dongliang Guo, Daiqing Qi, Zeyu He, Yijun Tian, Christopher~W. Porter, Megan
+  Coffee, Zhe Zeng, Sheng Li, Ziran Wang, Ting-Hao~(Kenneth) Huang,
+  James~Matthew Rehg, Henry Kautz, and Aidong Zhang. 2026.
 \newblock \href {https://openreview.net/forum?id=kIuqPmS1b1} {The clever {H}ans
   mirage: {A} comprehensive survey on spurious correlations in machine
   learning}.
@@ -526,7 +539,7 @@ Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao
   (NeurIPS)}.
 
 \bibitem[{Zhu(2022)}]{zhu2022corpus}
-Yuan Zhu. 2022.
+Yizhang Zhu. 2022.
 \newblock \href {https://doi.org/10.54097/fcis.v2i1.2484} {Open {Chinese}
   internet sarcasm corpus construction: An approach}.
 \newblock \emph{Frontiers in Computing and Intelligent Systems}, 2(1):7--9.

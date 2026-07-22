@@ -44,7 +44,9 @@ The pooled corpus collection contains 44{,}862 instances in total (86.9\% Englis
   \label{tab:dualtest-dist}
 \end{table}
 
-\paragraph{A.3 Data quality checks.} Automated checks confirm language and label balance across the five SarcTrain folds. AuthTrain contains 9{,}996 complete human--AI pairs and three unmatched human instances. Exact-match screening finds two SarcTrain instances (0.02\%) and five AuthTrain instances (0.025\%) that also occur on the AI side of DualTest; overlap on the human subset is zero. These seven residual matches are disclosed because they occur on the AI side used in the central subgroup analysis. SarcTrain's text-duplication rate is 0.34\% for English / 2.16\% for Chinese. Chinese duplication is concentrated in the sarcastic bucket (4.24\%; non-sarcastic bucket: 0.08\%) and results from the oversampling used to fill that bucket (A.1). Post-processing also checks for the explicit chain-of-thought markers and reasoning prefaces described in A.4 \citep{wei2022cot}.
+\paragraph{A.3 Data quality checks.} Automated checks confirm language and label balance across the five SarcTrain folds. AuthTrain contains 9{,}996 complete human--AI pairs and three unmatched human instances. Exact-match screening finds two SarcTrain instances (0.02\%) and five AuthTrain instances (0.025\%) that also occur on the AI side of DualTest; overlap on the human subset is zero. The seven records correspond to three unique DualTest texts. Removing those three texts at evaluation time changes every core AI $\times$ non-sarcastic rate by less than 0.1 pp; this sensitivity check bounds their direct contribution to the reported test rates but does not remove their training-side influence.
+
+SarcTrain's text-duplication rate is 0.34\% for English / 2.16\% for Chinese. Chinese duplication is concentrated in the sarcastic bucket (4.24\%; non-sarcastic bucket: 0.08\%) and results from the oversampling used to fill that bucket (A.1). Because oversampling precedes fold assignment, 86 of the 104 added records have a source counterpart in another fold. Under the raw-text counting convention used for these duplication rates, 116 repeated-text groups involving 241 records are present when oversampled copies are included, and 98 groups span folds. Excluding the added copies and normalizing whitespace and case leaves 19 naturally duplicated groups involving 46 records, of which 16 span folds. These relationships are relevant to fold-based checkpoint selection but do not place the affected training or validation records into DualTest. Post-processing also checks for the explicit chain-of-thought markers and reasoning prefaces described in A.4 \citep{wei2022cot}.
 
 \phantomsection\label{app:a4}\paragraph{A.4 AI generation protocol.} All AI texts are produced by locally deployed generation models through the Ollama API (DeepSeek-R1-0528-Qwen3-8B under tag \texttt{deepseek-r1:8b} for the main results; Qwen3.5-9B under tag \texttt{qwen3.5:9b} for cross-generator replication), using temperature $= 0.8$, top-$p = 0.95$ \citep{holtzman2020nucleus}, and a generation limit of 500 tokens. Generation instructions use four templates defined by language $\times$ style, with style determined by the seed instance's sarcasm label. The templates constrain output style and length (20--80 Chinese characters; 10--50 English words). This constraint is intended to reduce, but does not eliminate, source differences in length; \Appref{app:repr} separately repeats the representation correlation analysis within length tertiles. The complete Chinese sarcastic template used in the experiment is reproduced verbatim below:
 
@@ -105,24 +107,28 @@ The Qwen3.5-9B replication has no generation failures, yielding 1{,}550 AI $\tim
     \toprule
     \textbf{Group} & \textbf{Enc.} & \textbf{Inter.} & \textbf{Sarc.} & \textbf{MGTD} \\
     \midrule
-    Plain / backbone & 5e-7 & --- & 5e-6 & 1e-5 \\
-    Intermediate variants & 5e-7 & 5e-6 & 5e-6 & 5e-6 \\
-    Single-head & 5e-7 & 5e-6$^{\dagger}$ & 5e-6 & 1e-5 \\
+    Plain / backbone dual & 5e-7 & --- & 5e-6 & 1e-5 \\
+    RCNN dual & 5e-7 & 5e-6 & 5e-6 & 5e-6 \\
+    Interaction-projection dual & 5e-7 & 5e-6 & 5e-6 & 5e-6 \\
+    Plain single-task & 5e-7 & --- & 5e-6 & 1e-5 \\
+    RCNN single-task & 5e-7 & 5e-6 & 5e-6 & 1e-5 \\
     \bottomrule
   \end{tabular}
-  \caption{Discriminative learning rates. $^{\dagger}$RCNN single-head only.}
+  \caption{Discriminative learning rates for the evaluated dual- and single-task configurations.}
   \label{tab:lr}
 \end{table}
 
-The sarcasm-head learning rate is fixed at 5e-6 across configurations. The MGTD-head rate is 1e-5 for the plain dual-head and single-head models and 5e-6 for the intermediate variants. Cross-configuration differences may therefore reflect optimization settings as well as intermediate-representation design. The matched dual--single comparisons retain the same settings within each architecture.
+The sarcasm-head learning rate is fixed at 5e-6 across configurations. The MGTD-head rate is 1e-5 for the plain dual and single-task models, 5e-6 for the two intermediate dual-head variants, and 1e-5 for the RCNN MGTD single-task control. Thus, the core sarcasm dual--single comparisons retain the same sarcasm-specific rates within each architecture, whereas the RCNN MGTD comparison and cross-configuration results can also reflect optimization settings.
 
 \paragraph{B.2 Shared training hyperparameters.} Training uses AdamW with default PyTorch betas $(0.9,0.999)$ and $\epsilon=10^{-8}$, weight decay 0.01, and parameter-group learning rates in B.1. A LambdaLR schedule linearly warms up for 200 steps and then keeps the learning rate constant. Training uses at most 10 epochs, early-stopping patience 5, and gradient clipping 1.0. The physical batch size is 4 with gradient accumulation 4, giving an effective batch size of 16. The MGTD:sarcasm sampling ratio is 2:1, and sarcasm class weights are [1.0, 2.5]. Both choices were specified before testing. Because SarcTrain is balanced, the class weights implement cost-sensitive emphasis rather than imbalance correction. The normalized joint validation loss is $0.5 \times$ [sarcasm validation loss / first-epoch value] $+ 0.5 \times$ [MGTD validation loss / first-epoch value]. The single-head controls traverse the full sarcasm training fold each epoch, whereas the dual-head models draw sarcasm batches under the 2:1 task-mixing schedule.
 
-All fold-based runs start from seed 42 plus the fold index and share the same fold assignments and nominal seed scheme across architectures and ablations. MGTD data use a fixed 90/10 holdout in every fold. For each final-model configuration, the fixed epoch count is the mode of its five best epoch counts plus one, capped at 10 epochs. The final model uses all applicable training data, seed $+1000$, no validation set, and no early stopping. Main tables report five-run means and standard deviations rather than final-model point estimates.
+Detector inputs use a maximum sequence length of 512 tokens. In the RCNN module, a width-$k$ convolution uses padding $\lfloor k/2\rfloor$ followed by ReLU; global max pooling is applied directly over the full convolution output without an additional padding mask.
+
+All fold-based runs start from seed 42 plus the fold index and share the same fold assignments and nominal seed scheme across architectures and ablations. MGTD data use a fixed 90/10 holdout in every fold. For each final-model configuration, the fixed epoch count is the mode of its five best epoch counts plus one, capped at 10 epochs; all evaluated final configurations reach the 10-epoch cap. The final model uses all applicable training data, seed $+1000$, no validation set, and no early stopping. Main tables report five-run means and standard deviations rather than final-model point estimates.
 
 \paragraph{Model sizes, software, and hardware environment.} The encoders have approximately 178M (mBERT), 278M (XLM-RoBERTa-base), 184M (DeBERTa-v3-base), and 435M (DeBERTa-v3-large) parameters; the SFT generator Qwen3-8B has about 8B parameters, of which QLoRA updates only low-rank adapters. Detector training and inference are performed on a single NVIDIA GeForce RTX 3090 (24\,GB); the five-fold training of the backbone comparison, architecture, and ablation variants together with the final model amounts to on the order of tens of GPU-hours, with a single detector run taking from a few minutes to a few hours and SFT about two hours. The software environment is PyTorch 2.9.0 (CUDA 12.8), transformers 4.57.1, and peft 0.18.0. AI texts are generated locally through Ollama (\hyperref[app:a4]{Appendix~A.4}); blinded LLM evaluation uses API calls made in May 2026 (\hyperref[app:c3]{Appendix~C.3}).
 
-\paragraph{B.3 SFT (QLoRA).} We fine-tune Qwen3-8B with 4-bit loading and bfloat16 computation. LoRA \citep{hu2022lora} uses rank 64, alpha 16, dropout 0, and targets q/k/v/o\_proj plus gate/up/down\_proj. The maximum sequence length is 2{,}048, with gradient checkpointing enabled. Training uses learning rate 5e-5, three epochs, batch size 1, gradient accumulation 8, and warmup ratio 0.05. After language balancing, a seed-42 split holds out 15\% of GenTrain for validation; validation loss selects the checkpoint.
+\paragraph{B.3 SFT (QLoRA).} We fine-tune Qwen3-8B using QLoRA \citep{dettmers2023qlora}, with 4-bit loading and bfloat16 computation. The LoRA adapters \citep{hu2022lora} use rank 64, alpha 16, dropout 0, and target q/k/v/o\_proj plus gate/up/down\_proj. The maximum sequence length is 2{,}048, with gradient checkpointing enabled. Training uses learning rate 5e-5, three epochs, batch size 1, gradient accumulation 8, and warmup ratio 0.05. After language balancing, a seed-42 split holds out 15\% of GenTrain for validation; validation loss selects the checkpoint.
 
 \section{Complete Experimental Results}
 \label{app:results}
@@ -158,7 +164,7 @@ No comparable subgroup increase appears on the qwen3.5:9b replication set: AI $\
 
 Pairwise instance-level agreement is moderate to low. Spearman $\rho$ ranges from 0.20 to 0.38 for sarcasm (all $p < 10^{-6}$) and from 0.03 to 0.23 for human-likeness (one pair is not significant). The conclusion in \Sref{sec:eval} therefore rests on consistent condition-level directions, not agreement in instance rankings.
 
-Wilcoxon signed-rank tests with Benjamini--Hochberg FDR correction \citep{benjamini1995fdr} show that SFT receives lower sarcasm ratings than the base model in five of six language $\times$ judge groups. The pooled correlations in \Tabref{tab:correlation} use the three-judge mean as a descriptive aggregate; because inter-judge agreement is limited, the judge-specific results remain necessary.
+Wilcoxon signed-rank tests with Benjamini--Hochberg FDR correction \citep{benjamini1995fdr} show that SFT receives lower sarcasm ratings than the base model in five of six language $\times$ judge groups. The pooled correlations in \Tabref{tab:correlation} use the three-judge mean as a descriptive aggregate; because inter-judge agreement is limited, the judge-specific results remain necessary. Four unparsable ratings occur across four instances, each of which retains two valid judge ratings; the aggregate uses the mean of available ratings and therefore retains all 600 outputs.
 
 \begin{table}[h]
   \centering
@@ -260,6 +266,26 @@ The fixed final-model configurations show the same directional dual--single gap 
 \end{table}
 
 Paired McNemar tests use predictions on the same AI $\times$ non-sarcastic texts from the main-generator set. Discordant pairs are 1{,}021 / 7 for plain dual vs.\ plain single, 239 / 15 for RCNN dual vs.\ RCNN single, 805 / 15 for plain dual vs.\ RCNN dual, and 203 / 100 for interaction projection vs.\ RCNN dual (all $p < .001$). The discordant counts and absolute rate differences carry the substantive effect size.
+
+\begin{table}[h]
+  \centering
+  \scriptsize
+  \resizebox{\columnwidth}{!}{%
+  \begin{tabular}{@{}llrccc@{}}
+    \toprule
+    \textbf{Model} & \textbf{Lang.} & \textbf{$n$} & \textbf{Dual pos.; rate [CI]} & \textbf{Single pos.; rate [CI]} & \textbf{$\Delta$ pp} \\
+    \midrule
+    Plain & en & 1{,}174 & 987; 84.1 [81.9, 86.1] & 242; 20.6 [18.4, 23.0] & $+63.5$ \\
+    Plain & zh & 339 & 319; 94.1 [91.1, 96.2] & 50; 14.7 [11.4, 18.9] & $+79.4$ \\
+    RCNN & en & 1{,}174 & 445; 37.9 [35.2, 40.7] & 247; 21.0 [18.8, 23.5] & $+16.9$ \\
+    RCNN & zh & 339 & 71; 20.9 [17.0, 25.6] & 45; 13.3 [10.1, 17.3] & $+7.7$ \\
+    \bottomrule
+  \end{tabular}}
+  \caption{Language-stratified sarcasm false-positive rates on AI texts prompted to be non-sarcastic (\%; Wilson 95\% intervals). Exact paired McNemar tests give $p<.001$ for both plain comparisons and RCNN English, and $p=2.4\times10^{-5}$ for RCNN Chinese.}
+  \label{tab:lang-quadrant}
+\end{table}
+
+Both same-architecture comparisons therefore have the same direction in Chinese and English. Language remains coupled with corpus, genre, and annotation setting, so these results provide stratified replication across the two task--language settings rather than an isolated language effect.
 
 \begin{table*}[t]
   \centering

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.26)  22 JUL 2026 02:43
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.26)  22 JUL 2026 16:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1037,6 +1037,12 @@ Underfull \hbox (badness 2253) in paragraph at lines 81--82
 
 
 
+Underfull \hbox (badness 1178) in paragraph at lines 89--90
+\TU/TimesNewRoman(0)/m/n/10.95 sarcasm ([][]Oprea and Magdy[][], [][]2020[][]; 
+[][]Abu Farha
+ []
+
+
 Underfull \hbox (badness 1215) in paragraph at lines 91--92
 []\TU/TimesNewRoman(0)/m/n/10.95 Architecturally, this work follows [][]Yang an
 d
@@ -1233,12 +1239,6 @@ arily English
  []
 
 
-Underfull \hbox (badness 3375) in paragraph at lines 196--197
-\TU/TimesNewRoman(0)/m/n/10.95 ELECTRA-style training ([][]Clark et al.[][], []
-[]2020[][]).
- []
-
-
 
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/b/n/9'.
@@ -1302,7 +1302,7 @@ Underfull \hbox (badness 1028) in paragraph at lines 243--244
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6725) has occurred while \output is active []
 
 
 
@@ -1336,11 +1336,6 @@ Underfull \hbox (badness 4156) in paragraph at lines 294--295
 
 
 [7]
-Underfull \hbox (badness 1348) in paragraph at lines 299--300
-\TU/TimesNewRoman(0)/m/n/10.95 on GenTrain. The RCNN detector and three
- []
-
-
 Underfull \hbox (badness 1259) in paragraph at lines 301--302
 \TU/TimesNewRoman(0)/m/n/10.95 In Chinese, SFT raises detector sarcasm from
  []
@@ -1415,81 +1410,81 @@ Underfull \hbox (badness 2245) in paragraph at lines 51--57
 
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 106--112
+Underfull \hbox (badness 1490) in paragraph at lines 114--120
 []\TU/TimesNewRoman(0)/m/n/10 Jacob Devlin, Ming-Wei Chang, Kenton Lee, and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--152
+Underfull \hbox (badness 10000) in paragraph at lines 155--160
 []\TU/TimesNewRoman(0)/m/n/10 Robert Geirhos, Jörn-Henrik Jacobsen, Claudio
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--152
+Underfull \hbox (badness 10000) in paragraph at lines 155--160
 \TU/TimesNewRoman(0)/m/n/10 Michaelis, Richard Zemel, Wieland Brendel,
  []
 
 
 
 [10]
-Underfull \hbox (badness 1168) in paragraph at lines 210--217
+Underfull \hbox (badness 1168) in paragraph at lines 218--225
 []\TU/TimesNewRoman(0)/m/n/10 Ziniu Hu, Zhe Zhao, Xinyang Yi, Tiansheng Yao,
  []
 
 
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 267--273
+Underfull \hbox (badness 2165) in paragraph at lines 275--281
 []\TU/TimesNewRoman(0)/m/n/10 Chong Li, Shaonan Wang, Yunhao Zhang, Jiajun
  []
 
 
-Underfull \hbox (badness 2600) in paragraph at lines 302--309
+Underfull \hbox (badness 2600) in paragraph at lines 310--317
 []\TU/TimesNewRoman(0)/m/n/10 Eric Mitchell, Yoonho Lee, Alexander Khazatsky,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--345
+Underfull \hbox (badness 10000) in paragraph at lines 341--347
 \TU/TimesNewRoman(0)/m/n/10 Kyunghyun Cho, and Iryna Gurevych. 2021.
  []
 
 
-Underfull \hbox (badness 7944) in paragraph at lines 339--345
+Underfull \hbox (badness 7944) in paragraph at lines 341--347
 [][]\TU/TimesNewRoman(0)/m/n/10 AdapterFusion: Non-destructive task composi-
  []
 
 
 
 [11]
-Underfull \hbox (badness 4024) in paragraph at lines 388--393
+Underfull \hbox (badness 4024) in paragraph at lines 390--395
 \TU/TimesNewRoman(0)/m/n/10 Radford, and Oleg Klimov. 2017.  [][]Proximal
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 388--393
+Underfull \hbox (badness 1755) in paragraph at lines 390--395
 \TU/TimesNewRoman(0)/m/n/10 policy optimization algorithms[][].  \TU/TimesNewRo
 man(0)/m/it/10 arXiv preprint
  []
 
 
-Underfull \hbox (badness 1082) in paragraph at lines 411--417
+Underfull \hbox (badness 1082) in paragraph at lines 419--425
 \TU/TimesNewRoman(0)/m/n/10 Tromble, Scott Hale, and Helen Margetts. 2019.
  []
 
 
-
-
-Underfull \hbox (badness 3690) in paragraph at lines 428--438
+Underfull \hbox (badness 3690) in paragraph at lines 436--446
 \TU/TimesNewRoman(0)/m/n/10 Su, Artem Shelmanov, Akim Tsvigun, Chenxi
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 458--464
+
+
+Underfull \hbox (badness 1210) in paragraph at lines 466--472
 \TU/TimesNewRoman(0)/m/it/10 ence on Natural Language Processing (EMNLP-
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 473--479
+Underfull \hbox (badness 1142) in paragraph at lines 486--492
 \TU/TimesNewRoman(0)/m/it/10 Journal of Service and Knowledge Management\TU/Tim
 esNewRoman(0)/m/n/10 ,
  []
@@ -1663,33 +1658,6 @@ Underfull \hbox (badness 2547) in paragraph at lines 123--124
 
 
 
-Underfull \hbox (badness 1205) in paragraph at lines 125--126
- []\TU/TimesNewRoman(0)/b/n/10.95 B.3 SFT (QLoRA).[] \TU/TimesNewRoman(0)/m/n/1
-0.95 We fine-tune Qwen3-8B
- []
-
-
-Underfull \hbox (badness 4832) in paragraph at lines 125--126
-\TU/TimesNewRoman(0)/m/n/10.95 with 4-bit loading and bfloat16 computation.
- []
-
-
-Underfull \hbox (badness 1132) in paragraph at lines 125--126
-\TU/TimesNewRoman(0)/m/n/10.95 LoRA ([][]Hu et al.[][], [][]2022a[][]) uses ran
-k 64, alpha
- []
-
-
-Underfull \hbox (badness 3746) in paragraph at lines 125--126
-\TU/TimesNewRoman(0)/m/n/10.95 16, dropout 0, and targets q/k/v/o_proj plus
- []
-
-
-Underfull \hbox (badness 3758) in paragraph at lines 125--126
-\TU/TimesNewRoman(0)/m/n/10.95 gate/up/down_proj. The maximum sequence
- []
-
-
 Underfull \hbox (badness 2334) in paragraph at lines 130--131
  []\TU/TimesNewRoman(0)/b/n/10.95 C.1 Macro-averaged F1 (supplement to [][]Ta-
  []
@@ -1779,13 +1747,16 @@ Underfull \hbox (badness 1014) in paragraph at lines 204--205
  []
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[16]
+
 Underfull \hbox (badness 1490) in paragraph at lines 226--227
 []\TU/TimesNewRoman(0)/m/n/10.95 Sarcasm scores move in opposite directions
  []
 
 
+
+[16]
 Underfull \hbox (badness 5771) in paragraph at lines 228--229
 \TU/TimesNewRoman(0)/m/n/10.95 likeness are 3.77/4.17 for human references,
  []
@@ -1938,12 +1909,12 @@ Package rerunfilecheck Info: File `manuscript_eacl2027.out' has not changed.
 (rerunfilecheck)             Checksum: B1CA3213165FB7CA8301C953BD02AD84;6242.
  ) 
 Here is how much of TeX's memory you used:
- 18641 strings out of 473832
- 375873 string characters out of 5729481
- 868199 words of memory out of 5000000
- 41428 multiletter control sequences out of 15000+600000
+ 18647 strings out of 473832
+ 375996 string characters out of 5729481
+ 868315 words of memory out of 5000000
+ 41434 multiletter control sequences out of 15000+600000
  570425 words of font info for 133 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,14n,93p,1526b,635s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,14n,93p,1526b,639s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on manuscript_eacl2027.pdf (21 pages).
