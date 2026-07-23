@@ -329,6 +329,12 @@ David Mueller, Nicholas Andrews, and Mark Dredze. 2022.
   {{DeepSeek-R1-0528-Qwen3-8B} model card}.
 \newblock Ollama deployment tag \texttt{deepseek-r1:8b}; accessed 2026-07-21.
 
+\bibitem[{{OpenAI}(2026)}]{openai2026gpt5}
+{OpenAI}. 2026.
+\newblock \href {https://doi.org/10.48550/arXiv.2601.03267} {{OpenAI} {GPT-5}
+  system card}.
+\newblock \emph{arXiv preprint arXiv:2601.03267}.
+
 \bibitem[{Oprea and Magdy(2020)}]{oprea2020isarcasm}
 Silviu Oprea and Walid Magdy. 2020.
 \newblock \href {https://aclanthology.org/2020.acl-main.118/} {{iSarcasm}: A
@@ -392,12 +398,6 @@ John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
 \newblock \href {https://arxiv.org/abs/1707.06347} {Proximal policy
   optimization algorithms}.
 \newblock \emph{arXiv preprint arXiv:1707.06347}.
-
-\bibitem[{Singh et~al.(2025)}]{openai2026gpt5}
-Aaditya Singh et~al. 2025.
-\newblock \href {https://doi.org/10.48550/arXiv.2601.03267} {{OpenAI} {GPT-5}
-  system card}.
-\newblock \emph{arXiv preprint arXiv:2601.03267}.
 
 \bibitem[{Stickland and Murray(2019)}]{stickland2019pals}
 Asa~Cooper Stickland and Iain Murray. 2019.

@@ -47,4 +47,4 @@ C.3 比较 base 与 SFT。唯一 English 缺失发生在 base，故 English $n=1
 
 ## 9. 版本与复现范围
 
-论文报告实际模型名、Ollama tag、生成参数、调用月份和软件环境。历史 DeepSeek digest 已无法复核，因此我们不提供无法验证的标识，也不声称 bitwise reproduction。GPT-5 System Card 引用采用 arXiv:2601.03267，并按其首次提交日期将年份记为 2025。
+论文报告实际模型名、Ollama tag、生成参数、调用月份和软件环境。历史 DeepSeek digest 已无法复核，因此我们不提供无法验证的标识，也不声称 bitwise reproduction。GPT-5 System Card 引用采用 arXiv:2601.03267，年份按该 arXiv 版本记为 2026。
