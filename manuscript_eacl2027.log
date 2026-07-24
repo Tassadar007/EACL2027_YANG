@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.26)  23 JUL 2026 16:14
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.26)  24 JUL 2026 21:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -961,45 +961,7 @@ Underfull \hbox (badness 1990) in paragraph at lines 71--72
 
 
 ]
-Underfull \hbox (badness 2644) in paragraph at lines 75--76
-[]\TU/TimesNewRoman(0)/m/n/10.95 As a downstream implication, we examine
- []
-
-
-Underfull \hbox (badness 1831) in paragraph at lines 75--76
-\TU/TimesNewRoman(0)/m/n/10.95 castic intent. We therefore compare detector
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
-[]\TU/TimesNewRoman(0)/m/n/10.95 We train dual-head models on bilingual
- []
-
-
-Underfull \hbox (badness 1264) in paragraph at lines 77--78
-\OMS/cmsy/m/n/10.95 ^^B$ \TU/TimesNewRoman(0)/m/n/10.95 sarcasm quadrants. Comp
-ared with single-
- []
-
-
-Underfull \hbox (badness 2671) in paragraph at lines 77--78
-\TU/TimesNewRoman(0)/m/n/10.95 evaluated joint-training procedure substantially
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
-\TU/TimesNewRoman(0)/m/n/10.95 increases the sarcasm false-positive rate on
- []
-
-
-Underfull \hbox (badness 1242) in paragraph at lines 77--78
-\TU/TimesNewRoman(0)/m/n/10.95 concentrated in a particular source $\OMS/cmsy/m
-/n/10.95 ^^B$ \TU/TimesNewRoman(0)/m/n/10.95 sarcasm
- []
-
-
-Underfull \hbox (badness 2269) in paragraph at lines 79--80
+Underfull \hbox (badness 2269) in paragraph at lines 77--78
 []\TU/TimesNewRoman(0)/m/n/10.95 We then examine the shared representation.
  []
 
@@ -1022,34 +984,18 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/b/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Underfull \hbox (badness 1406) in paragraph at lines 81--82
+Underfull \hbox (badness 1406) in paragraph at lines 79--80
 \TU/TimesNewRoman(0)/m/n/10.95 alTest for source $\OMS/cmsy/m/n/10.95 ^^B$ \TU/
 TimesNewRoman(0)/m/n/10.95 sarcasm analysis. Same-
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 81--82
-\TU/TimesNewRoman(0)/m/n/10.95 characterize how its severity varies across the
- []
-
-
-
-
-Underfull \hbox (badness 1178) in paragraph at lines 89--90
+Underfull \hbox (badness 1178) in paragraph at lines 87--88
 \TU/TimesNewRoman(0)/m/n/10.95 sarcasm ([][]Oprea and Magdy[][], [][]2020[][]; 
 [][]Abu Farha
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 91--92
-[]\TU/TimesNewRoman(0)/m/n/10.95 Architecturally, this work follows [][]Yang an
-d
- []
-
-
-Underfull \hbox (badness 2376) in paragraph at lines 91--92
-\TU/TimesNewRoman(0)/m/n/10.95 Arabic and English–Chinese training sets and
- []
 
 
 
@@ -1093,20 +1039,20 @@ Package microtype Info: Character `textquotedblright ' is missing
 
 
 
-
-[3]
-Underfull \hbox (badness 1571) in paragraph at lines 119--120
+Underfull \hbox (badness 1571) in paragraph at lines 117--118
 [][]\TU/TimesNewRoman(0)/m/n/10.95 2022[][]), News Headlines v2 ([][]Misra and 
 Arora[][],
  []
 
 
-Underfull \hbox (badness 1264) in paragraph at lines 119--120
+Underfull \hbox (badness 1264) in paragraph at lines 117--118
 \TU/TimesNewRoman(0)/m/n/10.95 pooled instances (approximately 87% English),
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 121--122
+
+[3]
+Underfull \hbox (badness 1163) in paragraph at lines 119--120
 \TU/TimesNewRoman(0)/b/n/10.95 (10,000, all human).[] \TU/TimesNewRoman(0)/m/n/
 10.95 Each language $\OMS/cmsy/m/n/10.95 ^^B$ \TU/TimesNewRoman(0)/m/n/10.95 la
 bel
@@ -1137,34 +1083,12 @@ Package fontspec Info:
 (fontspec)             SC/BI/OT:script=hani;language=dflt;"
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
- []\TU/TimesNewRoman(0)/b/n/10.95 MGTD training set, AuthTrain (19,995).[]
+Underfull \hbox (badness 5563) in paragraph at lines 121--122
+\TU/TimesNewRoman(0)/m/n/10.95 thTrain draws 9,999 approximately language-
  []
 
 
-Underfull \hbox (badness 7221) in paragraph at lines 123--124
-\TU/TimesNewRoman(0)/m/n/10.95 From 9,999 language-balanced human seeds,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
-\TU/TimesNewRoman(0)/m/n/10.95 DeepSeek-R1-0528-Qwen3-8B (Ollama tag
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
-\TU/lmtt/m/n/10.95 deepseek-r1:8b\TU/TimesNewRoman(0)/m/n/10.95 ) ([][]DeepSeek
--AI[][], [][]2025[][]; [][]Ol-
- []
-
-
-Underfull \hbox (badness 4391) in paragraph at lines 123--124
-\TU/TimesNewRoman(0)/m/n/10.95 lama[][], [][]2025[][]) produces 9,996 retained 
-outputs
- []
-
-
-Underfull \hbox (badness 2460) in paragraph at lines 127--128
+Underfull \hbox (badness 2460) in paragraph at lines 125--126
 \TU/TimesNewRoman(0)/b/n/10.95 in [][]§6[][][]).[] \TU/TimesNewRoman(0)/m/n/10.
 95 From 5,257 eligible positive-sarcasm
  []
@@ -1174,12 +1098,14 @@ Underfull \hbox (badness 2460) in paragraph at lines 127--128
 File: figures/fig_architecture.pdf Graphic file (type pdf)
 <use figures/fig_architecture.pdf>
 
-Underfull \hbox (badness 2644) in paragraph at lines 148--149
+Underfull \hbox (badness 2644) in paragraph at lines 146--147
 \TU/TimesNewRoman(0)/m/n/10.95 dimensional encoder output, then apply three
  []
 
 
-Underfull \hbox (badness 1552) in paragraph at lines 150--151
+
+[4]
+Underfull \hbox (badness 1552) in paragraph at lines 148--149
 \OML/cmm/m/it/10.95 h[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 P[]\OT1/cmr/m/
 n/10.95 (\OML/cmm/m/it/10.95 h[]\OT1/cmr/m/n/10.95 )$ \TU/TimesNewRoman(0)/m/n/
 10.95 and $\OML/cmm/m/it/10.95 h[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 h[]
@@ -1188,46 +1114,30 @@ n/10.95 (\OML/cmm/m/it/10.95 h[]\OT1/cmr/m/n/10.95 )$ \TU/TimesNewRoman(0)/m/n/
  []
 
 
-
-[4]
-Underfull \hbox (badness 2376) in paragraph at lines 157--158
+Underfull \hbox (badness 2376) in paragraph at lines 155--156
 []\TU/TimesNewRoman(0)/m/n/10.95 Training uses a mixed loader that supplies
  []
 
 
-Underfull \hbox (badness 2564) in paragraph at lines 157--158
+Underfull \hbox (badness 2564) in paragraph at lines 155--156
 \TU/TimesNewRoman(0)/m/n/10.95 task-homogeneous batches according to a 2:1
  []
 
 
-
-
-Underfull \hbox (badness 1803) in paragraph at lines 169--170
+Underfull \hbox (badness 1803) in paragraph at lines 167--168
 []\TU/TimesNewRoman(0)/m/n/10.95 where $[][]$ is a pre-specified cost-sensitive
 
  []
 
 
 
+
+
 [5]
-Underfull \hbox (badness 4060) in paragraph at lines 196--197
-\TU/TimesNewRoman(0)/m/n/10.95 pretraining spans multilingual Wikipedia ([][]De
--
+Underfull \hbox (badness 4505) in paragraph at lines 194--195
+[][]\TU/TimesNewRoman(0)/m/n/10.95 2019[][]), XLM-RoBERTa-base ([][]Conneau et 
+al.[][],
  []
-
-
-Underfull \hbox (badness 1571) in paragraph at lines 196--197
-\TU/TimesNewRoman(0)/m/n/10.95 vlin et al.[][], [][]2019[][]), multilingual Com
-monCrawl
- []
-
-
-Underfull \hbox (badness 1448) in paragraph at lines 196--197
-\TU/TimesNewRoman(0)/m/n/10.95 ([][]Conneau et al.[][], [][]2020[][]), and prim
-arily English
- []
-
-
 
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/b/n/9'.
@@ -1266,106 +1176,169 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/n/7'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--209
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\TU/TimesNewRoman(0)/m/n/9 XLM-RoBERTa-base
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--210
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
 []|\TU/TimesNewRoman(0)/m/n/9 DeBERTa-v3-base dual-
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 211--211
+Underfull \hbox (badness 2057) in paragraph at lines 209--209
 []|\TU/TimesNewRoman(0)/m/n/9 DeBERTa-v3-large plain
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 241--242
+
+
+Underfull \hbox (badness 2608) in paragraph at lines 239--240
 \TU/TimesNewRoman(0)/m/n/10.95 sarcasm data, fold assignments, and sarcasm-
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 243--244
-\TU/TimesNewRoman(0)/m/n/10.95 pp for plain and 4.43 pp for RCNN, whereas
+Underfull \hbox (badness 3148) in paragraph at lines 241--242
+[]\TU/TimesNewRoman(0)/m/n/10.95 Joint training lowers mean sarcasm F1 by
  []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 241--242
+\TU/TimesNewRoman(0)/m/n/10.95 6.08 pp for the plain model and 4.43 pp for
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 243.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\times' on input line 243.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 243.
 
 
 
 [6]
-Underfull \hbox (badness 1199) in paragraph at lines 253--254
-\TU/TimesNewRoman(0)/m/n/10.95 group pattern changes with intermediate repre-
- []
-
-
-Underfull \hbox (badness 1062) in paragraph at lines 274--275
+Underfull \hbox (badness 1062) in paragraph at lines 272--273
 []\TU/TimesNewRoman(0)/m/n/10.95 The plain dual-head model predicts sarcasm
  []
 
 
-Underfull \hbox (badness 1721) in paragraph at lines 274--275
+Underfull \hbox (badness 1721) in paragraph at lines 272--273
 \TU/TimesNewRoman(0)/m/n/10.95 tion and 34.1% for RCNN, while both same-
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 274--275
+Underfull \hbox (badness 4660) in paragraph at lines 272--273
 \TU/TimesNewRoman(0)/m/n/10.95 architecture single-head controls yield 19.3%.
  []
 
 
-
-
-Underfull \hbox (badness 1189) in paragraph at lines 285--286
-\TU/TimesNewRoman(0)/m/n/10.95 We hypothesize that MGTD-shaped representa-
+Underfull \hbox (badness 1688) in paragraph at lines 276--277
+\TU/TimesNewRoman(0)/m/n/10.95 in the MGTD head: its false-positive rate is
  []
 
 
-Underfull \hbox (badness 2088) in paragraph at lines 289--290
-\TU/TimesNewRoman(0)/m/n/10.95 sources, and the orthogonal and random con-
+Underfull \hbox (badness 2359) in paragraph at lines 283--284
+\TU/TimesNewRoman(0)/m/n/10.95 from both dual-head (AUC 0.986) and same-
  []
 
 
-Underfull \hbox (badness 4156) in paragraph at lines 294--295
-\TU/TimesNewRoman(0)/m/n/10.95 We regenerate only DualTest’s AI side with
+Underfull \hbox (badness 1314) in paragraph at lines 283--284
+\TU/TimesNewRoman(0)/m/n/10.95 architecture single-head (0.974) representations
+.
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 4403) in paragraph at lines 283--284
+\TU/TimesNewRoman(0)/m/n/10.95 The comparable single-head AUC establishes
+ []
+
+
+Underfull \hbox (badness 2564) in paragraph at lines 283--284
+\TU/TimesNewRoman(0)/m/n/10.95 source decodability as a background property
+ []
+
+
+
+
+Underfull \hbox (badness 1112) in paragraph at lines 285--286
+\TU/TimesNewRoman(0)/m/n/10.95 to 0.589. It also changes the AI/human non-
+ []
+
+
+Underfull \hbox (badness 2302) in paragraph at lines 292--293
+\TU/TimesNewRoman(0)/m/n/10.95 plain dual-head false-positive rates are 86.3%
+ []
 
 
 
 [7]
-Underfull \hbox (badness 1259) in paragraph at lines 301--302
-\TU/TimesNewRoman(0)/m/n/10.95 In Chinese, SFT raises detector sarcasm from
+Underfull \hbox (badness 1931) in paragraph at lines 299--300
+\TU/TimesNewRoman(0)/m/n/10.95 ings decline, yielding a pooled correlation of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
+[]\TU/TimesNewRoman(0)/m/n/10.95 The sarcasm-detector change is setting-
+ []
+
+
+Underfull \hbox (badness 7151) in paragraph at lines 301--302
+\TU/TimesNewRoman(0)/m/n/10.95 comparisons give SFT lower mean sarcasm
  []
 
 
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 310--311
+Underfull \hbox (badness 3199) in paragraph at lines 303--304
+[]\TU/TimesNewRoman(0)/m/n/10.95 Agreement among the three judges is low
+ []
+
+
+Underfull \hbox (badness 3323) in paragraph at lines 303--304
+\TU/TimesNewRoman(0)/m/n/10.95 to moderate at the individual-text level. A
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 303--304
+\TU/TimesNewRoman(0)/m/n/10.95 nal validation before detector probabilities are
+
+ []
+
+
+Underfull \hbox (badness 1152) in paragraph at lines 303--304
+\TU/TimesNewRoman(0)/m/n/10.95 reused as generation-quality scores or rewards.
+ []
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 308--309
 \TU/TimesNewRoman(0)/m/n/10.95 compared with a same-architecture single-head
  []
 
 
 
 [8]
-Underfull \hbox (badness 1102) in paragraph at lines 316--317
+Underfull \hbox (badness 1102) in paragraph at lines 314--315
 \TU/TimesNewRoman(0)/m/n/10.95 complete joint-training procedure: architecture,
 
  []
 
 
-Underfull \hbox (badness 4416) in paragraph at lines 316--317
+Underfull \hbox (badness 4416) in paragraph at lines 314--315
 \TU/TimesNewRoman(0)/m/n/10.95 and class weights are shared, while MGTD
  []
 
 
-Underfull \hbox (badness 2012) in paragraph at lines 316--317
+Underfull \hbox (badness 2012) in paragraph at lines 314--315
 \TU/TimesNewRoman(0)/m/n/10.95 batches, task scheduling, shared updates, and
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 316--317
+Underfull \hbox (badness 1371) in paragraph at lines 314--315
 \TU/TimesNewRoman(0)/m/n/10.95 joint early stopping enter together. Compute-
  []
 
@@ -1391,8 +1364,6 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/it/10'.
 (microtype)             Ignoring protrusion settings for this character.
 
-
-[9]
 Underfull \hbox (badness 7344) in paragraph at lines 51--57
 [][]\TU/TimesNewRoman(0)/m/n/10 Identifying and mitigating spurious correlation
 
@@ -1405,86 +1376,88 @@ Underfull \hbox (badness 2245) in paragraph at lines 51--57
  []
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 114--120
+
+[9]
+Underfull \hbox (badness 1490) in paragraph at lines 107--113
 []\TU/TimesNewRoman(0)/m/n/10 Jacob Devlin, Ming-Wei Chang, Kenton Lee, and
  []
 
 
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 155--160
+Underfull \hbox (badness 10000) in paragraph at lines 148--153
 []\TU/TimesNewRoman(0)/m/n/10 Robert Geirhos, Jörn-Henrik Jacobsen, Claudio
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--160
+Underfull \hbox (badness 10000) in paragraph at lines 148--153
 \TU/TimesNewRoman(0)/m/n/10 Michaelis, Richard Zemel, Wieland Brendel,
  []
 
 
-Underfull \hbox (badness 1168) in paragraph at lines 218--225
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 211--218
 []\TU/TimesNewRoman(0)/m/n/10 Ziniu Hu, Zhe Zhao, Xinyang Yi, Tiansheng Yao,
  []
 
 
 
 [10]
-Underfull \hbox (badness 2165) in paragraph at lines 275--281
+Underfull \hbox (badness 2165) in paragraph at lines 260--266
 []\TU/TimesNewRoman(0)/m/n/10 Chong Li, Shaonan Wang, Yunhao Zhang, Jiajun
  []
 
 
-
-
-Underfull \hbox (badness 2600) in paragraph at lines 310--317
+Underfull \hbox (badness 2600) in paragraph at lines 295--302
 []\TU/TimesNewRoman(0)/m/n/10 Eric Mitchell, Yoonho Lee, Alexander Khazatsky,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--353
+Underfull \hbox (badness 10000) in paragraph at lines 332--338
 \TU/TimesNewRoman(0)/m/n/10 Kyunghyun Cho, and Iryna Gurevych. 2021.
  []
 
 
-Underfull \hbox (badness 7944) in paragraph at lines 347--353
+Underfull \hbox (badness 7944) in paragraph at lines 332--338
 [][]\TU/TimesNewRoman(0)/m/n/10 AdapterFusion: Non-destructive task composi-
  []
 
 
-Underfull \hbox (badness 4024) in paragraph at lines 396--401
+
+
+Underfull \hbox (badness 4024) in paragraph at lines 381--386
 \TU/TimesNewRoman(0)/m/n/10 Radford, and Oleg Klimov. 2017.  [][]Proximal
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 396--401
+Underfull \hbox (badness 1755) in paragraph at lines 381--386
 \TU/TimesNewRoman(0)/m/n/10 policy optimization algorithms[][].  \TU/TimesNewRo
 man(0)/m/it/10 arXiv preprint
  []
 
 
-
-[11]
-Underfull \hbox (badness 1082) in paragraph at lines 419--425
+Underfull \hbox (badness 1082) in paragraph at lines 404--410
 \TU/TimesNewRoman(0)/m/n/10 Tromble, Scott Hale, and Helen Margetts. 2019.
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 436--446
+
+[11]
+Underfull \hbox (badness 3690) in paragraph at lines 421--431
 \TU/TimesNewRoman(0)/m/n/10 Su, Artem Shelmanov, Akim Tsvigun, Chenxi
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 466--472
+Underfull \hbox (badness 1210) in paragraph at lines 451--457
 \TU/TimesNewRoman(0)/m/it/10 ence on Natural Language Processing (EMNLP-
  []
 
 
-
-
-Underfull \hbox (badness 1142) in paragraph at lines 486--492
+Underfull \hbox (badness 1142) in paragraph at lines 471--477
 \TU/TimesNewRoman(0)/m/it/10 Journal of Service and Knowledge Management\TU/Tim
 esNewRoman(0)/m/n/10 ,
  []
+
+
 
 ) (./appendices_eacl2027.tex
 Underfull \hbox (badness 10000) in paragraph at lines 13--13
@@ -1512,9 +1485,6 @@ Underfull \hbox (badness 7362) in paragraph at lines 17--17
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 
 [12]
 Underfull \hbox (badness 2126) in paragraph at lines 47--47
@@ -1530,13 +1500,16 @@ Underfull \hbox (badness 1496) in paragraph at lines 47--48
 
 
 
+Underfull \hbox (badness 2189) in paragraph at lines 51--52
+\TU/TimesNewRoman(0)/m/n/10.95 AuthTrain and the two DualTest versions are
+ []
+
+
 Underfull \hbox (badness 1342) in paragraph at lines 51--52
 \TU/TimesNewRoman(0)/m/n/10.95 produced by locally deployed generation mod-
  []
 
 
-
-[13]
 Underfull \hbox (badness 10000) in paragraph at lines 67--75
 []\TU/TimesNewRoman(0)/m/n/9 [\TU/TimesNewRoman(0)/m/n/10.95 rènwù] shēngchéng 
 yī tiáo fěngcì
@@ -1583,6 +1556,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--88
  []
 
 
+
+[13]
 Underfull \hbox (badness 1721) in paragraph at lines 90--91
 []\TU/TimesNewRoman(0)/m/n/10.95 The Chinese non-sarcastic template changes
  []
@@ -1611,11 +1586,11 @@ Underfull \hbox (badness 1755) in paragraph at lines 94--95
  []
 
 
-
-
 Underfull \hbox (badness 1168) in paragraph at lines 96--97
 \TU/TimesNewRoman(0)/m/n/10.95 40% sampling select 2,103 records (1,214 En-
  []
+
+
 
 
 Underfull \hbox (badness 5008) in paragraph at lines 110--110
@@ -1652,8 +1627,6 @@ Underfull \hbox (badness 2547) in paragraph at lines 129--130
  []
 
 
-
-
 Underfull \hbox (badness 2334) in paragraph at lines 136--137
  []\TU/TimesNewRoman(0)/b/n/10.95 C.1 Macro-averaged F1 (supplement to [][]Ta-
  []
@@ -1664,6 +1637,11 @@ Underfull \hbox (badness 1142) in paragraph at lines 136--137
 8 $\OMS/cmsy/m/n/10.95 ^^F$ \TU/TimesNewRoman(0)/b/n/10.95 0.005 \TU/TimesNewRo
 man(0)/m/n/10.95 for MGTD. Sar-
  []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 
 Underfull \hbox (badness 1742) in paragraph at lines 138--139
@@ -1681,13 +1659,13 @@ Underfull \hbox (badness 1194) in paragraph at lines 159--160
  []
 
 
-
-[15]
 Underfull \hbox (badness 2245) in paragraph at lines 163--164
  []\TU/TimesNewRoman(0)/b/n/10.95 C.3 Blinded-evaluation protocol, inter-judge
  []
 
 
+
+[15]
 Underfull \hbox (badness 1253) in paragraph at lines 167--168
 []\TU/TimesNewRoman(0)/m/n/10.95 Wilcoxon signed-rank tests with Benjamini–
  []
@@ -1713,12 +1691,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--195
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 1281) in paragraph at lines 204--205
-\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0025$\TU/TimesNewRo
-man(0)/m/n/10.95 ); for GPT-5-nano, SFT is significantly
+Underfull \hbox (badness 2326) in paragraph at lines 204--205
+\TU/TimesNewRoman(0)/m/n/10.95 vide judge- and dimension-specific calibration
  []
 
 
@@ -1743,13 +1717,16 @@ Underfull \hbox (badness 1014) in paragraph at lines 210--211
  []
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[16]
+
 Underfull \hbox (badness 1490) in paragraph at lines 232--233
 []\TU/TimesNewRoman(0)/m/n/10.95 Sarcasm scores move in opposite directions
  []
 
 
+
+[16]
 Underfull \hbox (badness 5771) in paragraph at lines 234--235
 \TU/TimesNewRoman(0)/m/n/10.95 likeness are 3.77/4.17 for human references,
  []
@@ -1760,28 +1737,13 @@ File: figures/fig1_quadrant_failure.pdf Graphic file (type pdf)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \hbox (badness 3098) in paragraph at lines 268--269
+\TU/TimesNewRoman(0)/m/n/10.95 same DeepSeek-generated AI $\OMS/cmsy/m/n/10.95 
+^^B$ \TU/TimesNewRoman(0)/m/n/10.95 non-sarcastic
+ []
 
 
 
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
-(microtype)             Ignoring protrusion settings for this character.
 
 Underfull \hbox (badness 2435) in paragraph at lines 312--313
 \TU/TimesNewRoman(0)/m/n/10.95 annotation procedure, and language: sarcasm
@@ -1790,11 +1752,9 @@ Underfull \hbox (badness 2435) in paragraph at lines 312--313
 
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 314--315
-[]\TU/TimesNewRoman(0)/m/n/10.95 DeBERTa-v3’s SentencePiece vocabulary
+Underfull \hbox (badness 2435) in paragraph at lines 325--326
+\TU/TimesNewRoman(0)/m/n/10.95 human-likeness ratings, high detector sarcasm
  []
-
-
 
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/b/n/6'.
@@ -1850,63 +1810,75 @@ Package microtype Info: Character `textquotedblleft ' is missing
 Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/it/9'.
 (microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/7'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/7'.
+(microtype)             Ignoring protrusion settings for this character.
 
-Underfull \hbox (badness 4647) in paragraph at lines 346--347
-\TU/TimesNewRoman(0)/b/n/10.95 the analysis in [][]§6[][][]).[] \TU/TimesNewRom
-an(0)/m/n/10.95 In the first case, AI-
- []
-
-
-Underfull \hbox (badness 5985) in paragraph at lines 346--347
-\TU/TimesNewRoman(0)/m/n/10.95 generated text with obvious chain-of-thought
- []
-
-
-Underfull \hbox (badness 1048) in paragraph at lines 367--367
- []\TU/TimesNewRoman(0)/b/n/10.95 D.2 Detector-high / LLM-judge-low sarcasm
- []
-
-
-Underfull \hbox (badness 1048) in paragraph at lines 386--387
- []\TU/TimesNewRoman(0)/b/n/10.95 D.3 Detector-low / LLM-judge-high sarcasm
- []
 
 
 
-[18] [19]
-Underfull \hbox (badness 2158) in paragraph at lines 401--402
+[18]
+Underfull \hbox (badness 2158) in paragraph at lines 392--393
 \TU/TimesNewRoman(0)/m/n/10.95 text-length tertiles. For alignment, $\OT1/cmr/m
 /n/10.95 ^^F$ \TU/TimesNewRoman(0)/m/n/10.95 is the
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-
-
-Underfull \hbox (badness 1377) in paragraph at lines 405--406
-\TU/TimesNewRoman(0)/m/n/10.95 The permuted-label control gives 0.512. The
+Underfull \hbox (badness 1571) in paragraph at lines 396--397
+\TU/TimesNewRoman(0)/m/n/10.95 on sarcastic texts, and 0.985 on non-sarcastic
  []
 
 
-Underfull \hbox (badness 2644) in paragraph at lines 409--410
+Underfull \hbox (badness 2644) in paragraph at lines 400--401
 \TU/TimesNewRoman(0)/m/n/10.95 sarcastic false-positive rate $\OMS/cmsy/m/n/10.
 95 ^^@$ \TU/TimesNewRoman(0)/m/n/10.95 human $\OMS/cmsy/m/n/10.95 ^^B$ \TU/Time
 sNewRoman(0)/m/n/10.95 non-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
+Underfull \hbox (badness 10000) in paragraph at lines 414--414
 []|\TU/TimesNewRoman(0)/m/n/9 Random
  []
 
 
 
-[20
-
-])
-Underfull \hbox (badness 1939) in paragraph at lines 435--335
+[19])
+Underfull \hbox (badness 1939) in paragraph at lines 426--333
 []\TU/TimesNewRoman(0)/m/n/10.95 Under LEACE, the unweighted mean false-
  []
 
@@ -1914,7 +1886,7 @@ Underfull \hbox (badness 1939) in paragraph at lines 435--335
 
 
 
-[21
+[20
 
 ] (./manuscript_eacl2027.aux)
  ***********
@@ -1922,15 +1894,15 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `manuscript_eacl2027.out' has not changed.
-(rerunfilecheck)             Checksum: B1CA3213165FB7CA8301C953BD02AD84;6242.
+(rerunfilecheck)             Checksum: B497B54624EF1F8D212232A3B5390799;5935.
  ) 
 Here is how much of TeX's memory you used:
- 18651 strings out of 473832
- 376141 string characters out of 5729481
- 869612 words of memory out of 5000000
- 41437 multiletter control sequences out of 15000+600000
- 570433 words of font info for 134 fonts, out of 8000000 for 9000
+ 18707 strings out of 473832
+ 379726 string characters out of 5729481
+ 868117 words of memory out of 5000000
+ 41491 multiletter control sequences out of 15000+600000
+ 570449 words of font info for 136 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,14n,93p,1418b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,14n,93p,1418b,615s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on manuscript_eacl2027.pdf (21 pages).
+Output written on manuscript_eacl2027.pdf (20 pages).

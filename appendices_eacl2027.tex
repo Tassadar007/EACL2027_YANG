@@ -44,11 +44,11 @@ The pooled corpus collection contains 44{,}862 instances in total (86.9\% Englis
   \label{tab:dualtest-dist}
 \end{table}
 
-\paragraph{A.3 Data quality checks.} Automated checks confirm language and label balance across the five SarcTrain folds. AuthTrain contains 9{,}996 complete human--AI pairs and three unmatched human instances. Exact-match screening finds two SarcTrain instances (0.02\%) and five AuthTrain instances (0.025\%) that also occur on the AI side of DualTest; overlap on the human subset is zero. The seven records correspond to three unique DualTest texts. Removing those three texts at evaluation time changes every core AI $\times$ non-sarcastic rate by less than 0.1 pp; this sensitivity check bounds their direct contribution to the reported test rates but does not remove their training-side influence.
+\paragraph{A.3 Data quality checks.} Automated checks confirm language and label balance across the five SarcTrain folds. AuthTrain contains 9{,}996 complete human--AI pairs and three unmatched human instances. Record-level matching confirms that neither SarcTrain nor AuthTrain shares records with the human or AI side of DualTest; no train--test leakage is present.
 
 SarcTrain's text-duplication rate is 0.34\% for English / 2.16\% for Chinese. Chinese duplication is concentrated in the sarcastic bucket (4.24\%; non-sarcastic bucket: 0.08\%) and results from the oversampling used to fill that bucket (A.1). Because oversampling precedes fold assignment, 86 of the 104 added records have a source counterpart in another fold. Under the raw-text counting convention used for these duplication rates, 116 repeated-text groups involving 241 records are present when oversampled copies are included, and 98 groups span folds. Excluding the added copies and normalizing whitespace and case leaves 19 naturally duplicated groups involving 46 records, of which 16 span folds. These relationships are relevant to fold-based checkpoint selection but do not place the affected training or validation records into DualTest. Post-processing also checks for the explicit chain-of-thought markers and reasoning prefaces described in A.4 \citep{wei2022cot}.
 
-\phantomsection\label{app:a4}\paragraph{A.4 AI generation protocol.} All AI texts are produced by locally deployed generation models through the Ollama API (DeepSeek-R1-0528-Qwen3-8B under tag \texttt{deepseek-r1:8b} for the main results; Qwen3.5-9B under tag \texttt{qwen3.5:9b} for cross-generator replication), using temperature $= 0.8$, top-$p = 0.95$ \citep{holtzman2020nucleus}, and a generation limit of 500 tokens. Generation instructions use four templates defined by language $\times$ style, with style determined by the seed instance's sarcasm label. The templates constrain output style and length (20--80 Chinese characters; 10--50 English words). This constraint is intended to reduce, but does not eliminate, source differences in length; \Appref{app:repr} separately repeats the representation correlation analysis within length tertiles. The complete Chinese sarcastic template used in the experiment is reproduced verbatim below:
+\phantomsection\label{app:a4}\paragraph{A.4 AI generation protocol.} The AI texts in AuthTrain and the two DualTest versions are produced by locally deployed generation models through the Ollama API. DeepSeek-R1-0528-Qwen3-8B under tag \texttt{deepseek-r1:8b} generates AuthTrain and the DeepSeek version of DualTest's AI side; Qwen3.5-9B under tag \texttt{qwen3.5:9b} generates the alternate AI side used for cross-generator replication. Both use temperature $= 0.8$, top-$p = 0.95$ \citep{holtzman2020nucleus}, and a generation limit of 500 tokens. Generation instructions use four templates defined by language $\times$ style, with style determined by the seed instance's sarcasm label. The templates constrain output style and length (20--80 Chinese characters; 10--50 English words). This constraint is intended to reduce, but does not eliminate, source differences in length; \Appref{app:repr} separately repeats the representation correlation analysis within length tertiles. The complete Chinese sarcastic template used in the experiment is reproduced verbatim below:
 
 \begin{quote}\small\ttfamily
 【任务】生成一条讽刺风格的评论\\
@@ -201,7 +201,7 @@ Wilcoxon signed-rank tests with Benjamini--Hochberg FDR correction \citep{benjam
   \label{tab:group-tests}
 \end{table}
 
-\paragraph{C.4 Paired tests between SFT and human references (supplementary).} This test is performed on the Chinese subset of the generation-evaluation set ($n = 180$; GPT-5-nano is missing three instances, leaving 177). Directions are inconsistent: for DeepSeek-V3, SFT is significantly below the reference on human-likeness ($-0.161$, $p = 0.0025$); for GPT-5-nano, SFT is significantly above the reference on sarcasm ($+0.186$, $p = 0.0114$); the other four groups are not significant.
+\paragraph{C.4 Paired tests between SFT and human references (supplementary).} This test is performed on the Chinese subset of the generation-evaluation set ($n = 180$; GPT-5-nano is missing three instances, leaving 177). These comparisons provide judge- and dimension-specific calibration context: for DeepSeek-V3, SFT is significantly below the reference on human-likeness ($-0.161$, $p = 0.0025$), whereas for GPT-5-nano, SFT is significantly above the reference on sarcasm ($+0.186$, $p = 0.0114$). The remaining four comparisons are statistically indistinguishable at the reported threshold, showing that proximity to the human reference depends on the judge and evaluated dimension.
 
 \paragraph{C.5 Plain-detector control.} With the plain detector, Chinese sarcasm changes from 0.765 to 0.763 ($-0.001$), English sarcasm from 0.843 to 0.659 ($-0.184$), and the MGTD score rises by $+0.760$ in Chinese and $+0.705$ in English. The two detectors therefore agree on the rise in MGTD scores, while the sarcasm direction depends on the detector.
 
@@ -242,7 +242,7 @@ Mean LLM judgments for sarcasm / human-likeness are 3.77/4.17 for human referenc
   \label{fig:quadrant}
 \end{figure}
 
-The fixed final-model configurations show the same directional dual--single gap with the second generator, although its magnitude differs.
+The fixed final-model configurations show the same directional dual--single gap on the Qwen3.5-generated AI texts, although its magnitude differs.
 
 
 
@@ -252,7 +252,7 @@ The fixed final-model configurations show the same directional dual--single gap 
   \setlength{\tabcolsep}{3pt}
   \begin{tabular}{@{}lcc@{}}
     \toprule
-    \textbf{Model} & \textbf{deepseek} & \textbf{qwen} \\
+    \textbf{Model} & \textbf{DeepSeek} & \textbf{Qwen3.5} \\
     \midrule
     Plain dual & 86.3 [84.5, 88.0] & 91.3 [89.8, 92.6] \\
     Inter.-proj.\ dual & 40.9 [38.5, 43.4] & 29.5 [27.3, 31.8] \\
@@ -265,11 +265,11 @@ The fixed final-model configurations show the same directional dual--single gap 
   \label{tab:wilson}
 \end{table}
 
-Paired McNemar tests use predictions on the same AI $\times$ non-sarcastic texts from the main-generator set. Discordant pairs are 1{,}021 / 7 for plain dual vs.\ plain single, 239 / 15 for RCNN dual vs.\ RCNN single, 805 / 15 for plain dual vs.\ RCNN dual, and 203 / 100 for interaction projection vs.\ RCNN dual (all $p < .001$). The discordant counts and absolute rate differences carry the substantive effect size.
+Paired McNemar tests use predictions on the same DeepSeek-generated AI $\times$ non-sarcastic texts. Discordant pairs are 1{,}021 / 7 for plain dual vs.\ plain single, 239 / 15 for RCNN dual vs.\ RCNN single, 805 / 15 for plain dual vs.\ RCNN dual, and 203 / 100 for interaction projection vs.\ RCNN dual (all $p < .001$). The discordant counts and absolute rate differences carry the substantive effect size.
 
 \begin{table}[h]
   \centering
-  \scriptsize
+  \small
   \resizebox{\columnwidth}{!}{%
   \begin{tabular}{@{}llrccc@{}}
     \toprule
@@ -307,11 +307,9 @@ Both same-architecture comparisons therefore have the same direction in Chinese 
   \label{tab:lang-f1}
 \end{table*}
 
-Main-model MGTD F1 is 0.938 [0.931, 0.945] on the full set, 0.961 [0.952, 0.969] in Chinese, and 0.923 [0.912, 0.933] in English. Because the source label is constant within the human subset, positive-class F1 reduces to recall and is not reported separately.
+The final RCNN dual-head model's MGTD F1 is 0.938 [0.931, 0.945] on the full set, 0.961 [0.952, 0.969] in Chinese, and 0.923 [0.912, 0.933] in English. Because the human subset contains no AI-labeled negatives, a source-class F1 is not separately reported for this subset; \Tabref{tab:auth-quadrant} reports human recall directly.
 
 Chinese sarcasm F1 is higher than English sarcasm F1 for the RCNN model (0.819 vs.\ 0.429). The contrast is confounded by prevalence, genre, annotation procedure, and language: sarcasm prevalence is 63.8\% in Chinese but 14.2\% in English, and the English human side is dominated by author-labeled intended-sarcasm tweets from iSarcasmEval whereas the Chinese side uses topic-comment-style ToSarcasm. The positive-class F1 values are therefore not directly comparable as a pure language contrast.
-
-DeBERTa-v3's SentencePiece vocabulary \citep{kudo2018sentencepiece} tokenizes Chinese largely by character, at approximately 1.02 tokens per character with 2.5\% out-of-vocabulary symbols. This observation does not separate language from the other dataset differences above.
 
 The separately retrained final RCNN model's overall sarcasm F1 is 0.663, compared with 0.629 on human texts alone, because the overall score also includes AI texts. The five-run mean in \Tabref{tab:backbone} is a different estimate. Within the human subset, dual--single differences are below 0.03 and vary in direction. The visible negative-transfer loss is therefore concentrated in the AI-side quadrants, consistent with \Sref{sec:quadrant}.
 
@@ -319,18 +317,18 @@ False-positive rates use a threshold of 0.5. For the plain dual-head model on AI
 
 AUC values within AI texts are similar across models (0.82--0.88). Joint training thus raises sarcasm scores while largely preserving their internal ordering. This pattern is consistent with a source-related component being added to the sarcasm signal.
 
-\section{Representative Cases of Detector--LLM Score Misalignment}
+\section{Illustrative Cases of Detector--LLM Score Misalignment}
 \label{app:cases}
 
-Cases were manually selected after inspecting the paired table of RCNN-detector scores and ratings from the three LLMs to illustrate large disagreements; no formal ranking or top-$k$ selection was implemented. Detector scores range from 0 to 1, and LLM scores are the three-evaluator mean on a 1--5 scale; long texts are truncated. Chinese examples retain the original model input and provide a pinyin transliteration and an English translation in brackets.
+Illustrative cases were manually selected after inspecting the paired table of RCNN-detector scores and ratings from the three LLMs to show large disagreements; no formal ranking or top-$k$ selection was implemented. Detector scores range from 0 to 1, and LLM scores are the three-evaluator mean on a 1--5 scale; long texts are truncated. Chinese examples retain the original model input and provide a pinyin transliteration and an English translation in brackets.
 
-\paragraph{D.1 Classified as human-authored by the detector but rated as less human-like by the LLMs (MGTD-score misalignment; corresponding to the analysis in \Sref{sec:eval}).}
+The three groups show, respectively, high detector human-authorship scores with low LLM human-likeness ratings, high detector sarcasm scores with low LLM sarcasm ratings, and the reverse sarcasm disagreement. In the first human-likeness case, AI-generated text with obvious chain-of-thought traces is nevertheless assigned human-authorship probability 1.00 by the MGTD head, corresponding to the score disagreement discussed in \Sref{sec:eval}.
 
-\begin{table*}[t]
+\begin{table}[!htbp]
   \centering
   \small
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{12.6cm}@{}}
+  \setlength{\tabcolsep}{2pt}
+  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{4.9cm}@{}}
     \toprule
     \textbf{L} & \textbf{S} & \textbf{$P_{\text{hum}}$/LLM} & \textbf{Text (excerpt)} \\
     \midrule
@@ -341,17 +339,13 @@ Cases were manually selected after inspecting the paired table of RCNN-detector 
   \end{tabular}
   \caption{MGTD-score misalignment cases. $P_{\text{hum}} = P(\text{human})$.}
   \label{tab:cases-auth}
-\end{table*}
+\end{table}
 
-In the first case, AI-generated text with obvious chain-of-thought traces is nevertheless assigned human-authorship probability 1.00 by the MGTD head, corresponding to the score disagreement discussed in \Sref{sec:eval}.
-
-\paragraph{D.2 Detector-high / LLM-judge-low sarcasm cases.}
-
-\begin{table*}[t]
+\begin{table}[!htbp]
   \centering
   \small
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{12.6cm}@{}}
+  \setlength{\tabcolsep}{2pt}
+  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{4.9cm}@{}}
     \toprule
     \textbf{L} & \textbf{S} & \textbf{$P_{\text{sar}}$/LLM} & \textbf{Text (excerpt)} \\
     \midrule
@@ -362,15 +356,13 @@ In the first case, AI-generated text with obvious chain-of-thought traces is nev
   \end{tabular}
   \caption{Detector-high / LLM-judge-low sarcasm cases. $P_{\text{sar}} = P(\text{sarcastic})$.}
   \label{tab:cases-fp}
-\end{table*}
+\end{table}
 
-\paragraph{D.3 Detector-low / LLM-judge-high sarcasm cases.}
-
-\begin{table*}[t]
+\begin{table}[!htbp]
   \centering
-  \small
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{12.6cm}@{}}
+  \scriptsize
+  \setlength{\tabcolsep}{2pt}
+  \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{4.9cm}@{}}
     \toprule
     \textbf{L} & \textbf{S} & \textbf{$P_{\text{sar}}$/LLM} & \textbf{Text (excerpt)} \\
     \midrule
@@ -381,30 +373,26 @@ In the first case, AI-generated text with obvious chain-of-thought traces is nev
   \end{tabular}
   \caption{Detector-low / LLM-judge-high sarcasm cases. $P_{\text{sar}} = P(\text{sarcastic})$.}
   \label{tab:cases-fn}
-\end{table*}
+\end{table}
 
-Together, these selected cases motivate the hypothesis that surface markers such as mock-praise formulas, exclamation marks, and colloquial short sentences contribute to some detector decisions, while semantic reversal contributes to some LLM-judge ratings. Systematic feature-level testing is required to determine whether either pattern generalizes.
+Together, these selected cases motivate the hypothesis that surface markers such as mock-praise formulas, exclamation marks, and colloquial short sentences contribute to some detector decisions, while semantic reversal contributes to some LLM-judge ratings. They define candidate features for systematic prevalence and feature-level testing and provide qualitative examples of the near-zero Chinese sarcasm correlation in \Sref{sec:eval}.
 
-The manually selected cases do not estimate how often either pattern occurs. They provide qualitative examples of the near-zero Chinese sarcasm correlation in \Sref{sec:eval}; systematic testing remains future work.
-
-\clearpage
-
-\section{Preliminary Representation-Level Analysis of the Failure Mechanism}
+\section{Representation-Level Analysis of Source-Conditioned Error Allocation}
 \label{app:repr}
 
 This appendix records the complete protocol, data, and self-checks for the representation-level tests in \Sref{sec:mechanism}. The interpretation of conclusions follows \Sref{sec:mechanism}.
 
 \paragraph{E.1 Setup.} All analyses freeze the plain dual-head model that produces the 86.3\% main-text result. We use split-sample evaluation: one half estimates the direction and the other computes metrics. The appendix baseline is therefore 84.8\% on the evaluation half rather than 86.3\% on the full set.
 
-Implementation checks pass. Manually computed logits match model outputs with maximum error $1.4 \times 10^{-6}$, and the erasure-projection residual is about $10^{-6}$. LEACE satisfies its defining property: after erasure the fitting-half class-mean difference has relative residual $7 \times 10^{-6}$, and an in-sample linear probe is at chance (AUC 0.514). Probe selectivity is 0.986 with true labels and 0.512 with permuted labels.
+Implementation checks pass. Manually computed logits match model outputs with maximum error $1.4 \times 10^{-6}$, and the erasure-projection residual is about $10^{-6}$. LEACE satisfies its defining property: after erasure the fitting-half class-mean difference has relative residual $7 \times 10^{-6}$, and an in-sample linear probe is at chance (AUC 0.514). The source-probe AUC is 0.986 with true labels and 0.512 under source-label permutation.
 
-\paragraph{E.2 Protocol.} The linear probe is logistic regression with five-fold cross-validation. A selectivity control retrains it with permuted source labels, and correlation analyses are repeated within text-length tertiles. For alignment, $\Sigma$ is the Ledoit--Wolf covariance fitted to all pooled DualTest representations, with eigenvalues clipped below $10^{-8}$; $w$ denotes a task-head weight difference or probe direction. Whitened alignment is $\cos(\Sigma^{1/2}w_1,\Sigma^{1/2}w_2)$.
+\paragraph{E.2 Protocol.} The linear probe is logistic regression with five-fold cross-validation. A permuted-label control retrains the same probe after shuffling source labels \citep{hewitt2019probes}, and correlation analyses are repeated within text-length tertiles. For alignment, $\Sigma$ is the Ledoit--Wolf shrinkage covariance estimator \citep{ledoit2004covariance} fitted to all pooled DualTest representations, with eigenvalues clipped below $10^{-8}$; $w$ denotes a task-head weight difference or probe direction. Whitened alignment is $\cos(\Sigma^{1/2}w_1,\Sigma^{1/2}w_2)$.
 
-Erasure tests cover one direction, INLP subspaces \citep[$k = 1$--$16$;][]{ravfogel2020inlp}, and LEACE \citep{belrose2023leace}. Controls use ten sampled random whitened directions and directions estimated from permuted labels. srcORTH-PC1 is the maximum-variance direction after removing its projection onto the estimated linear source direction. Erasing it leaves measured linear source decodability unchanged, although orthogonality to one estimated direction does not imply independence from all multidimensional or nonlinear source information.
+Erasure tests cover one direction, INLP subspaces \citep[$k = 1$--$16$;][]{ravfogel2020inlp}, and LEACE \citep{belrose2023leace}. Controls use ten sampled random whitened directions and directions estimated from permuted labels. We construct source-direction-orthogonal PC1 (srcORTH-PC1) by projecting the fitting-half representations onto the orthogonal complement of the estimated linear source direction and then extracting the maximum-variance direction in that projected space. Erasure removes each representation's scalar projection onto this direction. This operation leaves measured linear source decodability unchanged, although orthogonality to one estimated direction does not imply independence from all multidimensional or nonlinear source information.
 
-\paragraph{E.3 Diagnostic evidence.} Source is highly linearly decodable: AUC is 0.986 overall, 0.990 on sarcastic texts, and 0.985 on non-sarcastic texts. The permuted-label control gives 0.512. The single-head model also gives 0.974, so source decodability is not unique to joint training. On AI $\times$ non-sarcastic texts, the MGTD-head AI logit and sarcasm-head logit correlate at $\rho = 0.519$; correlations by text-length tertile are 0.44, 0.56, and 0.63.
+\paragraph{E.3 Diagnostic evidence.} Source is highly linearly decodable: AUC is 0.986 overall, 0.990 on sarcastic texts, and 0.985 on non-sarcastic texts. The permuted-label control gives 0.512. The single-head model also gives 0.974, establishing source decodability as a background property shared by both models. On AI $\times$ non-sarcastic texts, the MGTD-head AI logit and sarcasm-head logit correlate at $\rho = 0.519$; correlations by text-length tertile are 0.44, 0.56, and 0.63.
 
-The sarcasm and source directions are nearly orthogonal in the original geometry ($\cos \approx -0.03$) but moderately aligned after whitening. The absolute cosine is 0.41 using the probe direction and 0.49 using the MGTD-head direction. These results are compatible with the shortcut hypothesis, but remain correlational.
+The sarcasm and source directions are nearly orthogonal in the original geometry ($\cos \approx -0.03$) but moderately aligned after whitening. The absolute cosine is 0.41 using the probe direction and 0.49 using the MGTD-head direction. These results provide correlational evidence consistent with the shortcut hypothesis and motivate the intervention tests below.
 
 \paragraph{E.4 Intervention evidence.} $\text{gap} =$ AI $\times$ non-sarcastic false-positive rate $-$ human $\times$ non-sarcastic false-positive rate; source AUC is the decoding ability of a probe retrained after erasure.
 
@@ -430,6 +418,6 @@ The sarcasm and source directions are nearly orthogonal in the original geometry
 
 Single-direction and low-dimensional INLP erasure produce little change. LEACE reduces measured linear source decodability and the source-specific gap from 52.0 to 19.1; the ten sampled random-direction controls show no comparable gap change.
 
-The orthogonal high-variance control changes the interpretation. It leaves measured linear source decodability intact but changes the AI-side rate to 66.7 and the source gap to 12.6, an effect similar to LEACE. This shows that predictions are sensitive to at least one high-variance direction after removing its projection onto the estimated source direction; it does not identify an independent or unique causal subspace.
+The orthogonal high-variance control changes the interpretation. It leaves measured linear source decodability intact but changes the AI-side rate to 66.7 and the source gap to 12.6, an effect similar to LEACE. Together with the random-direction controls, this shows prediction sensitivity to a non-random high-variance direction after removing its projection onto the estimated source direction and makes the direction's semantic content and causal role concrete targets for further analysis.
 
-Under LEACE, the unweighted mean false-positive rate across the two non-sarcastic source groups is almost unchanged (58.8 $\to$ 59.1). The intervention therefore reduces the source disparity primarily by shifting errors from AI texts to human texts rather than improving non-sarcastic classification overall.
+Under LEACE, the unweighted mean false-positive rate across the two non-sarcastic source groups is almost unchanged (58.8 $\to$ 59.1). This result shows that the affected directions shape how non-sarcastic errors are allocated between AI and human texts.

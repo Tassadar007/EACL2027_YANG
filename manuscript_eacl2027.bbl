@@ -1,4 +1,4 @@
-\begin{thebibliography}{67}
+\begin{thebibliography}{65}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Abu~Farha et~al.(2022)Abu~Farha, Oprea, Wilson, and
@@ -54,13 +54,6 @@ Junyi Chai, Shenyu Lu, and Xiaoqian Wang. 2025.
   {Identifying and mitigating spurious correlation in multi-task learning}.
 \newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
   and Pattern Recognition (CVPR)}, pages 25698--25707.
-
-\bibitem[{Clark et~al.(2020)Clark, Luong, Le, and Manning}]{clark2020electra}
-Kevin Clark, Minh-Thang Luong, Quoc~V. Le, and Christopher~D. Manning. 2020.
-\newblock \href {https://arxiv.org/abs/2003.10555} {{ELECTRA}: Pre-training
-  text encoders as discriminators rather than generators}.
-\newblock In \emph{Proceedings of the 8th International Conference on Learning
-  Representations (ICLR)}.
 
 \bibitem[{Comanici et~al.(2025)}]{gemini2025report}
 Gheorghe Comanici et~al. 2025.
@@ -255,14 +248,6 @@ Akshay Khatri and Pranav P. 2020.
   in tweets with {BERT} and {GloVe} embeddings}.
 \newblock In \emph{Proceedings of the Second Workshop on Figurative Language
   Processing (FigLang)}.
-
-\bibitem[{Kudo and Richardson(2018)}]{kudo2018sentencepiece}
-Taku Kudo and John Richardson. 2018.
-\newblock \href {https://doi.org/10.18653/v1/D18-2012} {{S}entence{P}iece: A
-  simple and language independent subword tokenizer and detokenizer for neural
-  text processing}.
-\newblock In \emph{Proceedings of the 2018 Conference on Empirical Methods in
-  Natural Language Processing: System Demonstrations}, pages 66--71.
 
 \bibitem[{Lai et~al.(2015)Lai, Xu, Liu, and Zhao}]{lai2015rcnn}
 Siwei Lai, Liheng Xu, Kang Liu, and Jun Zhao. 2015.
