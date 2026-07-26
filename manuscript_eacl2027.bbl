@@ -55,13 +55,6 @@ Junyi Chai, Shenyu Lu, and Xiaoqian Wang. 2025.
 \newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
   and Pattern Recognition (CVPR)}, pages 25698--25707.
 
-\bibitem[{Comanici et~al.(2025)}]{gemini2025report}
-Gheorghe Comanici et~al. 2025.
-\newblock \href {https://arxiv.org/abs/2507.06261} {Gemini 2.5: Pushing the
-  frontier with advanced reasoning, multimodality, long context, and next
-  generation agentic capabilities}.
-\newblock \emph{arXiv preprint arXiv:2507.06261}.
-
 \bibitem[{Compton et~al.(2023)Compton, Zhang, Puli, and
   Ranganath}]{compton2023morisless}
 Rhys Compton, Lily Zhang, Aahlad Puli, and Rajesh Ranganath. 2023.
@@ -157,6 +150,13 @@ Aniruddha Ghosh and Tony Veale. 2016.
   neural network}.
 \newblock In \emph{Proceedings of the 7th Workshop on Computational Approaches
   to Subjectivity, Sentiment and Social Media Analysis (WASSA)}.
+
+\bibitem[{{Google DeepMind}(2025)}]{googledeepmind2025gemini25flashlite}
+{Google DeepMind}. 2025.
+\newblock \href
+  {https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Flash-Lite-Model-Card.pdf}
+  {Gemini 2.5 flash-lite model card}.
+\newblock Published September 26, 2025.
 
 \bibitem[{Guo et~al.(2023)Guo, Zhang, Wang, Jiang, Nie, Ding, Yue, and
   Wu}]{guo2023hc3}
@@ -320,11 +320,11 @@ David Mueller, Nicholas Andrews, and Mark Dredze. 2022.
   {{DeepSeek-R1-0528-Qwen3-8B} model card}.
 \newblock Ollama deployment tag \texttt{deepseek-r1:8b}; accessed 2026-07-21.
 
-\bibitem[{{OpenAI}(2026)}]{openai2026gpt5}
-{OpenAI}. 2026.
-\newblock \href {https://doi.org/10.48550/arXiv.2601.03267} {{OpenAI} {GPT-5}
+\bibitem[{{OpenAI}(2025)}]{openai2025gpt5}
+{OpenAI}. 2025.
+\newblock \href {https://openai.com/index/gpt-5-system-card/} {{OpenAI} {GPT-5}
   system card}.
-\newblock \emph{arXiv preprint arXiv:2601.03267}.
+\newblock August 2025.
 
 \bibitem[{Oprea and Magdy(2020)}]{oprea2020isarcasm}
 Silviu Oprea and Walid Magdy. 2020.

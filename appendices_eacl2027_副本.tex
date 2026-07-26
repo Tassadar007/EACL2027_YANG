@@ -114,7 +114,7 @@ The Qwen3.5-9B replication has no generation failures, yielding 1{,}550 AI $\tim
     RCNN single-task & 5e-7 & 5e-6 & 5e-6 & 1e-5 \\
     \bottomrule
   \end{tabular}
-  \caption{Discriminative learning rates for the dual- and single-task configurations.}
+  \caption{Discriminative learning rates for the evaluated dual- and single-task configurations.}
   \label{tab:lr}
 \end{table}
 
@@ -162,7 +162,7 @@ No comparable subgroup increase appears in the \texttt{qwen3.5:9b} replication s
 
 \phantomsection\label{app:c3}\paragraph{C.3 Blinded-evaluation protocol, inter-judge agreement, and group-level tests (\Sref{sec:eval}).} Each sample is submitted separately to each of the three judge APIs using a single prompt (May 2026; temperature $= 0.3$; GPT-5-nano uses its default decoding because it does not support this parameter). The prompt contains only the input and evaluated text, not the ground-truth source. It asks for source inference followed by 1--5 ratings of sarcasm and human-likeness. Base and SFT outputs use the same prompt and are evaluated separately.
 
-Pairwise instance-level agreement is low to moderate. Spearman $\rho$ ranges from 0.20 to 0.38 for sarcasm (all $p < 10^{-6}$) and from 0.03 to 0.23 for human-likeness (one pair is not significant). The conclusion in \Sref{sec:eval} therefore rests on consistent condition-level directions, not agreement in instance rankings.
+Pairwise instance-level agreement is moderate to low. Spearman $\rho$ ranges from 0.20 to 0.38 for sarcasm (all $p < 10^{-6}$) and from 0.03 to 0.23 for human-likeness (one pair is not significant). The conclusion in \Sref{sec:eval} therefore rests on consistent condition-level directions, not agreement in instance rankings.
 
 Wilcoxon signed-rank tests with Benjamini--Hochberg FDR correction \citep{benjamini1995fdr} show that SFT receives lower sarcasm ratings than the base model in five of six language $\times$ judge groups. The pooled correlations in \Tabref{tab:correlation} use the three-judge mean as a descriptive aggregate; because inter-judge agreement is limited, the judge-specific results remain necessary. Four instances each have one unparsable rating and retain two valid judge ratings; the aggregate uses the mean of the available ratings and therefore retains all 600 outputs.
 
@@ -311,7 +311,7 @@ The final RCNN dual-head model's MGTD F1 is 0.938 [0.931, 0.945] on the full set
 
 Chinese sarcasm F1 is higher than English sarcasm F1 for the RCNN model (0.819 vs.\ 0.429). This contrast also reflects differences in prevalence, genre, and annotation procedure: sarcasm prevalence is 63.8\% in Chinese but 14.2\% in English, and the English human side is dominated by author-labeled intended-sarcasm tweets from iSarcasmEval whereas the Chinese side uses topic-comment-style ToSarcasm. The positive-class F1 values should therefore not be interpreted as an isolated language effect.
 
-The separately retrained final RCNN model's overall sarcasm F1 is 0.663, compared with 0.629 on human texts alone, because the overall score also includes AI texts. The five-run mean in \Tabref{tab:backbone} is a different estimate. Within the human subset, dual--single differences are below 0.03 and vary in direction. The negative-transfer effect is therefore concentrated in the AI-side quadrants, consistent with \Sref{sec:quadrant}.
+The separately retrained final RCNN model's overall sarcasm F1 is 0.663, compared with 0.629 on human texts alone, because the overall score also includes AI texts. The five-run mean in \Tabref{tab:backbone} is a different estimate. Within the human subset, dual--single differences are below 0.03 and vary in direction. The observed negative-transfer effect is therefore concentrated in the AI-side quadrants, consistent with \Sref{sec:quadrant}.
 
 False-positive rates use a threshold of 0.5. For the plain dual-head model on AI $\times$ non-sarcastic text, the median sarcasm probability is 0.767 with an interquartile range of 0.635--0.839. The distribution therefore lies mostly above the threshold rather than placing only a few cases near it. Single-head medians are 0.204 for the plain model and 0.069 for RCNN.
 
