@@ -89,7 +89,7 @@ Its English translation is:
 
 The Chinese non-sarcastic template changes only the style line to ``The style should be normal and natural.'' The English templates follow the same structure, using either ``sarcastic, humorous, exaggerated'' or ``normal, natural,'' with a length limit of 10--50 words.
 
-Post-processing removes \texttt{<think>\dots</think>} segments, reasoning prefaces such as ``好的'' (\textit{hǎo de} `okay'), ``嗯'' (\textit{ń} `hmm'), ``Okay,'' ``Let me,'' and ``First,'' and Markdown markup. Outputs that still exceed the length limit or remain cyclic after repeated generation attempts are discarded. AuthTrain retains 9{,}996 AI counterparts from 9{,}999 seeds; DualTest retains 2{,}292 counterparts from 2{,}372 seeds.
+Post-processing removes \texttt{<think>\dots</think>} segments, reasoning prefaces such as ``好的'' (\textit{hǎo de} `okay'), ``嗯'' (\textit{ń} `hmm'), ``Okay,'' ``Let me,'' and ``First,'' and Markdown markup. Outputs that still exceed the length limit or exhibit cyclic repetition after repeated generation attempts are discarded. AuthTrain retains 9{,}996 AI counterparts from 9{,}999 seeds; DualTest retains 2{,}292 counterparts from 2{,}372 seeds.
 
 The Qwen3.5-9B replication has no generation failures, yielding 1{,}550 AI $\times$ non-sarcastic instances rather than 1{,}513. Generator-specific rates therefore use the full set of retained outputs for each generator rather than an identical seed intersection. For this run, Ollama thinking mode is disabled (\texttt{think = false}) to prevent the reasoning process from exhausting the output budget. The same post-processing removes any inline chain-of-thought from the \texttt{deepseek-r1:8b} outputs.
 
@@ -320,7 +320,7 @@ AUC values within AI texts are similar across models (0.82--0.88). Joint trainin
 \section{Illustrative Cases of Detector--LLM Score Misalignment}
 \label{app:cases}
 
-Illustrative cases were manually selected after inspecting the paired table of RCNN-detector scores and ratings from the three LLMs to show large disagreements; no formal ranking or top-$k$ selection was implemented. Detector scores range from 0 to 1, and LLM scores are averaged across the three evaluators on a 1--5 scale; long texts are truncated. Chinese examples retain the original model input and provide a pinyin transliteration and an English translation in brackets.
+Illustrative cases were manually selected after inspecting the paired table of RCNN-detector scores and ratings from the three LLMs to show large disagreements; no formal ranking or top-$k$ selection was performed. Detector scores range from 0 to 1, and LLM scores are averaged across the three evaluators on a 1--5 scale; long texts are truncated. Chinese examples retain the original model input and provide a pinyin transliteration and an English translation in brackets.
 
 The three groups show, respectively, high detector human-authorship scores with low LLM human-likeness ratings, high detector sarcasm scores with low LLM sarcasm ratings, and the reverse sarcasm disagreement. In the first human-likeness case, AI-generated text with obvious chain-of-thought traces is nevertheless assigned human-authorship probability 1.00 by the MGTD head, corresponding to the score disagreement discussed in \Sref{sec:eval}.
 

@@ -43,7 +43,7 @@
 \newcommand{\Tabref}[1]{\hyperref[#1]{Table~\ref*{#1}}}
 \newcommand{\Figref}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
 
-\title{Joint Training with Machine-Generated Text Detection Can Distort Sarcasm Detection:\\A Bilingual Diagnosis of Class-Conditional Negative Transfer}
+\title{Joint Training with Machine-Generated Text Detection Can Distort Sarcasm Detection: A Bilingual Diagnosis of Class-Conditional Negative Transfer}
 
 \author{First Author \\
   Affiliation / Address line 1 \\
@@ -193,7 +193,7 @@ With the sarcasm and MGTD models fixed, we use DualTest first to compare encoder
 
 We compare dual-head mBERT \citep{devlin2019bert}, XLM-RoBERTa-base \citep{conneau2020xlmr}, DeBERTa-v3-base, and DeBERTa-v3-large \citep{he2023debertav3} under one evaluation protocol, adding the two intermediate variants on the large encoder. Positive-class F1 is computed for the sarcastic class in sarcasm detection and the human class in MGTD over the full DualTest set.
 
-\Tabref{tab:backbone} shows higher mean F1 for the DeBERTa configurations than for mBERT and XLM-R. The RCNN configuration has the highest means, reaching 0.6309 sarcasm F1 and 0.9301 MGTD F1. Across the five runs, the two intermediate variants also have 34--47\% lower standard deviations than the plain large model, providing configuration-level evidence of lower run-to-run variation. The comparison evaluates complete configurations that jointly differ in backbone identity, scale, and intermediate representation. For the separately trained final RCNN model, sarcasm F1 is 0.819 in Chinese and 0.429 in English; prevalence, genre, annotation, and language may all contribute to this difference, so it should not be read as a pure language effect. \Appref{app:results} provides macro-averaged, human-subset, and language-stratified results.
+\Tabref{tab:backbone} shows higher mean F1 for the DeBERTa configurations than for mBERT and XLM-R. The RCNN configuration has the highest means, reaching 0.6309 sarcasm F1 and 0.9301 MGTD F1. Across the five runs, the two intermediate variants also have 34--47\% lower standard deviations than the plain large model, providing configuration-level evidence of lower run-to-run variation. Because backbone identity, scale, and intermediate representation differ jointly, these results support only configuration-level comparisons. For the separately trained final RCNN model, sarcasm F1 is 0.819 in Chinese and 0.429 in English; prevalence, genre, annotation, and language may all contribute to this difference, so it should not be read as a pure language effect. \Appref{app:results} provides macro-averaged, human-subset, and language-stratified results.
 
 \begin{table}[t]
   \centering
@@ -203,12 +203,12 @@ We compare dual-head mBERT \citep{devlin2019bert}, XLM-RoBERTa-base \citep{conne
     \toprule
     \textbf{Model} & \textbf{Sarc.\ F1} & \textbf{MGTD F1} \\
     \midrule
-    mBERT dual-head & 0.4945\,{\scriptsize$\pm$.036} & 0.8743\,{\scriptsize$\pm$.006} \\
-    XLM-RoBERTa-base dual-head & 0.4603\,{\scriptsize$\pm$.057} & 0.8321\,{\scriptsize$\pm$.025} \\
-    DeBERTa-v3-base dual-head & 0.5646\,{\scriptsize$\pm$.056} & 0.8952\,{\scriptsize$\pm$.004} \\
-    DeBERTa-v3-large plain dual-head & 0.6126\,{\scriptsize$\pm$.031} & 0.9221\,{\scriptsize$\pm$.010} \\
-    \,\,+ interaction projection & 0.6076\,{\scriptsize$\pm$.020} & 0.9126\,{\scriptsize$\pm$.007} \\
-    \textbf{\,\,+ RCNN} & \textbf{0.6309}\,{\scriptsize$\pm$.020} & \textbf{0.9301}\,{\scriptsize$\pm$.005} \\
+    mBERT dual-head & 0.4945\,$\pm$.036 & 0.8743\,$\pm$.006 \\
+    XLM-RoBERTa-base dual-head & 0.4603\,$\pm$.057 & 0.8321\,$\pm$.025 \\
+    DeBERTa-v3-base dual-head & 0.5646\,$\pm$.056 & 0.8952\,$\pm$.004 \\
+    DeBERTa-v3-large plain dual-head & 0.6126\,$\pm$.031 & 0.9221\,$\pm$.010 \\
+    \,\,+ interaction projection & 0.6076\,$\pm$.020 & 0.9126\,$\pm$.007 \\
+    \textbf{\,\,+ RCNN} & \textbf{0.6309}\,$\pm$.020 & \textbf{0.9301}\,$\pm$.005 \\
     \bottomrule
   \end{tabular}
   \caption{Descriptive dual-head results across backbones and architectural variants (DualTest; five-run mean $\pm$ standard deviation; bold indicates the highest mean).}
@@ -226,10 +226,10 @@ We compare dual-head mBERT \citep{devlin2019bert}, XLM-RoBERTa-base \citep{conne
     \toprule
     \textbf{Arch.} & \textbf{Task} & \textbf{Dual} & \textbf{Single} & \textbf{$\Delta$} \\
     \midrule
-    Plain & Sarc. & 0.6126\,{\scriptsize$\pm$.031} & 0.6734\,{\scriptsize$\pm$.010} & \textbf{$-$6.08} \\
-    Plain & MGTD & 0.9221\,{\scriptsize$\pm$.010} & 0.9054\,{\scriptsize$\pm$.027} & $+$1.67 \\
-    RCNN  & Sarc. & 0.6309\,{\scriptsize$\pm$.020} & 0.6751\,{\scriptsize$\pm$.022} & \textbf{$-$4.43} \\
-    RCNN  & MGTD & 0.9301\,{\scriptsize$\pm$.005} & 0.9253\,{\scriptsize$\pm$.006} & $+$0.49 \\
+    Plain & Sarc. & 0.6126\,$\pm$.031 & 0.6734\,$\pm$.010 & \textbf{$-$6.08} \\
+    Plain & MGTD & 0.9221\,$\pm$.010 & 0.9054\,$\pm$.027 & $+$1.67 \\
+    RCNN  & Sarc. & 0.6309\,$\pm$.020 & 0.6751\,$\pm$.022 & \textbf{$-$4.43} \\
+    RCNN  & MGTD & 0.9301\,$\pm$.005 & 0.9253\,$\pm$.006 & $+$0.49 \\
     \bottomrule
   \end{tabular}
   \caption{Dual-head vs.\ single-head models (mean $\pm$ standard deviation over five fold-based runs; $\Delta$ = dual $-$ single, in percentage points).}
@@ -269,9 +269,9 @@ The three dual-head variants show whether the subgroup error changes with the in
   \label{tab:quadrant}
 \end{table*}
 
-The plain dual-head model predicts sarcasm for 86.3\% of AI $\times$ non-sarcastic instances. The rates are 40.9\% for interaction projection and 34.1\% for RCNN, while both same-architecture single-head controls yield 19.3\%. Thus, the false-positive rate is more than 45 pp lower in the two intermediate configurations than in the plain dual-head configuration.
+False-positive rates on AI $\times$ non-sarcastic instances are 86.3\% for the plain dual-head model, 40.9\% for interaction projection, 34.1\% for RCNN, and 19.3\% for both same-architecture single-head controls; the intermediate rates are therefore more than 45 pp below the plain rate.
 
-Among the same AI non-sarcastic texts, the plain dual-head model alone produces 1{,}021 false positives, whereas its single-head control alone produces 7 ($p<.001$). The control receives the same all-human sarcasm supervision but is not jointly trained on MGTD, tying the large increase to the joint-training procedure under comparison. RCNN shows the same direction with a smaller gap. The plain and RCNN models provide the matched contrasts, while interaction projection adds complementary configuration-level evidence.
+On the same AI non-sarcastic texts, 1{,}021 false positives occur only under the plain dual-head model, versus 7 only under its single-head control ($p<.001$). The control receives the same all-human sarcasm supervision but is not jointly trained on MGTD, tying the large increase to the joint-training procedure under comparison. RCNN shows the same direction with a smaller gap. The plain and RCNN models provide the matched contrasts, while interaction projection adds complementary configuration-level evidence.
 
 No analogous extreme subgroup error appears in the MGTD head: its false-positive rate is 6.1\% for plain and 6.6\% for RCNN. Within AI-generated texts, sarcasm AUC remains 0.82--0.88 across models, so the relative ranking of sarcastic and non-sarcastic AI texts is largely preserved. Joint training instead shifts predicted sarcasm probabilities upward, causing many texts prompted to be non-sarcastic to cross the fixed 0.5 threshold. The failure therefore takes the form of an AI-associated score increase in this subgroup, not a complete loss of within-AI ranking ability.
 
@@ -294,18 +294,18 @@ We keep the trained detectors fixed and compare the DualTest AI texts generated 
 \section{Exploratory Comparison of Detector Scores and LLM-Judge Ratings}
 \label{sec:eval}
 
-As a downstream implication, we test whether the detector's human-authorship probability tracks perceived human-likeness and whether its sarcasm probability tracks LLM ratings of sarcasm. Human-authorship probability and perceived human-likeness are distinct constructs; their comparison directly tests whether a classifier score can function as a generation-evaluation proxy. We compare 600 outputs from Qwen3-8B \citep{qwen2025} before and after QLoRA \citep{dettmers2023qlora} fine-tuning on GenTrain. The RCNN detector and three LLM judges---DeepSeek-V3 \citep{deepseek2024v3}, Gemini-2.5-Flash-Lite \citep{googledeepmind2025gemini25flashlite}, and GPT-5-nano \citep{openai2025gpt5}---score outputs from 180 Chinese topic-comment and 120 English rewriting prompts; the judges are not shown the ground-truth source, and language is coupled with generation task.
+As a downstream test, we compare the RCNN detector's human-authorship and sarcasm probabilities with source-blinded LLM ratings of human-likeness and sarcasm. We evaluate 600 outputs from Qwen3-8B \citep{qwen2025} before and after QLoRA \citep{dettmers2023qlora} fine-tuning on GenTrain. DeepSeek-V3 \citep{deepseek2024v3}, Gemini-2.5-Flash-Lite \citep{googledeepmind2025gemini25flashlite}, and GPT-5-nano \citep{openai2025gpt5} rate outputs from 180 Chinese topic-comment and 120 English rewriting prompts; language is therefore coupled with generation task. Because human-authorship probability and perceived human-likeness are distinct constructs, this comparison tests whether classifier scores can serve as generation-evaluation proxies.
 
-The detector probabilities and judge ratings do not move together consistently. In Chinese, SFT raises the RCNN detector's sarcasm score from 0.780 to 0.895 but lowers the mean LLM sarcasm rating from 3.99 to 3.80; the detector--judge sarcasm correlation is nearly zero in Chinese ($-0.020$) but positive in English ($+0.338$). The clearest condition-level reversal concerns human-likeness: SFT raises human-authorship probabilities in both task--language settings while mean perceived human-likeness ratings decline, yielding a pooled correlation of $-0.212$. Within-condition correlations are weaker, showing that the pooled negative value is driven mainly by the reversal between conditions.
+Detector probabilities and judge ratings do not move consistently. In Chinese, SFT raises the RCNN detector's sarcasm score from 0.780 to 0.895 but lowers the mean LLM sarcasm rating from 3.99 to 3.80; the detector--judge correlation is $-0.020$ in Chinese and $+0.338$ in English. SFT also raises human-authorship probabilities in both task--language settings while mean perceived human-likeness ratings decline, yielding a pooled correlation of $-0.212$; weaker within-condition correlations show that this value is driven mainly by the condition-level reversal.
 
-The sarcasm-detector change is setting-dependent: $+0.115$ in Chinese and $-0.124$ in English. By contrast, SFT receives lower mean sarcasm ratings in all six language $\times$ judge comparisons, and five of these differences remain significant after FDR correction. Detector probabilities can therefore remain useful classification outputs while failing to preserve the ordering or condition-level direction required of style or quality scores.
+The sarcasm-detector change is setting-dependent ($+0.115$ in Chinese; $-0.124$ in English), whereas SFT receives lower mean sarcasm ratings in all six language $\times$ judge comparisons, five remaining significant after FDR correction. Detector probabilities can therefore remain useful classification outputs without preserving the ordering or condition-level direction required of style or quality scores.
 
-Agreement among the three judges is low to moderate at the individual-text level. A plain-detector control changes the reported correlations by at most 0.02. The stable reversal between human-authorship probabilities and human-likeness ratings, together with the judge-specific sarcasm results, therefore motivates external validation before detector probabilities are reused as generation-quality scores or rewards. Full protocols, tests, and illustrative cases are reported in \hyperref[app:results]{Appendices~\ref*{app:results}}--\hyperref[app:cases]{\ref*{app:cases}}.
+Individual-text judge agreement is low to moderate; a plain-detector control changes correlations by at most 0.02. The human-authorship/human-likeness reversal and judge-specific sarcasm results motivate external validation before detector probabilities are reused as quality scores or rewards; \hyperref[app:results]{Appendices~\ref*{app:results}}--\hyperref[app:cases]{\ref*{app:cases}} report full protocols, tests, and cases.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-LLM-based augmentation requires generated examples to convey sarcasm without turning source cues into shortcuts. Our results expose this risk: compared with a same-architecture single-head control, the plain dual-head model predicts sarcasm for AI text prompted to be non-sarcastic, raising its false-positive rate by 67.0 pp. The same pattern holds across languages and when the AI test texts are regenerated with Qwen3.5-9B; the RCNN and interaction-projection configurations show lower rates. Representation interventions show that source-related and other high-variance directions shape how errors are distributed across source groups, providing concrete targets for further causal analysis. Human-authorship probabilities diverge from ratings of perceived human-likeness, so detector scores require external, source $\times$ class-stratified validation before use as quality or reward signals.
+Our results expose a source-related shortcut risk in joint MGTD--sarcasm training: relative to a same-architecture single-head control, the plain dual-head model raises the false-positive rate on AI text prompted to be non-sarcastic by 67.0 pp. The pattern holds across languages and with Qwen3.5-9B, while RCNN and interaction projection yield lower rates. Representation interventions show that source-related and other high-variance directions shape source-group errors, providing targets for causal analysis. Human-authorship probabilities and human-likeness ratings diverge, requiring external validation of detector scores by source and class before use as quality metrics or rewards.
 
 \section*{Limitations}
 
@@ -317,7 +317,7 @@ The fixed-model linear analyses connect source-related structure to behavior but
 
 \section*{Ethical considerations}
 
-All human-authored texts come from publicly released research datasets: iSarcasm, CSC, ToSarcasm, News Headlines, and the Open Chinese Internet Sarcasm Corpus. Explicit repository licenses were available for iSarcasm and CSC; for sources without an identified redistribution license, we do not redistribute the human-authored text (\Appref{app:data}). We collect no new user data. We did not conduct any additional personally identifiable information or offensive-content audit of the released corpora.
+All human-authored texts come from publicly released research datasets: iSarcasm, CSC, ToSarcasm, News Headlines, and the Open Chinese Internet Sarcasm Corpus. Explicit repository licenses were available for iSarcasm and CSC; for sources without an identified redistribution license, we do not redistribute the human-authored text (\Appref{app:data}). We collect no new user data. We did not conduct any additional audit of the released corpora for personally identifiable information or offensive content.
 
 All AI texts were generated locally using publicly released open-weight models (\texttt{deepseek-r1:8b}, Qwen3.5-9B, and the base and QLoRA-adapted Qwen3-8B). They are used only for training and evaluation and are labeled as AI-generated. No new human participants were recruited; the study analyzes human-authored texts from previously released datasets. The automated evaluation transmitted each evaluation input and generated output, together with rating instructions, to the DeepSeek-V3, Gemini-2.5-Flash-Lite, and GPT-5-nano APIs; it did not transmit dataset metadata or ground-truth source labels.
 
