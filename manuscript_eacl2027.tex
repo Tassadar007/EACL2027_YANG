@@ -209,7 +209,7 @@ We compare dual-head mBERT \citep{devlin2019bert}, XLM-RoBERTa-base \citep{conne
     \midrule
     mBERT dual-head & 0.4945\,$\pm$.036 & 0.8743\,$\pm$.006 \\
     XLM-RoBERTa-base dual-head & 0.4603\,$\pm$.057 & 0.8321\,$\pm$.025 \\
-    DeBERTa-v3-base dual-head & 0.5646\,$\pm$.056 & 0.8952\,$\pm$.004 \\
+    DeBERTa-v3-base dual-head & 0.5646\,$\pm$.056 & 0.8952\,$\pm$.003 \\
     DeBERTa-v3-large plain dual-head & 0.6126\,$\pm$.031 & 0.9221\,$\pm$.010 \\
     \,\,+ interaction projection & 0.6076\,$\pm$.020 & 0.9126\,$\pm$.007 \\
     \textbf{\,\,+ RCNN} & \textbf{0.6309}\,$\pm$.020 & \textbf{0.9301}\,$\pm$.005 \\
@@ -279,7 +279,7 @@ On the same AI non-sarcastic texts, 1{,}021 false positives occur only under the
 
 No analogous extreme subgroup error appears in the MGTD head: its false-positive rate is 6.1\% for plain and 6.6\% for RCNN. Within AI-generated texts, sarcasm AUC remains 0.82--0.88 across models, so the relative ranking of sarcastic and non-sarcastic AI texts is largely preserved. Joint training instead shifts predicted sarcasm probabilities upward, causing many texts prompted to be non-sarcastic to cross the fixed 0.5 threshold. This source-conditioned score shift, rather than a collapse of within-AI ranking ability, characterizes the subgroup failure.
 
-The matched plain comparison makes the concentration especially clear: its non-sarcastic false-positive rate changes by 4.2 pp on human text but by 67.0 pp on AI-generated text. The aggregate F1 decrease is therefore driven by a sharply localized source $\times$ class effect rather than a uniform loss across DualTest.
+The matched plain comparison makes the concentration especially clear: its non-sarcastic false-positive rate changes by 4.3 pp on human text but by 67.0 pp on AI-generated text.\footnote{Percentage-point differences are computed from unrounded rates and can therefore differ by 0.1 pp from subtracting the rounded values shown in the tables.} The aggregate F1 decrease is therefore driven by a sharply localized source $\times$ class effect rather than a uniform loss across DualTest.
 
 \subsubsection{Representation-Level Diagnostics}
 \label{sec:mechanism}

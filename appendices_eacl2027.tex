@@ -159,7 +159,7 @@ All fold-based runs use a seed equal to 42 plus the fold index and share the sam
 
 The single-head MGTD controls remain within single-digit percentage points of the dual-head models in every quadrant. No analogous extreme class-conditional error appears on the MGTD side, consistent with \Sref{sec:quadrant}.
 
-No comparable subgroup increase appears in the \texttt{qwen3.5:9b} replacement set: AI $\times$ non-sarcastic false-positive rates are 0.9\%, 1.3\%, and 0.5\% for plain, interaction projection, and RCNN; AI $\times$ sarcastic rates are at most 0.4\%; and overall MGTD F1 scores are 0.952, 0.917, and 0.966.
+No comparable subgroup increase appears in the \texttt{qwen3.5:9b} replacement set: AI $\times$ non-sarcastic false-positive rates are 0.9\%, 1.3\%, and 0.5\% for plain, interaction projection, and RCNN; AI $\times$ sarcastic rates are at most 0.4\%; and overall MGTD F1 scores are 0.952, 0.917, and 0.965.
 
 \phantomsection\label{app:c3}\paragraph{C.3 Blinded-evaluation protocol, inter-judge agreement, and group-level tests (\Sref{sec:eval}).} Each sample is submitted separately to each of the three judge APIs using a single prompt (May 2026; temperature $= 0.3$; GPT-5-nano uses its default decoding because it does not support this parameter). The prompt contains only the input and evaluated text, not the ground-truth source label. It asks for source inference followed by 1--5 ratings of sarcasm and human-likeness. We therefore refer to these ratings as source-label-blinded. Base and SFT outputs use the same prompt and are evaluated separately.
 
@@ -277,7 +277,7 @@ Paired McNemar tests use predictions on the same DeepSeek-generated AI $\times$ 
     \textbf{Model} & \textbf{Lang.} & \textbf{$n$} & \textbf{Dual FP; rate [CI]} & \textbf{Single FP; rate [CI]} & \textbf{$\Delta$ pp} \\
     \midrule
     Plain & en & 1{,}174 & 987; 84.1 [81.9, 86.1] & 242; 20.6 [18.4, 23.0] & $+63.5$ \\
-    Plain & zh & 339 & 319; 94.1 [91.1, 96.2] & 50; 14.7 [11.4, 18.9] & $+79.4$ \\
+    Plain & zh & 339 & 319; 94.1 [91.1, 96.1] & 50; 14.7 [11.4, 18.9] & $+79.4$ \\
     RCNN & en & 1{,}174 & 445; 37.9 [35.2, 40.7] & 247; 21.0 [18.8, 23.5] & $+16.9$ \\
     RCNN & zh & 339 & 71; 20.9 [17.0, 25.6] & 45; 13.3 [10.1, 17.3] & $+7.7$ \\
     \bottomrule
