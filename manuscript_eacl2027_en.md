@@ -135,7 +135,7 @@ An overall F1 score can hide a failure concentrated in one type of text. We divi
 
 We compare five detectors on the same DualTest set. The three dual-head variants show whether the subgroup error changes with the intermediate structure. The plain and RCNN single-head models provide same-architecture controls. Within each pair, both models use the same all-human sarcasm data; only the dual-head model additionally undergoes MGTD training. Their difference therefore measures the complete joint-training procedure. Table 3 reports sarcasm predictions; corresponding MGTD source-class metrics are in Appendix C.
 
-**Table 3: Comparison of five sarcasm classifiers on four source × sarcasm quadrants (recall for sarcastic subsets; false-positive rate for non-sarcastic subsets; human labels are annotations and AI labels are prompted conditions)**
+**Table 3: Comparison of five sarcasm classifiers on four source × sarcasm quadrants (recall for sarcastic subsets; false-positive rate for non-sarcastic subsets; human labels are annotations and AI labels are prompted conditions; bold marks the focal AI non-sarcastic subgroup)**
 
 | Model (sarcasm prediction) | Human × sarcastic recall | Human × non-sarcastic false positive | AI × sarcastic recall | **AI × non-sarcastic false positive** |
 |------------|----------------|------------------|--------------|--------------------|
@@ -268,7 +268,7 @@ All human-authored texts used in this study come from publicly released research
 |------|------|--------|------------------|------|
 | iSarcasm (SemEval-2022 Task 6) | English | 3,467 | Tweets, speaker self-annotation | Sarcasm training + SFT |
 | Cascade Sarcasm Corpus (CSC) | English | 6,878 | Conversational responses | Sarcasm training |
-| ToSarcasm | Chinese (zh 3,892 / en 6) | 3,898 | Topic comments, third-party annotation | Sarcasm training + SFT |
+| ToSarcasm | Chinese | 3,898 | Topic comments, third-party annotation | Sarcasm training + SFT |
 | News Headlines v2 | English | 28,619 | News headlines, distant supervision (The Onion / HuffPost) | Sarcasm training |
 | Open Chinese Internet Sarcasm Corpus | Chinese | 2,000 | Weibo, third-party annotation | Sarcasm training |
 
@@ -323,17 +323,17 @@ The Chinese non-sarcastic version changes only the style line to “The style sh
 
 | Experiment group | Encoder | Intermediate layer | Sarcasm head | MGTD head |
 |--------|--------|--------|--------|----------|
-| Plain dual-head / backbone comparison | 5e-7 | — | 5e-6 | 1e-5 |
-| Intermediate variants | 5e-7 | 5e-6 | 5e-6 | 5e-6 |
-| Single-head ablation | 5e-7 | (RCNN single-head: 5e-6) | 5e-6 | 1e-5 |
+| Plain dual-head / backbone comparison | $5\times10^{-7}$ | — | $5\times10^{-6}$ | $1\times10^{-5}$ |
+| Intermediate variants | $5\times10^{-7}$ | $5\times10^{-6}$ | $5\times10^{-6}$ | $5\times10^{-6}$ |
+| Single-head ablation | $5\times10^{-7}$ | (RCNN single-head: $5\times10^{-6}$) | $5\times10^{-6}$ | $1\times10^{-5}$ |
 
-Note: the MGTD-head learning rate is not identical across all settings (1e-5 for the plain dual-head and single-head models; 5e-6 for the architectural variants). Cross-configuration differences may therefore reflect optimization settings as well as intermediate-representation design. The matched dual–single comparisons retain the same settings within each architecture.
+Note: the MGTD-head learning rate is not identical across all settings ($1\times10^{-5}$ for the plain dual-head and single-head models; $5\times10^{-6}$ for the architectural variants). Cross-configuration differences may therefore reflect optimization settings as well as intermediate-representation design. The matched dual–single comparisons retain the same settings within each architecture.
 
 **B.2 Shared training hyperparameters.** AdamW with default PyTorch betas (0.9, 0.999) and epsilon 1e-8; parameter-group learning rates in B.1; weight decay 0.01; LambdaLR with 200 linear warmup steps and a constant rate thereafter; maximum 10 epochs; early-stopping patience 5; gradient clipping 1.0; physical batch size 4 × gradient accumulation 4 = effective batch size 16; sampling ratio MGTD:sarcasm = 2:1; sarcasm class weights [1.0, 2.5]; seed 42 plus fold index; fixed 90/10 MGTD-data holdout. The normalized joint validation loss is 0.5 × [sarcasm validation loss / first-epoch value] + 0.5 × [MGTD validation loss / first-epoch value]. Final models use all applicable data, the mode of five best epochs + 1 (maximum 10), seed + 1000, and no early stopping. Single-head controls traverse the full sarcasm fold each epoch, whereas dual-head models draw sarcasm batches under the 2:1 schedule.
 
 **Model sizes, software, and hardware environment.** The encoders have approximately 178M (mBERT), 278M (XLM-RoBERTa-base), 184M (DeBERTa-v3-base), and 435M (DeBERTa-v3-large) parameters; the SFT generator Qwen3-8B has about 8B parameters, of which QLoRA updates only low-rank adapters. Detector training and inference are performed on a single NVIDIA GeForce RTX 3090 (24 GB); the five-fold training of the backbone comparison, architecture, and ablation variants together with the final model amounts to on the order of tens of GPU-hours, with a single detector run taking from a few minutes to a few hours and SFT about two hours. The software environment is PyTorch 2.9.0 (CUDA 12.8), transformers 4.57.1, and peft 0.18.0. AI texts are generated locally through Ollama (Appendix A.4); blinded LLM evaluation uses API calls made in May 2026 (Appendix C.3).
 
-**B.3 SFT (QLoRA).** Qwen3-8B; 4-bit loading (bfloat16 computation); LoRA rank 64 / alpha 16 / dropout 0; target modules q/k/v/o_proj and gate/up/down_proj; maximum sequence length 2,048; gradient checkpointing enabled; learning rate 5e-5; 3 epochs; batch size 1 × gradient accumulation 8; warmup ratio 0.05. After language balancing, a seed-42 split holds out 15% for validation; validation loss selects the checkpoint.
+**B.3 SFT (QLoRA).** Qwen3-8B; 4-bit loading (bfloat16 computation); LoRA rank 64 / alpha 16 / dropout 0; target modules q/k/v/o_proj and gate/up/down_proj; maximum sequence length 2,048; gradient checkpointing enabled; learning rate $5\times10^{-5}$; 3 epochs; batch size 1 × gradient accumulation 8; warmup ratio 0.05. After language balancing, a seed-42 split holds out 15% for validation; validation loss selects the checkpoint.
 
 ## Appendix C: Complete Experimental Results <!-- excluded from page limit; two columns -->
 
@@ -376,8 +376,8 @@ Note: GPT-5-nano lacks one English base rating, giving $n=119$ in C.3, and three
 
 | Language | Condition | Sarcasm score | MGTD score |
 |------|------|----------|------------|
-| Chinese | Base → SFT | 0.780 → **0.895** (+0.115) | 0.289 → 0.969 (+0.680) |
-| English | Base → SFT | 0.854 → **0.730** (−0.124) | 0.198 → 0.864 (+0.666) |
+| Chinese | Base → SFT | 0.780 → 0.895 (+0.115) | 0.289 → 0.969 (+0.680) |
+| English | Base → SFT | 0.854 → 0.730 (−0.124) | 0.198 → 0.864 (+0.666) |
 
 Sarcasm scores move in opposite directions in the Chinese comment-generation and English rewriting settings (+0.115 / −0.124). GenTrain itself is balanced at 1,214 instances per language; the evaluation settings differ in task, prompt format, source data, and sample size. Mean judgments from the three LLMs (sarcasm / human-likeness) are 3.77/4.17 for the human reference, 4.01/4.24 for the base model, and 3.71/4.08 for SFT. MGTD scores rise sharply in both settings, so the detector assigns SFT outputs higher human-authorship probabilities while the judges' perceived human-likeness ratings move in the opposite direction.
 
@@ -397,7 +397,7 @@ Paired McNemar tests use predictions on the same DeepSeek-generated AI × non-sa
 
 Per-language and human-subset sarcasm F1 (final models; bootstrap 95% intervals included for RCNN):
 
-| Model | Full set | Chinese | English | Human subset | Human·zh | Human·en |
+| Model | Full set | Chinese | English | Human subset | Human×zh | Human×en |
 |------|------|------|------|----------|---------|---------|
 | Plain dual-head | 0.556 | 0.746 | 0.312 | 0.586 | 0.710 | 0.374 |
 | Interaction-projection dual-head | 0.643 | 0.781 | 0.420 | 0.593 | 0.739 | 0.366 |
@@ -462,4 +462,4 @@ This appendix records the complete protocol, data, and self-checks for the repre
 | Sampled random whitened ×10 (control) | 84.9 | 32.7 | — | 0.982 |
 | **srcORTH-PC1 (high variance, orthogonal to the estimated linear source direction)** | **66.7** | 54.1 | 12.6 | **0.982** |
 
-Interpretation: single-direction and low-dimensional INLP erasure produce little change. LEACE reduces measured linear source decodability and the source-specific gap from 52 to 19, while the ten sampled random-direction controls show no comparable gap change. Erasing a high-variance direction orthogonal to the estimated linear source direction changes the AI-side rate to 66.7 and the gap to 12.6 while leaving measured linear source decodability unchanged. Together, these controls show prediction sensitivity to a non-random high-variance direction and make its semantic content and causal role concrete targets for further analysis. Under LEACE, the unweighted mean false-positive rate across the two non-sarcastic source groups is almost unchanged (58.8 → 59.1), showing that the affected directions shape how errors are allocated between AI and human texts.
+Bold marks the two diagnostic interventions (LEACE and srcORTH-PC1), not best performance. Interpretation: single-direction and low-dimensional INLP erasure produce little change. LEACE reduces measured linear source decodability and the source-specific gap from 52 to 19, while the ten sampled random-direction controls show no comparable gap change. Erasing a high-variance direction orthogonal to the estimated linear source direction changes the AI-side rate to 66.7 and the gap to 12.6 while leaving measured linear source decodability unchanged. Together, these controls show prediction sensitivity to a non-random high-variance direction and make its semantic content and causal role concrete targets for further analysis. Under LEACE, the unweighted mean false-positive rate across the two non-sarcastic source groups is almost unchanged (58.8 → 59.1), showing that the affected directions shape how errors are allocated between AI and human texts.

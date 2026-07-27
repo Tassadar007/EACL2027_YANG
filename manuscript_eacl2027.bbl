@@ -1,4 +1,4 @@
-\begin{thebibliography}{66}
+\begin{thebibliography}{68}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Abu~Farha et~al.(2022)Abu~Farha, Oprea, Wilson, and
@@ -284,6 +284,23 @@ Bo~Liu, Xingchao Liu, Xiaojie Jin, Peter Stone, and Qiang Liu. 2021.
   {Conflict-averse gradient descent for multi-task learning}.
 \newblock In \emph{Advances in Neural Information Processing Systems
   (NeurIPS)}.
+
+\bibitem[{Mahato et~al.(2026)Mahato, Mishra, and Ghosh}]{mahato2026llms}
+Priyanshu Mahato, Aniket~Santosh Mishra, and Kripabandhu Ghosh. 2026.
+\newblock \href {https://doi.org/10.18653/v1/2026.acl-long.1346} {{LLM}s in
+  sarcasm detection? it{'}s elementary! (or is it?)}.
+\newblock In \emph{Proceedings of the 64th Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pages 29169--29199.
+
+\bibitem[{Majer et~al.(2026)Majer, Bari{\'c}, Sandalj, Unkovi{\'c},
+  Puva{\v{c}}a, and {\v{S}}najder}]{majer2026multi}
+Laura Majer, Ana Bari{\'c}, Florijan Sandalj, Ivan Unkovi{\'c}, Bojan
+  Puva{\v{c}}a, and Jan {\v{S}}najder. 2026.
+\newblock \href {https://doi.org/10.18653/v1/2026.wassa-1.23} {A multi-aspect
+  evaluation framework for synthetic data: Case study on irony and sarcasm}.
+\newblock In \emph{The Proceedings for the 15th Workshop on Computational
+  Approaches to Subjectivity, Sentiment Social Media Analysis (WASSA 2026)},
+  pages 305--323.
 
 \bibitem[{Misra and Arora(2023)}]{misra2023headlines}
 Rishabh Misra and Prahal Arora. 2023.
