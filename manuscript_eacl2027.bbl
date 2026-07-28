@@ -4,11 +4,11 @@
 \bibitem[{Abu~Farha et~al.(2022)Abu~Farha, Oprea, Wilson, and
   Magdy}]{abufarha2022isarcasmeval}
 Ibrahim Abu~Farha, Silviu~Vlad Oprea, Steven Wilson, and Walid Magdy. 2022.
-\newblock \href {https://aclanthology.org/2022.semeval-1.111/} {{SemEval}-2022
-  task 6: {iSarcasmEval}, intended sarcasm detection in {English} and
-  {Arabic}}.
+\newblock \href {https://doi.org/10.18653/v1/2022.semeval-1.111}
+  {{SemEval}-2022 task 6: {iSarcasmEval}, intended sarcasm detection in
+  {English} and {Arabic}}.
 \newblock In \emph{Proceedings of the 16th International Workshop on Semantic
-  Evaluation (SemEval-2022)}.
+  Evaluation (SemEval-2022)}, pages 802--814.
 
 \bibitem[{Belrose et~al.(2023)Belrose, Schneider-Joseph, Ravfogel, Cotterell,
   Raff, and Biderman}]{belrose2023leace}
@@ -49,9 +49,8 @@ Silvia Casola, Simona Frenda, Soda~Marem Lo, Erhan Sezerer, Antonio Uva,
 
 \bibitem[{Chai et~al.(2025)Chai, Lu, and Wang}]{chai2025spurious}
 Junyi Chai, Shenyu Lu, and Xiaoqian Wang. 2025.
-\newblock \href
-  {https://openaccess.thecvf.com/content/CVPR2025/html/Chai_Identifying_and_Mitigating_Spurious_Correlation_in_Multi-Task_Learning_CVPR_2025_paper.html}
-  {Identifying and mitigating spurious correlation in multi-task learning}.
+\newblock \href {https://doi.org/10.1109/CVPR52734.2025.02393} {Identifying and
+  mitigating spurious correlation in multi-task learning}.
 \newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
   and Pattern Recognition (CVPR)}, pages 25698--25707.
 
@@ -214,7 +213,7 @@ Ziniu Hu, Zhe Zhao, Xinyang Yi, Tiansheng Yao, Lichan Hong, Yizhou Sun, and
   {https://papers.nips.cc/paper_files/paper/2022/hash/4a9eaf6dff3fdac9ab1aaf4c0fe2d563-Abstract-Conference.html}
   {Improving multi-task generalization via regularizing spurious correlation}.
 \newblock In \emph{Advances in Neural Information Processing Systems
-  (NeurIPS)}.
+  (NeurIPS)}, pages 11450--11466.
 
 \bibitem[{Jang et~al.(2023)Jang, Braun, and Frassinelli}]{jang2023intended}
 Hyewon Jang, Bettina Braun, and Diego Frassinelli. 2023.
@@ -222,7 +221,7 @@ Hyewon Jang, Bettina Braun, and Diego Frassinelli. 2023.
   perceived sarcasm between close friends: What triggers sarcasm and what gets
   conveyed?}
 \newblock In \emph{Proceedings of the Annual Meeting of the Cognitive Science
-  Society}, volume~45.
+  Society}, volume~45, pages 1228--1234.
 
 \bibitem[{Jang and Frassinelli(2024)}]{jang2024csc}
 Hyewon Jang and Diego Frassinelli. 2024.
@@ -244,10 +243,10 @@ Rabeeh Karimi~Mahabadi, Sebastian Ruder, Mostafa Dehghani, and James Henderson.
 
 \bibitem[{Khatri and P(2020)}]{khatri2020}
 Akshay Khatri and Pranav P. 2020.
-\newblock \href {https://aclanthology.org/2020.figlang-1.7/} {Sarcasm detection
-  in tweets with {BERT} and {GloVe} embeddings}.
+\newblock \href {https://doi.org/10.18653/v1/2020.figlang-1.7} {Sarcasm
+  detection in tweets with {BERT} and {GloVe} embeddings}.
 \newblock In \emph{Proceedings of the Second Workshop on Figurative Language
-  Processing (FigLang)}.
+  Processing (FigLang)}, pages 56--60.
 
 \bibitem[{Lai et~al.(2015)Lai, Xu, Liu, and Zhao}]{lai2015rcnn}
 Siwei Lai, Liheng Xu, Kang Liu, and Jun Zhao. 2015.
@@ -272,10 +271,11 @@ Chong Li, Shaonan Wang, Yunhao Zhang, Jiajun Zhang, and Chengqing Zong. 2023.
 
 \bibitem[{Liang et~al.(2022)Liang, Lin, Qin, and Xu}]{liang2022tosarcasm}
 Bin Liang, Zijie Lin, Bing Qin, and Ruifeng Xu. 2022.
-\newblock \href {https://doi.org/10.18653/v1/2022.ccl-1.48} {Topic-oriented
-  sarcasm detection: New task, new dataset and new method}.
+\newblock \href {https://aclanthology.org/2022.ccl-1.50/} {Topic-oriented
+  sarcasm detection: New task, new dataset and new method (in {Chinese})}.
 \newblock In \emph{Proceedings of the 21st Chinese National Conference on
-  Computational Linguistics (CCL)}, pages 557--568.
+  Computational Linguistics (CCL)}, pages 557--568, Nanchang, China. Chinese
+  Information Processing Society of China.
 
 \bibitem[{Liu et~al.(2021)Liu, Liu, Jin, Stone, and Liu}]{liu2021cagrad}
 Bo~Liu, Xingchao Liu, Xiaojie Jin, Peter Stone, and Qiang Liu. 2021.
@@ -377,9 +377,9 @@ Jonathan Pilault, Amine El~hattami, and Christopher Pal. 2021.
 
 \bibitem[{{Qwen Team}(2026)}]{qwen2026qwen35}
 {Qwen Team}. 2026.
-\newblock \href {https://qwen.ai/blog?id=qwen3.5} {{Qwen3.5}: Towards native
-  multimodal agents}.
-\newblock Qwen3.5-9B model weights under Apache 2.0; accessed 2026-07-21.
+\newblock \href {https://huggingface.co/Qwen/Qwen3.5-9B} {{Qwen3.5-9B} model
+  card}.
+\newblock Official model weights and configuration; accessed 2026-07-21.
 
 \bibitem[{Ravfogel et~al.(2020)Ravfogel, Elazar, Gonen, Twiton, and
   Goldberg}]{ravfogel2020inlp}
@@ -415,8 +415,8 @@ Asa~Cooper Stickland and Iain Murray. 2019.
 \newblock In \emph{Proceedings of the 36th International Conference on Machine
   Learning (ICML)}.
 
-\bibitem[{Tay et~al.(2018)Tay, Tuan, Hui, and Su}]{tay2018reasoning}
-Yi~Tay, Luu~Anh Tuan, Siu~Cheung Hui, and Jian Su. 2018.
+\bibitem[{Tay et~al.(2018)Tay, Luu, Hui, and Su}]{tay2018reasoning}
+Yi~Tay, Anh~Tuan Luu, Siu~Cheung Hui, and Jian Su. 2018.
 \newblock \href {https://aclanthology.org/P18-1093/} {Reasoning with sarcasm by
   reading in-between}.
 \newblock In \emph{Proceedings of the 56th Annual Meeting of the Association
