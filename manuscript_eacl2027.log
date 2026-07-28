@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.26)  29 JUL 2026 04:30
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.26)  29 JUL 2026 05:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -932,33 +932,34 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/n/5'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Underfull \hbox (badness 1168) in paragraph at lines 61--62
-\TU/TimesNewRoman(0)/m/n/10 trained for sarcasm detection and machine-
+Underfull \hbox (badness 1048) in paragraph at lines 61--62
+\TU/TimesNewRoman(0)/m/n/10 yond literal wording. LLM generation of-
  []
 
 
-Underfull \hbox (badness 1681) in paragraph at lines 61--62
-\TU/TimesNewRoman(0)/m/n/10 glish resources, generate topic-matched AI
+Underfull \hbox (badness 1354) in paragraph at lines 61--62
+\TU/TimesNewRoman(0)/m/n/10 fers a scalable way to expand sarcasm re-
  []
 
 
-Underfull \hbox (badness 1270) in paragraph at lines 61--62
-\TU/TimesNewRoman(0)/m/n/10 the evaluated plain joint-training procedure
+Underfull \hbox (badness 1803) in paragraph at lines 61--62
+\TU/TimesNewRoman(0)/m/n/10 centage points above its matched sarcasm-
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 61--62
-\TU/TimesNewRoman(0)/m/n/10 yields a false-positive rate 67.0 percentage
+Underfull \hbox (badness 1067) in paragraph at lines 61--62
+\TU/TimesNewRoman(0)/m/n/10 ing remains preserved, indicating a source-
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 61--62
-\TU/TimesNewRoman(0)/m/n/10 the ranking induced by sarcasm scores re-
+Underfull \hbox (badness 1092) in paragraph at lines 61--62
+\TU/TimesNewRoman(0)/m/n/10 consistently track LLM human-likeness rat-
  []
 
 
-Underfull \hbox (badness 1270) in paragraph at lines 61--62
-\TU/TimesNewRoman(0)/m/n/10 a source-correlated shortcut hypothesis and
+Underfull \hbox (badness 1152) in paragraph at lines 61--62
+\TU/TimesNewRoman(0)/m/n/10 findings motivate source $\OMS/cmsy/m/n/10 ^^B$ \TU
+/TimesNewRoman(0)/m/n/10 class subgroup
  []
 
 
@@ -1958,10 +1959,10 @@ Package rerunfilecheck Info: File `manuscript_eacl2027.out' has not changed.
 Here is how much of TeX's memory you used:
  18653 strings out of 473832
  376140 string characters out of 5729481
- 869777 words of memory out of 5000000
+ 870777 words of memory out of 5000000
  41440 multiletter control sequences out of 15000+600000
  570425 words of font info for 133 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,13n,93p,1606b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,93p,1544b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on manuscript_eacl2027.pdf (21 pages).
