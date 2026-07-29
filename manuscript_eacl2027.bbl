@@ -80,12 +80,6 @@ Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume
   report}.
 \newblock \emph{arXiv preprint arXiv:2412.19437}.
 
-\bibitem[{{DeepSeek-AI}(2025)}]{deepseek2025r1}
-{DeepSeek-AI}. 2025.
-\newblock \href {https://arxiv.org/abs/2501.12948} {{DeepSeek-R1}:
-  Incentivizing reasoning capability in {LLMs} via reinforcement learning}.
-\newblock \emph{arXiv preprint arXiv:2501.12948}.
-
 \bibitem[{Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
   Zettlemoyer}]{dettmers2023qlora}
 Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer. 2023.
@@ -164,6 +158,12 @@ Biyang Guo, Xin Zhang, Ziyuan Wang, Minqi Jiang, Jinran Nie, Yuxuan Ding,
 \newblock \href {https://arxiv.org/abs/2301.07597} {How close is {ChatGPT} to
   human experts? comparison corpus, evaluation, and detection}.
 \newblock \emph{arXiv preprint arXiv:2301.07597}.
+
+\bibitem[{Guo et~al.(2025)Guo, Yang, Zhang et~al.}]{deepseek2025r1}
+Daya Guo, Dejian Yang, Haowei Zhang, et~al. 2025.
+\newblock \href {https://doi.org/10.1038/s41586-025-09422-z} {{DeepSeek-R1}
+  incentivizes reasoning in {LLMs} through reinforcement learning}.
+\newblock \emph{Nature}, 645:633--638.
 
 \bibitem[{He and Choi(2021)}]{he2021stemcell}
 Han He and Jinho~D. Choi. 2021.
