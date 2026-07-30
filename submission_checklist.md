@@ -33,7 +33,7 @@
 
 **⚠️ 主字体修复（07-15，勿删；合规依据 07-15 已逐项核证）**：ACLPUB formatting.html §Fonts 原文："All text (except non-Latin scripts and mathematical formulas) should be set in **Times Roman**. If Times Roman is unavailable, you may use **Times New Roman** or **Computer Modern Roman**."——Times New Roman 为明文允许字体；官方仓库自带的 XeLaTeX/LuaLaTeX 模板 `acl_lualatex.tex` 本身就在 preamble 用 `\babelfont{rm}{TeXGyreTermesX}` 设置拉丁主字体（"similar to Times"），故在文档 preamble 设主字体=官方做法，非"修改样式文件"（acl.sty/acl_natbib.bst 未动）；CJK（非拉丁文字）与数学公式明文豁免于 Times 要求。xeCJK/fontspec 会把拉丁主字体静默重置为 Latin Modern，覆盖 `\usepackage{times}`——旧 PDF 因此主字体错误（aclpubcheck 报 Wrong font）。已在 preamble 的 xeCJK 块后加 `\IfFontExistsTF{Times New Roman}{...}{\setmainfont{TeX Gyre Termes}}`：Mac 上取 Times New Roman（PDF 字体名 TimesNewRomanPSMT，aclpubcheck 接受），无该字体环境回退 TeX Gyre Termes。**07-15 终检结果**：pdffonts 全嵌入 ✅；PDF 元数据无作者名 ✅；匿名化搜索（our previous/我们前期/Acknowledg/作者名）仅命中 References 第三人称自引 ✅；aclpubcheck 除 review 模式行号导致的 spurious margin 报错外，唯一真实错误即上述字体（已修，Mac 重编译后应消失）；无 undefined citations、无 overfull。
 
-**格式合规（07-29 沙盒已过，待 Mac 终检）**：正文 §1–Conclusion 位于 p.1–8，Conclusion 完整止于 p.8；Limitations 同页开始。PDF 为 A4（595.28 × 841.89 pt），共 21 页；`[review]` 模式、行号/页码、双栏、匿名化、章节顺序和双栏附录均正常。**tex 摘要 196 词**（按 `detex | wc -w` 统计）。当前构建无最终未定义引用、重复标签、overfull 或 BibTeX 警告；仅有 3 条 LaTeX 自动将 `[h]` 浮动体调整为 `[ht]` 的非错误提示。
+**格式合规（07-30 沙盒已过，待 Mac 终检）**：正文 §1–Conclusion 位于 p.1–8，Conclusion 完整止于 p.8；Limitations 同页开始。PDF 为 A4（595.28 × 841.89 pt），共 21 页；`[review]` 模式、行号/页码、双栏、匿名化、章节顺序和双栏附录均正常。**tex 摘要 196 词**（按 `detex | wc -w` 统计）。当前构建无最终未定义引用、重复标签、overfull 或 BibTeX 警告；仅有 5 条 LaTeX 自动将 `[h]` 浮动体调整为 `[ht]` 的非错误提示。
 
 **07-29 当前覆盖说明（优先于下述 07-15 状态记录）**：当前 Contributions 为一段三句，按“资源与核心效应—稳健性与机制—探索性应用风险”组织；§5.2 标题为 *Joint versus Single-Task Procedures*；§6 标题为 *Exploratory Comparison of Detector Scores with LLM-Judge Ratings*；Conclusion 为一段且不含旧版 SFT 语言不对称句；正文表为 Table 1（backbone）、Table 2（joint vs. single）、Table 3（source $\times$ sarcasm），Spearman 与语言分层表位于附录。下述 07-15 内容仅记录当时压缩与移回过程，凡与本覆盖说明或当前 tex 冲突者均不得用于反向覆盖 tex。
 
@@ -151,6 +151,8 @@
 **答辩弹药（专家四问 + 标签）**：① 为何讨论来源相关结构→logit 相关、方向对齐与定向干预共同把它和受影响决策联系起来，但正文不再把这组证据包装成命名假说；② srcORTH 有效否定 LEACE？→正是本文发现、严谨性优势；③ 与主任务关系→AI×非讽刺是部署真实输入，高误判 = 鲁棒性问题非噪声；④ 为何不做因果中介→目标是识别刻画、留 future work。标签攻击→单头 19.3% = 标签噪声上界论证 + 构造定义口径。
 
 ## 📖 已解决历史归档（决策日志，倒序；细节可查 git / 记忆 `project_paper3_writing_dir.md`）
+
+- **07-30（第 5 章正文自足性补强）**：§5.3.1 增加朴素配对目标子群的概率中位数/IQR（0.767 [0.635, 0.839] vs. 0.204），将“上移”限定为与分布证据一致；正文直接报告跨语言差值（朴素：英 +63.5 pp、中 +79.4 pp；RCNN：+16.9/+7.7 pp）及语言—语料混杂边界。§5.3.2 明确三个诊断问题与单个 final plain joint model 的适用范围，定义五折交叉验证逻辑回归来源 probe，解释普通余弦与协方差归一化对齐的差异，并将 held-out 干预结果直接组织为 AI–人类非讽刺 FPR gap（52.0→19.1 pp，srcORTH-PC1 后 12.6 pp）；保留 LEACE 后重训 probe、来源方向/INLP 阴性结果及 srcORTH-PC1 的非来源特征边界。§5.3.3 增补 Qwen3.5 上配对 RCNN 22.1%/10.6% 对照。未把复现公式和完整曲线移入正文；全量构建仍为 21 页，Conclusion 与 Limitations 均在 p.8 开始/结束于要求范围内。
 
 - **07-29（§5.3.2 正文自足性补强）**：正文明确表征诊断使用产生 86.3% 误报率的单个 final plain joint model，并说明 probe 对照、普通余弦与协方差归一化对齐、held-out half 的基线、LEACE 的冻结表征擦除方式及擦除后重训来源 probe 的 AUC 口径；同时补入来源方向/INLP 的阴性结果，并将 srcORTH-PC1 限定为语义未确定的行为相关方向而非已识别来源特征。跨生成器段补 Qwen3.5 的 91.3%/7.9% 组成率并改称 observed gap，避免暗示不同保留集合上的严格配对增长。未移入附录表；全量构建仍为 21 页，Conclusion 完整止于 p.8。
 
