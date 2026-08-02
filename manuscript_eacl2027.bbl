@@ -78,9 +78,10 @@ Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume
 {DeepSeek}. 2026.
 \newblock \href {https://api-docs.deepseek.com/news/news260424/} {{DeepSeek V4}
   preview release}.
-\newblock API announcement dated April 24, 2026; the \texttt{deepseek-chat}
-  identifier routes to DeepSeek-V4-Flash in non-thinking mode. Accessed July
-  31, 2026.
+\newblock API announcement dated April 24, 2026; at the time of our May 2026
+  API calls, the legacy \texttt{deepseek-chat} identifier routed to
+  DeepSeek-V4-Flash in non-thinking mode. The identifier was retired on July
+  24, 2026. Accessed July 31, 2026.
 
 \bibitem[{Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
   Zettlemoyer}]{dettmers2023qlora}

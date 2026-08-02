@@ -1,21 +1,22 @@
 # EACL 2027 投稿合规清单与待办
 
-> 依据：https://2027.eacl.org/calls/papers/、https://aclrollingreview.org/cfp 与 https://acl-org.github.io/ACLPUB/formatting.html（2026-07-29 复核）。投稿路径：**ARR（OpenReview）→ EACL 2027 承诺（commitment）**。
+> 依据：https://2027.eacl.org/calls/papers/、https://aclrollingreview.org/cfp 与 https://acl-org.github.io/ACLPUB/formatting.html（2026-08-02 复核）。投稿路径：**ARR（OpenReview）→ EACL 2027 承诺（commitment）**。
 > 本文件 = 投稿工作总账。结构：① 待办 ② 构建状态 ③ 日期/合规/Checklist ④ **生效红线速查（改论文前必读、勿回改）** ⑤ 已解决历史归档。
 
 ## 🔴 投稿前待办（TODO，按优先级）
 
-1. **OpenReview/ARR 投稿表单**：Responsible NLP checklist（草稿见 §Checklist）、preprint/匿名选择、AI 写作披露、作者名单与适用时的 resubmission 信息；ARR 提交后作者名单不可随意变更。
+1. **OpenReview/ARR 投稿表单**：**逐项填写指导见 `submission_form_guide.md`（2026-08-02 新建，含可直接粘贴的英文 justification、老师需做事项与官方 URL、提交当天操作顺序）**。Responsible NLP checklist（答案见 §Checklist）、preprint/匿名选择、AI 写作披露、作者名单与适用时的 resubmission 信息；ARR 提交后作者名单不可随意变更。
 2. **全体作者 ARR 审稿注册**（2026-08-05 EoD AoE 前，强制）。
-3. **Mac 本地重编译终检**（07-29 沙盒已按最新 tex 以 Times New Roman 全量重编译并核实：正文 §1–Conclusion 完整止于 p.8，Limitations 同页开始；引言/相关工作压缩后已留出明显分页余量；`tab:lang-quadrant` 位于附录 p.19、仍在 C.7 内；无 overfull/未定义引用）。Mac 重编译后再跑 `pdffonts` 确认主字体为 TimesNewRomanPSMT，并复核分页未因本地字体环境变化而漂移。
-4. **数据许可（2026-07-21 已核对可见发布条件，见 §Checklist "五源许可"表）**：iSarcasm/CSC 的源仓库声明 MIT；ToSarcasm、News Headlines 与 Open Chinese 的所访问版本未识别到明确再分发许可。后三者不再分发人类原文；DualTest 仅发布具备发布条件的 AI 侧、标签/元数据及要求用户从原始来源取得人类语料的重建脚本。剩：① News Headlines 的 Kaggle license 字段投稿前最后核实一次；② 匿名代码/数据用 Anonymous GitHub（禁 Dropbox/Drive）。
+3. **最终 PDF 变更纪律**：当前项目 PDF 已包含 §5.4 的 Q1--Q3 结构、更新后的 Figure 3，以及 §6 对三组 detector--judge 结果的直接归纳。正文与 Conclusion 完整止于 p.8，Limitations、Ethical considerations 与 References 从 p.9 起，附录 A 从 p.13 起。PDF 使用 TimesNewRomanPSMT，23 个字体对象全部嵌入；无作者元数据、Overfull、未定义引用或 BibTeX 警告。当前 SHA-256：`0e6f38f952ff7d6a888a20b66661e3bad1bc3e57946f6ea2a1aeff70e32bbc5b`。此后若再改 tex、附录、图片或 bib，必须重新构建并更新本记录。
+4. **数据许可（2026-08-02 当前口径，见 §Checklist "五源许可"表）**：iSarcasmEval 与 CSC 的源仓库声明 MIT；News Headlines v2 的 Kaggle 发布页声明 CC BY 4.0；对 ToSarcasm 与 Open Chinese Internet Sarcasm Corpus 的所访问版本未识别到明确再分发许可。本轮代码与数据均不上传，也不作录用后发布承诺；附录 A.1 仅说明可再分发范围与重建方式，不构成发布承诺。
+   **② 附件决策（2026-08-02 定）：本轮代码与数据均不上传。** 数据侧正文从未承诺 release（A.1 只界定可再分发范围），故无冲突；代码为可选附件。**🔴 且不做代码或数据的发布承诺（作者 08-02 决定，已推翻早前"在 checklist 写录用后发布"的方案）**：checklist 与表单任何位置都不出现 "will be released upon acceptance" 之类句子；带 "If you are releasing…" 条件的小问一律答 N/A。正文已核查零发布承诺（`will release|will be released|upon acceptance|plan to release` 全零命中），附录 A.1 的"可再分发范围"属条件性说明、保持原样。不往正文加脚注（正文卡在 p.8）。匿名代码包已备妥留作内部备份：`anonymous_code/` + `anonymous_code.zip`（41 文件 / 148 KB）。若未来改变决定，可直接上传匿名 `.zip`/`.tgz`，或使用 Anonymous GitHub；不得使用会暴露账号的共享链接，并须复核 `.pyc`、绝对路径、项目标识与归档元数据。
 5. **两阶段提交**：2026-08-03 23:59 AoE 前在 OpenReview 提交 ARR 2026-08 周期；取得完整 reviews/meta-review 后，于 2026-10-11 23:59 AoE 前另行提交 EACL 2027 commitment 表单。
 
-（原"英译""ACL 模板排版""文献核实""中文示例拼音转写""aclpubcheck/pdffonts/匿名化/元数据终检"已完成，见构建状态与 07-15、07-28、07-29 归档。）
+（原"英译""ACL 模板排版""文献核实""中文示例拼音转写""aclpubcheck/pdffonts/匿名化/元数据终检"已完成，见当前构建状态与历史归档。）
 
-### ✅ 文献核实结果（07-15 初核；07-28 全表审计；07-29 正式版本复核，custom.bib 已修）
+### ✅ 文献核实结果（07-15 初核；07-28 全表审计；07-29 正式版本复核；08-02 当前闭环复核）
 
-- **全表审计（07-28）** ✅ 68 个被引用 key 与 68 个 bib 条目一一对应，无缺失、冗余或重复 key；其中 30 条已对 ACL Anthology、出版社、OpenReview、PMLR、CVF、DOI 或官方模型页面逐字段复核，其余为领域标准条目；BibTeX/LaTeX 无未定义引用。
+- **当前闭环复核（08-02）** ✅ 67 个被引用 key 与 67 个 bib 条目一一对应，无缺失、冗余或重复 key；其中主要条目已对 ACL Anthology、出版社、OpenReview、PMLR、CVF、DOI 或官方模型页面复核；BibTeX/LaTeX 无未定义引用。07-28 的 68 条统计属于当时版本，当前版本已移除不再使用的条目。
 
 - **Bevendorff 2025** ✅ 与 ACL Anthology 完全一致（Findings ACL 2025, pp.3762–3787, doi:10.18653/v1/2025.findings-acl.194）；正文"frame as authorship verification"表述与摘要相符。
 - **Chai et al. 2025** ✅ CVPR 2025 openaccess 完全一致（Chai, Lu, Wang, pp.25698–25707）。
@@ -29,17 +30,17 @@
 
 ## 📄 LaTeX 构建状态（tex = 投稿实体）
 
-**文件**：`manuscript_eacl2027.tex` + `appendices_eacl2027.tex` + `custom.bib` + `figures/`。**当前标题**：*Joint Training with Machine-Generated Text Detection Can Distort Sarcasm Detection: Diagnosing Class-Conditional Negative Transfer*。**编译**：`xelatex → bibtex → xelatex → xelatex`（中文需 XeLaTeX）。07-30 先将 §5.3.2 扩写为完整审计版，明确 DualTest 样本切分、probe、协方差对齐、拟合半/评估半、LEACE、阴性控制与 srcORTH-PC1 的逻辑；随后按“优先简洁改写、不删除核心论证”的原则压缩整个第五章。当前正文仍保留：描述性主干比较与非模型选择边界；十次 matched 比较及完整联合流程口径；67.0/14.8 pp 与两组 McNemar 检验；AUC/中位数、人类—AI 和语言分层；probe/相关/协方差对齐；互斥样本半集、冻结讽刺头、评估半重新交叉验证 probe；LEACE 0.589、错误重新分配、阴性控制；srcORTH-PC1 0.982 与非因果特征边界；以及 Qwen3.5 上未经重训的 plain/RCNN matched 结果。最新沙盒 Times New Roman XeLaTeX 构建为 **21 页**：Qwen3.5 位于 p.7，§6、Conclusion 和 Limitations 位于 p.8，Ethical considerations 与 References 从 p.9 起。
+**文件**：`manuscript_eacl2027.tex` + `appendices_eacl2027.tex` + `custom.bib` + `figures/`。**当前标题**：*Joint Training with Machine-Generated Text Detection Can Distort Sarcasm Detection: Diagnosing Class-Conditional Negative Transfer*。**编译**：`xelatex → bibtex → xelatex → xelatex`（中文需 XeLaTeX）。当前正文保留：描述性主干比较与非模型选择边界；十次 fold-matched 比较及完整联合流程口径；67.0/14.8 pp 与 McNemar 检验；AI 内 AUC 0.82--0.88、概率中位数/IQR、人类--AI 和语言分层；Q1 来源可读性、Q2 分数/方向关联与 Q3 表征干预敏感性；拟合半/评估半协议、冻结讽刺头、评估半重新交叉验证 source probe；LEACE 0.589 与错误重新分配；INLP-3 residual PC1 后 gap 12.6 pp、source AUC 0.982 及非唯一因果边界；以及不重训检测器的 Qwen3.5 复现。当前全量构建为 **25 页**：Qwen3.5 结果位于正文 p.6，§6 与 Conclusion 位于 p.8，Limitations、Ethical considerations 与 References 从 p.9 起；附录 A/B/C 从 p.13/p.15/p.16 起，附录 D 与 E 均从 p.20 起。
 
-**⚠️ 主字体修复（07-15，勿删；合规依据 07-15 已逐项核证）**：ACLPUB formatting.html §Fonts 原文："All text (except non-Latin scripts and mathematical formulas) should be set in **Times Roman**. If Times Roman is unavailable, you may use **Times New Roman** or **Computer Modern Roman**."——Times New Roman 为明文允许字体；官方仓库自带的 XeLaTeX/LuaLaTeX 模板 `acl_lualatex.tex` 本身就在 preamble 用 `\babelfont{rm}{TeXGyreTermesX}` 设置拉丁主字体（"similar to Times"），故在文档 preamble 设主字体=官方做法，非"修改样式文件"（acl.sty/acl_natbib.bst 未动）；CJK（非拉丁文字）与数学公式明文豁免于 Times 要求。xeCJK/fontspec 会把拉丁主字体静默重置为 Latin Modern，覆盖 `\usepackage{times}`——旧 PDF 因此主字体错误（aclpubcheck 报 Wrong font）。已在 preamble 的 xeCJK 块后加 `\IfFontExistsTF{Times New Roman}{...}{\setmainfont{TeX Gyre Termes}}`：Mac 上取 Times New Roman（PDF 字体名 TimesNewRomanPSMT，aclpubcheck 接受），无该字体环境回退 TeX Gyre Termes。**07-15 终检结果**：pdffonts 全嵌入 ✅；PDF 元数据无作者名 ✅；匿名化搜索（our previous/我们前期/Acknowledg/作者名）仅命中 References 第三人称自引 ✅；aclpubcheck 除 review 模式行号导致的 spurious margin 报错外，唯一真实错误即上述字体（已修，Mac 重编译后应消失）；无 undefined citations、无 overfull。
+**⚠️ 主字体修复（07-15，勿删；08-02 已再次验证）**：ACLPUB formatting.html §Fonts 原文："All text (except non-Latin scripts and mathematical formulas) should be set in **Times Roman**. If Times Roman is unavailable, you may use **Times New Roman** or **Computer Modern Roman**."——Times New Roman 为明文允许字体；官方仓库自带的 XeLaTeX/LuaLaTeX 模板 `acl_lualatex.tex` 本身就在 preamble 用 `\babelfont{rm}{TeXGyreTermesX}` 设置拉丁主字体（"similar to Times"），故在文档 preamble 设主字体=官方做法，非"修改样式文件"（acl.sty/acl_natbib.bst 未动）；CJK（非拉丁文字）与数学公式明文豁免于 Times 要求。xeCJK/fontspec 会把拉丁主字体重置为 Latin Modern，覆盖 `\usepackage{times}`；当前 preamble 在 xeCJK 后用 `\IfFontExistsTF{Times New Roman}{...}{\setmainfont{TeX Gyre Termes}}` 恢复 Times 系主字体。08-02 当前 Mac PDF 使用 TimesNewRomanPSMT，所有字体嵌入，元数据无作者名；沙盒回退 TeX Gyre Termes/Noto CJK 亦能生成相同正文八页结构。
 
-**格式状态（07-30 第五章压缩后）**：PDF 为 A4（595.28 × 841.89 pt），共 21 页；正文 §1–Conclusion 完整位于 p.1–8，Limitations 同在 p.8，Ethical considerations 与 References 从 p.9 起。`[review]` 模式、行号/页码、双栏、匿名化、章节顺序和双栏附录均正常。**tex 摘要 196 词**。当前构建无最终未定义引用、重复标签、overfull 或 BibTeX 警告；仅有 2 条 LaTeX 自动将 `[h]` 调整为 `[ht]` 的非错误提示。
+**格式状态（2026-08-02 当前复核）**：PDF 为 A4（595.28 × 841.89 pt），共 25 页；正文 §1--Conclusion 完整位于 p.1--8，Conclusion 最后一行仍在 p.8，Limitations 从 p.9 开始。`[review]` 模式、行号/页码、双栏、匿名化、章节顺序和双栏附录均正常。**tex 与 OpenReview 纯文本摘要均为 192 词且逐字一致**。当前构建无未定义引用、重复标签、Overfull 或 BibTeX 警告；仅有 3 条 LaTeX 将 `[h]` 自动调整为 `[ht]` 的非错误提示。全部 23 个 PDF 字体对象已嵌入，PDF 元数据不含作者字段。
 
-**07-29 当前覆盖说明（优先于下述 07-15 状态记录）**：当前 Contributions 为一段三句，按“资源与核心效应—稳健性与机制—探索性应用风险”组织；§5.2 标题为 *Joint versus Single-Task Procedures*；§6 标题为 *Exploratory Comparison of Detector Scores with LLM-Judge Ratings*；Conclusion 为一段且不含旧版 SFT 语言不对称句；正文表为 Table 1（backbone）、Table 2（joint vs. single）、Table 3（source $\times$ sarcasm），Spearman 与语言分层表位于附录。下述 07-15 内容仅记录当时压缩与移回过程，凡与本覆盖说明或当前 tex 冲突者均不得用于反向覆盖 tex。
+**08-02 当前覆盖说明（优先于全部历史状态记录）**：当前 Contributions 为一段三句，按“资源与核心效应—稳健性与机制—探索性应用风险”组织；§5.4 *Representation-Level Diagnosis* 以 Q1 来源可用性、Q2 与讽刺决策的关联、Q3 来源组间误报分配组织，Q3 下以粗体 `(a)/(b)/(c)` 区分三类干预；§6 标题为 *Exploratory Comparison of Detector Scores with LLM-Judge Ratings*；Conclusion 为一段。正文表为 Table 1（backbone）、Table 2（joint vs. single）、Table 3（source $\times$ sarcasm），完整统计与 representation protocol 位于附录。Figure 3、正文、附录和 Table 19 均使用 `INLP-3 residual PC1`，当前稿不得恢复旧称 `srcORTH-PC1`。下述日期日志只记录当时版本，凡与本覆盖说明或当前 tex 冲突者均不得用于反向覆盖 tex。
 
-**文档权威口径与 tex 相对 md 的压缩**：tex 是投稿文本与数值口径的最终权威源；md 为同步长版。07-30 第五章已完成“先完整扩写、再保持逻辑压缩”：§5.3.2 现为四个逻辑块（范围、可解码性与对齐、干预、srcORTH-PC1），不得恢复“一半表征”等歧义，也不得删除原讽刺头不重训、评估半内部重新交叉验证 probe、LEACE 错误重新分配、阴性控制或 srcORTH-PC1 非来源特征边界。实现残差、置换标签、长度分层、各控制的完整数字及样本数继续由附录承担。
+**文档权威口径**：tex 是投稿文本与数值口径的唯一权威源；中英文 md 是长版参考，不保证逐句同步。当前 representation analysis 明确区分 full-set probes/alignment 与 50/50 intervention split，不得恢复“一半表征”等歧义，也不得删除原讽刺头不重训、评估半内部重新交叉验证 probe、full-set unlabeled mean/covariance 的 transductive 披露、24.7% pair 跨半、LEACE 错误重新分配或 INLP-3 residual PC1 的非唯一因果边界。实现残差、置换标签、长度分层、各控制的完整数字及样本数由附录 E 承担。
 
-**07-20 排版覆盖（替代上述 07-15 当时状态）**：主干对比表与四象限表保留在正文；为确保 Conclusion 止于 p.8，跨生成器四象限图已由正文 §5.3.3 移至附录 C.7。md 保留内联图作为完整内容源，tex 为投稿排版实体。07-15 冻结的字面句 “rather than as a form of cross-attention”同时由 07-20 的残差投影公式化定义取代；保留的技术约束是单向量时无 query–key 交互、不称 cross-attention。
+**当前排版覆盖（2026-08-02）**：主干对比表与四象限表保留在正文；跨生成器四象限 Figure 2 位于附录 C.3（p.17），语言分层 Table 10 位于 p.18。Table 15 位于 p.20，Tables 16--17 位于 p.21；representation protocol Figure 3 位于 p.22，Table 18 位于 p.23，Table 19 位于 p.25。md 仅作长版参考，tex 是投稿排版与数值口径的唯一权威源。交互投影继续以实际残差投影公式定义；单向量时无 query--key 交互，不称 cross-attention。
 
 **录用后**：`[review]`→`[final]`；填真实作者/单位；References 前加不编号 Acknowledgments；正文 +1 页（9 页）。Ethics 节标题 "Ethical considerations"（匹配 ARR）。
 
@@ -61,7 +62,7 @@
 
 | 要求 | 规定 | 状态 |
 |------|------|------|
-| 论文类型 | 长文正文 ≤ 8 页（录用后 +1）| ✅ 07-29 沙盒正文完整止于 p.8；待 Mac 终检 |
+| 论文类型 | 长文正文 ≤ 8 页（录用后 +1）| ✅ 08-02 Mac/沙盒双环境终检：正文与 Conclusion 完整止于 p.8 |
 | 不计页内容 | Limitations、Ethics、References、附录 | ✅ 结构已排（Limitations 在结论后、References 前）|
 | **Limitations 强制** | 缺失即拒稿；不得含新方法/分析/结果 | ✅ 仅复述正文边界 |
 | 模板 | 官方 ACL 样式，禁改样式；附录双栏 | ✅ 用 acl.sty `[review]`、附录双栏；投稿前跑 aclpubcheck |
@@ -70,37 +71,36 @@
 | Responsible NLP Checklist | 表单填写；不实可拒稿 | ✅ 草稿见下 |
 | 双重投稿 | 禁止 | 确认无并行投稿 |
 | 审稿义务 | 全体作者 08-05 前注册 | ⚠️ 待办 |
-| 论文完整性 | 禁幻觉引用 | ✅ 07-28 全表审计：68/68 key 对应，30 条一手来源逐字段复核；07-29 DeepSeek-R1 更新正式版 |
-| AI 写作辅助 | 允许但须披露 | ✅ Ethics 已披露 |
+| 论文完整性 | 禁幻觉引用 | ✅ 08-02 当前版本 67/67 key 对应，无缺失、冗余或重复；DeepSeek-R1 使用 Nature 正式版 |
+| AI 写作辅助 | 允许但须披露 | ✅ Ethical considerations 已披露 |
 
-## Responsible NLP Checklist 答案草稿（逐条，2026-07-21 结合论文与实验落定；填 OpenReview 表单用，不进正文）
+## Responsible NLP Checklist 答案草稿（2026-08-02 按当前文稿重新对齐；填 OpenReview 表单用，不进正文）
 
 > 官方问题：aclrollingreview.org/responsibleNLPresearch。表单答 Yes 须指向论文章节；下列"位置"即 justification 依据。许可结果为 2026-07-21 逐源查证（见后"五源许可"表）。
 
-**Section A（每篇必答）**
-- **A1 描述局限？ → Yes。** 强制 Limitations 节，三类边界（数据/设置、机制解释深度、生成评测规模与代理性）。
-- **A2 讨论潜在风险？ → Yes。** Ethics Statement + §6：MGTD 检测器分数误用为生成质量/奖励信号、类条件失效对特定子群的系统性偏差、高风险场景部署警示。
+**Section A（当前表单仅有 A1 Potential Risks）**
+- **A1 潜在伦理、社会或环境风险？ → Yes。** Ethical considerations 讨论来源组系统性错误、把检测器输出当作作者身份或不当行为证据的风险，以及无人工复核和领域验证时用于高风险部署的风险；§6 另讨论把检测器概率复用为生成质量分数或奖励信号的风险。表单 elaboration 使用 `submission_form_guide.md` 中的英文段落。
 
 **Section B（使用/创建科学工件 → Yes）**
-- **B1 引用创建者？ → Yes。** §3 + References（五源数据集 + DeBERTa-v3/mBERT/XLM-R/Qwen3/DeepSeek-R1/QLoRA 等）。
-- **B2 讨论许可/使用条款？ → Yes。** Ethics Statement + 附录 A "Licensing and release scope"：iSarcasm/CSC 的源仓库声明 MIT；其余三源未识别到明确再分发许可，因此不再分发其人类原文。表单 justification 指向这两处；Yes 表示论文已如实讨论许可与发布边界，并不表示所有来源都有开放许可证。
-- **B3 使用与预期用途一致？ → Yes。** 五源均为讽刺检测研究公开发布，本文用于讽刺/MGTD 学术研究（§3、附录 A）。
-- **B4 检查 PII/冒犯内容步骤？ → No（有解释，不构成不合规）。** Ethics Statement 如实说明：未采集新用户数据，但未在源语料发布时已有的处理之外另行开展 PII 或冒犯性内容审计。表单 justification 直接引用该说明；除非之后实际完成并记录额外审计，不改填 Yes。
+- **B1 引用创建者？ → No（附说明）。** §3 与 References 已引用五源数据集、预训练模型和方法的创建者；但 PyTorch、transformers、NumPy、SciPy、scikit-learn、pandas、peft、datasets 等软件包仅在附录 B.3 报告名称与版本，未逐项提供创建者文献引用，因此不笼统回答 Yes。
+- **B2 发布权利/许可？ → N/A。** 实际表单问题以 “If you are releasing…” 为条件；本轮不上传代码或数据。附录 A.1 仍记录已识别的语料许可与可再分发范围。
+- **B3 若发布工件，PII 缓解？ → N/A。** 本轮不发布数据。Ethical considerations 另行如实说明未对既有语料执行额外 PII 审计。
+- **B4 若发布工件，冒犯内容缓解？ → N/A。** 本轮不发布数据。Ethical considerations 另行如实说明未对既有语料执行额外冒犯内容审计。
 - **B5 提供文档？ → Yes。** §3 + 附录 A（来源明细、标注方式、生成模板/参数/后处理、四象限统计、命名映射）。
 - **B6 报告统计与划分？ → Yes。** §3 + 附录 A：SarcTrain 10,000（5 折）、AuthTrain 19,995（9,999 人+9,996 AI，90/10 留出）、GenTrain 2,428、DualTest 4,664（四象限 823/1,549/779/1,513）；协议 §4.2。
 
 **Section C（计算实验 → Yes）**
-- **C1 参数量/算力/基础设施？ → No（部分满足并解释）。** 附录 B 已列各编码器参数量（178M/278M/184M/435M）、Qwen3-8B≈8B、单卡 RTX 3090 24GB、检测器实验约数十 GPU 小时及 SFT 约两小时；但未给出每个完整检测器变体的精确参数量，也缺少本地生成与表示干预的完整 GPU-hour 记账。表单如实说明现有报告范围；若取得更完整日志再改 Yes。
-- **C2 实验设置/超参搜索/最佳超参？ → Yes。** §4.2 + 附录 B 报告学习率分组、2:1 采样、类别权重、早停、5 折协议、最终模型固定轮数和验证选择规则；类别权重与采样比为先验设定，未依据 DualTest 调参。表单不额外声称论文未记录的搜索过程。
-- **C3 结果描述性统计？ → Yes。** 五次运行均值±std（主表）、Wilson 95% CI、McNemar、Wilcoxon+BH-FDR、Spearman（§5、§6、附录 C.7）。
+- **C1 参数量/算力/基础设施？ → Yes（2026-08-02 已解决）。** 附录 B.3 已改写为：各编码器参数量（178M/278M/184M/435M）、Qwen3-8B≈8B、单卡 RTX 3090 24GB、**检测器训练与推理约 170 GPU 小时**，并明写该数字不含 Ollama 本地生成、SFT（约两小时）与在 CPU 上运行的 representation analyses。覆盖范围已显式化，故可填 Yes。170 h 由 wandb run 批次去重后得出（此前朴素求和 581 h 属重复计数）。
+- **C2 实验设置/超参搜索/最佳超参？ → No（保守口径）。** §4.2 + 附录 B 已报告最终学习率、2:1 采样、类别权重、早停、5 折协议和最终模型 refitting 规则；附录 B.2 明确说明未进行系统性超参搜索，且 DualTest 未用于选择优化设置。但作者无法重建是否发生过有限的手工 pilot 调整，也无法报告所有此类尝试的结果，因此不声称完整记录了全部调参实验。表单使用 `submission_form_guide.md` 中的英文说明。
+- **C3 结果描述性统计？ → Yes。** 五次运行均值±std（主表）、Wilson 95% CI、McNemar、Wilcoxon+Benjamini--Hochberg FDR、Spearman（§5、§6、附录 C.3--C.8）。
 - **C4 现有包的实现/模型/参数设置？ → Yes。** 附录 B（torch 2.9.0/transformers 4.57.1/peft 0.18.0；DeBERTa-v3-large、Qwen3-8B+QLoRA、deepseek-r1:8b/qwen3.5:9b via Ollama、三盲评 LLM）。
 
 **Section D（本研究是否新招募人工标注者/人类被试 → No）**
-- 本研究未新招募、指导或付费给人类标注者/被试：人类文本与标签来自既有公开研究数据集，AI 侧标签由指令构造，§6 的三名"评审"是 LLM API 自动调用。位置：§3、§6、Ethics Statement、附录 C.3。
+- 本研究未新招募、指导或付费给人类标注者/被试：人类文本与标签来自既有公开研究数据集，AI 侧标签由指令构造，§6 的三名"评审"是 LLM API 自动调用。位置：§3、§6、Ethical considerations、附录 C.4--C.5。
 - 若表单在选择 No 后仍显示子项：D1/D2/D4 对本研究为 N/A；D3 说明本文未重新取得同意、数据获取与原始参与者程序由源数据研究负责；D5 说明本文不报告新的参与者人口统计，语料的语言、体裁与标注来源见附录 A。不要笼统声称原始研究的同意、伦理审批或人口统计已由本文验证。
 
 **Section E（AI 助手 → Yes）**
-- **E1 说明 AI 助手使用？ → Yes。** Ethics Statement 如实披露：AI-assisted tools 用于 language editing、structural revision 与 formatting，但未生成实验输出或统计；研究设计、分析与结论由作者决定并负责。录用版按 ACL 披露政策将相应说明纳入不编号 Acknowledgments。
+- **E1 说明 AI 助手使用？ → Yes。** Ethical considerations 如实披露：AI-assisted tools 用于 language editing、structural revision 与 formatting，但未生成实验输出或统计；研究设计、分析与结论由作者决定并负责。录用版按 ACL 披露政策将相应说明纳入不编号 Acknowledgments。
 
 ### 五源许可（2026-07-21 逐源查证）
 
@@ -109,10 +109,10 @@
 | iSarcasm（iSarcasmEval, iabufarha/iSarcasmEval）| 训练 + SFT + **DualTest 英文侧** | 源仓库声明 **MIT** | 按许可条件处理 |
 | CSC（CoPsyN/CSC）| 训练 | 源仓库声明 **MIT** | 按许可条件处理 |
 | ToSarcasm（HITSZ-HLT/ToSarcasm）| 训练 + SFT + **DualTest 中文侧** | 所访问版本未识别到明确再分发许可 | 不再分发人类原文；直接发布须另获许可 |
-| News Headlines v2（Misra, Kaggle/GitHub）| 训练 | 源仓库未识别到 LICENSE；Kaggle 字段**投稿前最后核实一次** | 不再分发人类原文 |
+| News Headlines v2（Misra, Kaggle/GitHub）| 训练 | **CC BY 4.0**（2026-08-02 核实：Kaggle 页面 JSON-LD `license.name = "Attribution 4.0 International (CC BY 4.0)"`, url creativecommons.org/licenses/by/4.0/, dataset id 30764；GitHub 侧无 LICENSE 文件）| 许可允许署名后再分发；本项目仍选择不分发人类原文（保守口径统一）|
 | Open Chinese Internet Sarcasm Corpus（Zhu 2022）| 训练 | 原链接失效，未识别到明示再分发许可 | 不再分发人类原文 |
 
-**DualTest 发布决策（2026-07-21 定）**：不整体发布人类原始文本（中文侧 972 条来自未识别到明确再分发许可的 ToSarcasm）。采用与 README `Data licensing note` 一致的保守方案——**仅发布具备发布条件的 AI 生成文本、双标签/元数据与重建脚本；人类侧不分发原文，脚本要求用户从 iSarcasm/ToSarcasm 原始来源自行取得数据**。模型采用 MIT 许可不能单独推出所有输出均可不受限制地发布；发布时仍需遵守模型条款及种子语料的适用权利。若日后直接发布 ToSarcasm 中文原文，先取得数据权利人的明确许可。
+**当前发布决定（2026-08-02，覆盖 2026-07-21 的早期方案）**：本轮不上传或承诺发布 DualTest、代码或其他研究工件。若未来另行考虑发布，权利边界仍按上表执行：不得分发未取得明确再分发许可的人类原文；可发布内容也须重新核对模型条款、种子语料权利与署名要求。早期“仅发布 AI 文本、元数据与重建脚本”的方案不是当前承诺。
 
 ## 🔒 生效红线与口径速查（改论文前必读，勿回改）
 
@@ -120,13 +120,13 @@
 
 **正向贡献表达红线（2026-07-24）**：摘要、引言、结果主题句与结论必须以“确立了什么、缩小了什么范围、提供了什么后续目标”为落点；不得用连续的“未能 / 不能证明 / 没有识别 / 仅仅 / rather than”作为贡献声明的主要收束。必要的因果边界统一写成“证据支持 X，并将 Y 界定为下一步分析目标”。本红线不得削弱 AI 侧标签构造、数据划分与泄漏复核、模型选择、实验对照、Limitations 与 Ethics 中的事实披露，也不得把相关证据升级为未经支持的因果结论。
 
-**术语可解释性红线（2026-07-29）**：① 领域惯用或已有明确引用的方法名/缩写可以保留，不为形式统一强制展开，如 PPO、DIP、RCNN、AUC、LEACE、INLP、QLoRA、BH-FDR；② 本文自定义名称仅在确实指代反复使用的稳定对象、配置或核心现象，且首次出现立即定义时保留，包括 SarcTrain、AuthTrain、GenTrain、DualTest、task-branch interaction projection、srcORTH-PC1 与 class-conditional negative transfer；③ 普通实验说明、证据解释或比较关系不得包装成仿佛已有公认定义的名词短语，必须直接说明“如何设置、观察到什么、证据支持到哪一步”；若为反复指代确实需要压缩名称或简称，首次出现必须先用普通语言给出简要定义，随后才可使用简称。现已禁用 `binary MGTD`、`source-correlated shortcut hypothesis`、`fixed-detector evaluation`、`test-side replacement set`、`source-conditioned score shift`、`source-conditioned error allocation`、`focal subgroup/FPR`、`detector--judge comparison/study`、`configuration-level evidence`、`mechanism hypothesis`、`split-sample evaluation` 与 `split-sample orthogonal-direction control`；对应内容改写为人类–AI 二分类设置、不重训检测器的跨生成器评估、具体 AI 测试子集、AI 文本讽刺分数上移、来源组间错误分布、明确子群名称、检测器概率与 LLM 评分比较、直接披露同时变化的配置因素、表征级诊断，以及实际执行的拟合半/评估半操作。
+**术语可解释性红线（2026-08-02 当前覆盖）**：① 领域惯用或已有明确引用的方法名/缩写可以保留，不为形式统一强制展开，如 PPO、DIP、RCNN、AUC、LEACE、INLP、QLoRA、BH-FDR；② 本文自定义名称仅在确实指代反复使用的稳定对象、配置或核心现象，且首次出现立即定义时保留，包括 SarcTrain、AuthTrain、GenTrain、DualTest、task-branch interaction projection、INLP-3 residual PC1 与 class-conditional negative transfer；③ §5.4 以 Q1--Q3 组织三个诊断问题，Q3 下的 `(a)/(b)/(c)` 只是干预类别标题，不包装为新方法。旧称 `srcORTH-PC1` 已从当前 tex、附录、Figure 3 和表格中删除，不得恢复。普通实验说明必须直接说明“如何设置、观察到什么、证据支持到哪一步”。
 
 **标签口径（ⓔ 2026-07-11 + 07-14；07-20 更新）**：AI 侧 `is_sarcastic` = 生成指令的**构造定义**。核心任务字段、四象限与指标继续使用 `is_sarcastic × is_human`、source $×$ sarcasm、AI $×$ non-sarcastic 和**误判率/FPR**，不全局改名为 sarcasm-reference / target-style 体系。`requested style`、`prompted condition`、`target` 仅用于局部说明 AI 标签来源，不替代任务与象限名称。**§3 与 Limitations 必须保留完整边界**：AI 侧讽刺标签记录 prompted condition，并非独立人工标注的 perceived sarcasm；摘要使用紧凑的正面事实表述“AI-generated text prompted to be non-sarcastic”，不必重复完整 caveat。AuthTrain 中作者来源标签与指令风格标签是分别构造、近似平衡的因素，**不假设实现后的文本特征或感知讽刺性独立**。单头 19.3% 反事实继续作为标签质疑的核心对照。2026-06 封存令维持（人类侧标签异构性不讨论）。
 
 **因果口径**：失效"**由联合训练诱导**（induced by joint training）"不得降级为"相关/associated"（证据 = 同文本单头反事实 + McNemar）。
 
-**机制证据口径（07-29 术语清理覆盖 07-24 旧称）**：不再把机制解释命名为 `source-correlated shortcut hypothesis`。直接陈述证据链：来源相关特征与受影响的讽刺决策存在 logit 相关和方向对齐；移除一个从数据中得到的高方差方向会改变来源组间的错误分布；该方向编码什么、为何影响预测以及来源身份的特异因果作用仍是后续分析目标。LEACE 与 srcORTH-PC1 的首要实证含义是**改变来源组间错误分配，而非降低来源平均的非讽刺误判**（58.8%→59.1% 为 LEACE 对照）；不得将其称为修复或整体缓解。**禁** source causes failure / model relies on source / “证明捷径” / “假说失败”。srcORTH-PC1 仅与所估计的线性来源方向正交；该性质不等于独立于所有多维或非线性来源信息。方法引用挂靠：INLP=Ravfogel 2020、LEACE=Belrose 2023、选择性=Hewitt & Liang 2019、amnesic=Elazar 2021。
+**机制证据口径（2026-08-02 当前覆盖）**：Q1 回答来源是否可读，Q2 回答来源相关分数和数据加权方向是否与受影响决策共同变化，Q3 回答表征干预是否改变冻结讽刺头在两个来源组之间分配误报的方式，以非讽刺文本上的来源组 FPR gap 为读出。LEACE 与 INLP-3 residual PC1 都会缩小 gap，但两者的 residual source AUC 分别为 0.589 和 0.982，因此 gap 不随线性来源可解码性一致变化。INLP-3 residual PC1 是在 fitting half 上移除三条 INLP 方向后，对残余空间做 PCA 得到的最高方差轴；evaluation 时只从原始表征移除该 PC1，并不同时移除 INLP-3 子空间。不得把它称为已识别的来源特征、修复或唯一因果机制。**禁** source causes failure / model relies on source / “证明捷径” / “假说失败”。
 
 **术语（英译/全文）**：plain dual-head / single-head（禁 naive）；task-branch **interaction projection**（禁 cross-attention / cross-projection）。其首次正文定义以残差投影公式 $h_s'=h_s+P_{a\rightarrow s}(h_a)$ 及对称式为准，并在同处定义采用该部件的完整模型简称为 **interaction-projection configuration**；单向量设置中原 attention 权重恒为 1，不存在 query–key 交互。07-15 的原句 “rather than as a form of cross-attention”已由 07-20 的公式化定义取代，冻结的是计算语义而非该字面句子。正式任务名统一为 **machine-generated text detection (MGTD)**，中文为“机器生成文本检测”，任务头/指标写 MGTD head / MGTD F1；具体样本写 AI-generated text；`authorship verification` 仅用于 Bevendorff 等范式讨论；禁 AI-authorship detection、authenticity/veracity；“类人度/human-likeness”仅 §6 盲评维度；核心现象名为 **class-conditional negative transfer**，摘要以 67.0 pp 集中误报率增幅作指示性说明，引言首次严格定义为集中于一个来源 $\times$ 讽刺子群而非均匀分布于 DualTest 的负迁移；`class-conditional failure` 仅作结果概括（禁 OOD failure；§2.3 引 Mueller"分布外"是文献描述、可留）。跨生成器部分直接写为**同一组检测器不经重训，在 outputs from another generator / Qwen3.5-generated outputs 上评估**（禁 `fixed-detector evaluation`、`test-side replacement set` 与 cross-family）。正式模型名与部署标签分开：DeepSeek-R1-0528-Qwen3-8B（Ollama `deepseek-r1:8b`，Qwen 基座）与 Qwen3.5-9B（Ollama `qwen3.5:9b`）；SFT 基座 Qwen3-8B 是另一模型。
 
@@ -148,9 +148,9 @@
 
 **不采纳（勿被审稿/修订稿推回）**：标签改名 / 因果降"相关" / 人工标注（无志愿者）/ 用 3-LLM 核验 AINS 标签（留 rebuttal）/ MLM 继续预训练 / 预算匹配 / 采样比敏感性 / 梯度冲突测量 / B-W2 多语言编码器 probe 复现 / W4 数据增广基线 / 基于伪匹配的泄漏删样、重训或敏感性分析 / 评价者修订稿整体弱化姿态。
 
-**答辩弹药（专家四问 + 标签）**：① 为何讨论来源相关结构→logit 相关、方向对齐与定向干预共同把它和受影响决策联系起来，但正文不再把这组证据包装成命名假说；② srcORTH 有效否定 LEACE？→正是本文发现、严谨性优势；③ 与主任务关系→AI×非讽刺是部署真实输入，高误判 = 鲁棒性问题非噪声；④ 为何不做因果中介→目标是识别刻画、留 future work。标签攻击→单头 19.3% = 标签噪声上界论证 + 构造定义口径。
+**答辩弹药（专家四问 + 标签）**：① 为何讨论来源相关结构→Q2 的 logit 相关和协方差感知方向对齐将其与受影响决策联系起来；② LEACE 与 INLP-3 residual PC1 为何都重要→前者同时降低 gap 与 source AUC，后者在 source AUC 仍为 0.982 时缩小 gap，说明二者不必同步；③ 与主任务关系→AI×非讽刺是实际输入子群，高误判是鲁棒性问题；④ 为何不作唯一因果归因→当前干预识别的是几何敏感性，语义特征与跨种子稳定性仍需后续实验。标签质疑→单头 19.3% 对照 + prompt-specified style 的构造定义口径。
 
-## 📖 已解决历史归档（决策日志，倒序；细节可查 git / 记忆 `project_paper3_writing_dir.md`）
+## 📖 已解决历史归档（决策日志，倒序；其中页数、表号和章节号只代表当日版本，不是当前状态）
 
 - **07-30（第五章局部措辞与结构优化）**：不再声称 DeBERTa-v3-large 预先指定或由 DualTest 选出，Table 1 改为“不应解释为独立架构选择实验”；明确 ten comparisons 均为讽刺任务的 fold-matched 比较，并直接说明 MGTD 没有对应的一致下降。§5.3.2 将干预协议与 LEACE 结果拆段，首次报告 AI/人类比率时改用完整句，`High-variance control` 改为 `High-variance sensitivity test`，协方差对齐改述为“在观测表征协方差结构下评估”。Qwen3.5 段明确 FPR 对应生成的非讽刺子群。未添加无法核实的 `prespecified` 或 `two-sided`；编译仍为 21 页，§6、Conclusion 与 Limitations 位于 p.8。
 
@@ -181,8 +181,8 @@
 - **07-07**：正面措辞改写（assert findings, scope the gap）；ViSP 融入（前提检验/实证警示，不否定）；外部语气/去 AI 味修订合并。
 - **07-04**：防御性修订（证据分层→后简化；srcORTH 提正文；§1 风险探针框架；§6 nuance 钉接句；Limitations scoping）。
 
-## 与长版稿的关系
+## 与 Markdown 长版稿的关系
 
-- `eacl2027/manuscript_eacl2027_zh.md` = 投稿版中文权威源（8 页预算 + 匿名 + ARR 结构）；`manuscript_eacl2027_en.md` = 英译；`manuscript_eacl2027.tex` = 投稿实体（更进一步压缩，见构建状态）。
-- `paper3/manuscript_zh.md` = 长版权威稿（数字 single source = `docs/sft_eval_v1/paper_outline_detection_v1.md`），未同步本轮全部改动。
-- 主要结构差异：长版 §6+§7 在投稿版合并为 §6；长版 §8.2 局限移出为不计页 Limitations；表合并（长版表 6+8→投稿四象限表）；新增 Ethics。数字全部一致、无新数字。
+- `manuscript_eacl2027.tex` 与 `appendices_eacl2027.tex` 是投稿文本、数值、表号和章节定位的唯一权威源。
+- `manuscript_eacl2027_en.md` 与 `manuscript_eacl2027_zh.md` 仅作长版阅读和语言参考，不保证与 2026-08-02 投稿快照逐句同步；不得据其覆盖 tex。
+- OpenReview 标题与摘要使用 `openreview_metadata.txt`；当前已与 tex 逐字核对。Responsible NLP Checklist 与答辩口径分别以本文件的当前区段和 `rebuttal.md` 为准。
